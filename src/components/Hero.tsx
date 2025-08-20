@@ -35,9 +35,9 @@ export function Hero() {
 
           {/* Hero CTAs */}
           <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
-            <Link href="/components">
+            <Link href="/examples">
               <Button size="lg" className="inline-flex items-center shadow-2xl">
-                Start Creating
+                Explore Examples
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
             </Link>

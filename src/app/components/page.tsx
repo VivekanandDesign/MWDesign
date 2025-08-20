@@ -69,6 +69,7 @@ import { DragDrop, SortableList, useDragDrop } from '@/components/ui/DragDrop'
 import { SwitchGroup } from '@/components/ui/Switch'
 import { Calendar } from '@/components/ui/Calendar'
 import { DataGrid } from '@/components/ui/DataGrid'
+import { AdvancedTable } from '@/components/ui/AdvancedTable'
 import { Copy, Check, Search, ChevronRight, ChevronDown, Code, Settings, User, Home } from 'lucide-react'
 
 const componentCategories = [
@@ -119,6 +120,7 @@ const componentCategories = [
       { id: 'list', name: 'List', description: 'Data display lists' },
       { id: 'calendar', name: 'Calendar', description: 'Calendar with events' },
       { id: 'datagrid', name: 'Data Grid', description: 'Advanced data tables' },
+      { id: 'advancedtable', name: 'Advanced Table', description: 'Comprehensive table with 50+ features' },
       { id: 'carousel', name: 'Carousel', description: 'Image and content carousels' },
       { id: 'treeview', name: 'Tree View', description: 'Hierarchical data display' },
       { id: 'thumbnail', name: 'Thumbnail', description: 'Media preview components' },
@@ -2614,6 +2616,157 @@ function ComponentsPageContent() {
   ]}
 />`}
             />
+          </div>
+        )
+
+      case 'advancedtable':
+        return (
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-mw-gray-900 dark:text-white mb-4">
+                Advanced Table
+              </h2>
+              <p className="text-lg text-mw-gray-600 dark:text-mw-gray-300 mb-8">
+                Comprehensive table component with 50+ features including sorting, filtering, pagination, row actions, bulk actions, column resizing, and more.
+              </p>
+            </div>
+            
+            <ComponentShowcase
+              title="Advanced Table Features"
+              description="Full-featured table with comprehensive functionality"
+              preview={
+                <div className="text-center py-8">
+                  <h3 className="text-lg font-semibold text-mw-gray-900 dark:text-white mb-4">
+                    Advanced Table Demo
+                  </h3>
+                  <p className="text-mw-gray-600 dark:text-mw-gray-300 mb-6">
+                    See the full Advanced Table in action with employee data, interactive features, and comprehensive functionality.
+                  </p>
+                  <Button 
+                    variant="primary"
+                    onClick={() => window.open('/advanced-table-demo', '_blank')}
+                  >
+                    View Live Demo
+                  </Button>
+                </div>
+              }
+              code={`// Advanced Table with all features
+<AdvancedTable
+  data={employeeData}
+  columns={columns}
+  getRowId={(row) => row.id}
+  
+  // State management
+  state={tableState}
+  onStateChange={setTableState}
+  
+  // Features
+  enableSorting={true}
+  enableFiltering={true}
+  enableGlobalFilter={true}
+  enableColumnResizing={true}
+  enableColumnVisibility={true}
+  enableRowSelection={true}
+  enableBulkActions={true}
+  enableFullscreen={true}
+  
+  // Selection
+  selection={{
+    mode: 'multiple',
+    selectedRows: selectedRows,
+    onSelectionChange: setSelectedRows
+  }}
+  
+  // Pagination
+  pagination={{
+    pageIndex: currentPage,
+    pageSize: pageSize,
+    total: totalCount,
+    onPageChange: setCurrentPage,
+    onPageSizeChange: setPageSize,
+    showQuickJumper: true,
+    showSizeChanger: true,
+    showTotal: true
+  }}
+  
+  // Actions
+  rowActions={rowActions}
+  bulkActions={bulkActions}
+  toolbarActions={toolbarActions}
+  
+  // Styling
+  striped={true}
+  hoverable={true}
+  stickyHeader={true}
+  maxHeight="600px"
+  
+  // Event handlers
+  onRowClick={handleRowClick}
+  onCellClick={handleCellClick}
+/>`}
+            />
+
+            <div className="bg-mw-gray-50 dark:bg-mw-gray-800/50 p-6 rounded-lg">
+              <h4 className="text-lg font-semibold text-mw-gray-900 dark:text-white mb-4">
+                Key Features
+              </h4>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div className="space-y-2">
+                  <h5 className="font-medium text-mw-gray-900 dark:text-white">Data Management</h5>
+                  <ul className="text-sm text-mw-gray-600 dark:text-mw-gray-300 space-y-1">
+                    <li>• Sorting (single/multi-column)</li>
+                    <li>• Filtering (column & global)</li>
+                    <li>• Search functionality</li>
+                    <li>• Data virtualization</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-medium text-mw-gray-900 dark:text-white">Interaction</h5>
+                  <ul className="text-sm text-mw-gray-600 dark:text-mw-gray-300 space-y-1">
+                    <li>• Row selection (single/multi)</li>
+                    <li>• Row actions menu</li>
+                    <li>• Bulk actions</li>
+                    <li>• Click events</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-medium text-mw-gray-900 dark:text-white">Layout</h5>
+                  <ul className="text-sm text-mw-gray-600 dark:text-mw-gray-300 space-y-1">
+                    <li>• Column resizing</li>
+                    <li>• Column visibility</li>
+                    <li>• Sticky headers/columns</li>
+                    <li>• Responsive design</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-medium text-mw-gray-900 dark:text-white">Pagination</h5>
+                  <ul className="text-sm text-mw-gray-600 dark:text-mw-gray-300 space-y-1">
+                    <li>• Page size controls</li>
+                    <li>• Quick jump navigation</li>
+                    <li>• Total count display</li>
+                    <li>• Custom page sizes</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-medium text-mw-gray-900 dark:text-white">Customization</h5>
+                  <ul className="text-sm text-mw-gray-600 dark:text-mw-gray-300 space-y-1">
+                    <li>• Custom cell renderers</li>
+                    <li>• Column footers</li>
+                    <li>• Custom actions</li>
+                    <li>• Theming support</li>
+                  </ul>
+                </div>
+                <div className="space-y-2">
+                  <h5 className="font-medium text-mw-gray-900 dark:text-white">Performance</h5>
+                  <ul className="text-sm text-mw-gray-600 dark:text-mw-gray-300 space-y-1">
+                    <li>• Virtual scrolling</li>
+                    <li>• Efficient rendering</li>
+                    <li>• Memoized components</li>
+                    <li>• Optimized updates</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         )
 

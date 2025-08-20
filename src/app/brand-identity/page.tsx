@@ -118,7 +118,7 @@ export default function BrandIdentityPage() {
                       <div className="w-12 h-12 bg-mw-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
                         <Globe className="w-6 h-6 text-white" />
                       </div>
-                      <div className="text-2xl font-bold text-mw-gray-900 dark:text-white">∞</div>
+                      <div className="text-2xl font-bold text-mw-gray-900 dark:text-white">Infinite</div>
                       <div className="text-sm text-mw-gray-600 dark:text-mw-gray-300">Possibilities</div>
                     </div>
                   </div>
@@ -133,7 +133,7 @@ export default function BrandIdentityPage() {
           <div className="text-center mb-12">
             <div className="inline-flex items-center space-x-2 text-mw-blue-600 dark:text-mw-blue-400 mb-4">
               <Target className="w-5 h-5" />
-              <span className="font-semibold">🎯 Brand Vision & Strategy</span>
+              <span className="font-semibold">Brand Vision & Strategy</span>
             </div>
             <h2 className="text-4xl font-bold text-mw-gray-900 dark:text-white mb-6">
               Our North Star

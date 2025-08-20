@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Palette, Code, BookOpen, Heart } from 'lucide-react'
+import { Menu, X, Palette, Code, BookOpen, Heart, Layout } from 'lucide-react'
 import { Button } from './ui/Button'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -11,6 +11,7 @@ const navigationItems = [
   { name: 'Design Tokens', href: '/tokens', icon: Palette },
   { name: 'New Design Tokens', href: '/new-design-tokens', icon: Palette },
   { name: 'Components', href: '/components', icon: Code },
+  { name: 'Examples', href: '/examples', icon: Layout },
   { name: 'Icons', href: '/icons', icon: Palette },
   { name: 'Patterns', href: '/patterns', icon: Code },
   { name: 'Design Process', href: '/design-process', icon: BookOpen },

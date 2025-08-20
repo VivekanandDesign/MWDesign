@@ -456,7 +456,7 @@ function FilePreview({ file, onRemove, showActions = true }: FilePreviewProps) {
             {file.file.name}
           </div>
           <div className="text-xs text-mw-gray-500 dark:text-mw-gray-400">
-            {file.file.type || 'Unknown'} • {file.file.size ? `${(file.file.size / 1024).toFixed(1)} KB` : 'Unknown size'}
+            {file.file.type || 'Unknown'} - {file.file.size ? `${(file.file.size / 1024).toFixed(1)} KB` : 'Unknown size'}
           </div>
           
           {/* Progress Bar */}

@@ -35,6 +35,18 @@ export { Progress } from './Progress'
 export { Skeleton } from './Skeleton'
 export { Separator } from './Separator'
 export { Table, TableHeader, TableBody, TableRow, TableHead, TableCell } from './Table'
+export { AdvancedTable } from './AdvancedTable'
+export type { 
+  AdvancedTableColumn, 
+  AdvancedTableSort, 
+  AdvancedTableFilter, 
+  AdvancedTableSelection,
+  AdvancedTablePagination,
+  AdvancedTableRowAction,
+  AdvancedTableBulkAction,
+  AdvancedTableToolbarAction,
+  AdvancedTableState
+} from './AdvancedTable'
 export { EmptyState, NoDataEmptyState, NoResultsEmptyState } from './EmptyState'
 export { Chip, Tag } from './Chip'
 export { CollapsibleCode } from './CollapsibleCode'

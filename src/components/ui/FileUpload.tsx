@@ -347,8 +347,8 @@ export function FileUpload({
               </p>
               <p className="text-xs text-mw-gray-500 dark:text-mw-gray-400">
                 {accept && `Accepts: ${accept}`}
-                {maxSize && ` • Max size: ${formatFileSize(maxSize)}`}
-                {maxFiles && ` • Max files: ${maxFiles}`}
+                {maxSize && ` - Max size: ${formatFileSize(maxSize)}`}
+                {maxFiles && ` - Max files: ${maxFiles}`}
               </p>
             </div>
           )}

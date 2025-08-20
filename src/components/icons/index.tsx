@@ -149,11 +149,52 @@ export {
   Mail as Email, Send as SendIcon, Inbox,
 
   // Additional
-  type LucideProps
+  type LucideProps,
+  
+  // Only import the ones that aren't already imported
+  ChevronsUp,
+  ChevronsDown,
+  ChevronsLeft,
+  ChevronsRight,
+  ArrowUpDown,
+  ArrowDownUp,
+  RotateCcw,
+  Scissors,
+  Grid3X3,
+  Grid2X2,
+  Sprout,
+  IceCream2,
+  StickyNote,
+  BadgeCheck
 } from 'lucide-react'
 
 // Import base icons for filled variants
-import { Heart as HeartBase, Star as StarBase } from 'lucide-react'
+import { 
+  Heart as HeartBase, 
+  Star as StarBase,
+  ThumbsUp as ThumbsUpBase,
+  ThumbsDown as ThumbsDownBase,
+  Bell as BellBase,
+  Bookmark as BookmarkBase,
+  MessageSquare as MessageSquareBase,
+  MessageCircle as MessageCircleBase,
+  User as UserBase,
+  Eye as EyeBase,
+  Lock as LockBase,
+  Shield as ShieldBase,
+  Circle as CircleBase,
+  Square as SquareBase,
+  CheckCircle as CheckCircleBase,
+  Play as PlayBase,
+  Pause as PauseBase,
+  Volume2 as VolumeBase,
+  Folder as FolderBase,
+  File as FileBase,
+  Award as AwardBase,
+  Trophy as TrophyBase,
+  Target as TargetBase,
+  Building as BuildingBase
+} from 'lucide-react'
 
 // Custom filled variants
 export const HeartFilled: React.FC<LucideProps> = (props) => (
@@ -162,6 +203,98 @@ export const HeartFilled: React.FC<LucideProps> = (props) => (
 
 export const StarFilled: React.FC<LucideProps> = (props) => (
   <StarBase {...props} fill="currentColor" />
+)
+
+// Communication & Social Filled Variants
+export const ThumbsUpFilled: React.FC<LucideProps> = (props) => (
+  <ThumbsUpBase {...props} fill="currentColor" />
+)
+
+export const ThumbsDownFilled: React.FC<LucideProps> = (props) => (
+  <ThumbsDownBase {...props} fill="currentColor" />
+)
+
+export const BellFilled: React.FC<LucideProps> = (props) => (
+  <BellBase {...props} fill="currentColor" />
+)
+
+export const BookmarkFilled: React.FC<LucideProps> = (props) => (
+  <BookmarkBase {...props} fill="currentColor" />
+)
+
+export const MessageSquareFilled: React.FC<LucideProps> = (props) => (
+  <MessageSquareBase {...props} fill="currentColor" />
+)
+
+export const MessageCircleFilled: React.FC<LucideProps> = (props) => (
+  <MessageCircleBase {...props} fill="currentColor" />
+)
+
+export const UserFilled: React.FC<LucideProps> = (props) => (
+  <UserBase {...props} fill="currentColor" />
+)
+
+// Interface & Actions Filled Variants
+export const EyeFilled: React.FC<LucideProps> = (props) => (
+  <EyeBase {...props} fill="currentColor" />
+)
+
+export const LockFilled: React.FC<LucideProps> = (props) => (
+  <LockBase {...props} fill="currentColor" />
+)
+
+export const ShieldFilled: React.FC<LucideProps> = (props) => (
+  <ShieldBase {...props} fill="currentColor" />
+)
+
+export const CircleFilled: React.FC<LucideProps> = (props) => (
+  <CircleBase {...props} fill="currentColor" />
+)
+
+export const SquareFilled: React.FC<LucideProps> = (props) => (
+  <SquareBase {...props} fill="currentColor" />
+)
+
+export const CheckCircleFilled: React.FC<LucideProps> = (props) => (
+  <CheckCircleBase {...props} fill="currentColor" />
+)
+
+// Media & Content Filled Variants
+export const PlayFilled: React.FC<LucideProps> = (props) => (
+  <PlayBase {...props} fill="currentColor" />
+)
+
+export const PauseFilled: React.FC<LucideProps> = (props) => (
+  <PauseBase {...props} fill="currentColor" />
+)
+
+export const VolumeFilled: React.FC<LucideProps> = (props) => (
+  <VolumeBase {...props} fill="currentColor" />
+)
+
+export const FolderFilled: React.FC<LucideProps> = (props) => (
+  <FolderBase {...props} fill="currentColor" />
+)
+
+export const FileFilled: React.FC<LucideProps> = (props) => (
+  <FileBase {...props} fill="currentColor" />
+)
+
+// Business & Finance Filled Variants
+export const AwardFilled: React.FC<LucideProps> = (props) => (
+  <AwardBase {...props} fill="currentColor" />
+)
+
+export const TrophyFilled: React.FC<LucideProps> = (props) => (
+  <TrophyBase {...props} fill="currentColor" />
+)
+
+export const TargetFilled: React.FC<LucideProps> = (props) => (
+  <TargetBase {...props} fill="currentColor" />
+)
+
+export const BuildingFilled: React.FC<LucideProps> = (props) => (
+  <BuildingBase {...props} fill="currentColor" />
 )
 
 // Aliases for consistency

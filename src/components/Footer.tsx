@@ -12,10 +12,7 @@ const footerSections = [
   {
     title: 'Resources',
     links: [
-      { name: 'Figma Library', href: '/resources#figma' },
       { name: 'Icon Library', href: '/icons' },
-      { name: 'Downloads', href: '/resources#downloads' },
-      { name: 'Developer Tools', href: '/resources#tools' },
     ]
   }
 ]
@@ -74,20 +71,6 @@ export function Footer() {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-mw-gray-600 dark:text-mw-gray-400">
               © 2025 Moving Walls. All rights reserved.
-            </div>
-            <div className="flex space-x-6">
-              <Link
-                href="/privacy"
-                className="text-mw-gray-600 dark:text-mw-gray-400 hover:text-mw-blue-600 dark:hover:text-mw-blue-400 transition-colors duration-200"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-mw-gray-600 dark:text-mw-gray-400 hover:text-mw-blue-600 dark:hover:text-mw-blue-400 transition-colors duration-200"
-              >
-                Terms of Service
-              </Link>
             </div>
           </div>
         </div>

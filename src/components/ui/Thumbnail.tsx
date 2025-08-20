@@ -73,11 +73,11 @@ const aspectRatios = {
 }
 
 const typeIcons = {
-  image: '🖼️',
-  video: '🎥',
-  document: '📄',
-  audio: '🎵',
-  file: '📁'
+  image: 'IMG',
+  video: 'VID',
+  document: 'DOC',
+  audio: 'AUD',
+  file: 'FILE'
 }
 
 interface VideoThumbnailProps extends ThumbnailProps {

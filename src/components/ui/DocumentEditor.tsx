@@ -325,11 +325,11 @@ export function DocumentEditor({
         <span>{stats.characters} characters</span>
         <span>{stats.lines} lines</span>
         <span>Page {stats.pages}</span>
-        {isModified && <span className="text-mw-orange-500">• Unsaved changes</span>}
-        {autoSave && <span className="text-mw-green-500">• Auto-save enabled</span>}
+        {isModified && <span className="text-mw-orange-500">- Unsaved changes</span>}
+        {autoSave && <span className="text-mw-green-500">- Auto-save enabled</span>}
       </div>
       <div className="flex items-center gap-4">
-        {collaborative && <span className="text-mw-blue-500">• Collaborative</span>}
+        {collaborative && <span className="text-mw-blue-500">- Collaborative</span>}
         <span>UTF-8</span>
       </div>
     </div>

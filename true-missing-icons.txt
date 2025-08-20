@@ -1,0 +1,15 @@
+ArrowUp
+Menu
+HeartFilled
+StarFilled
+Play
+DollarSign
+Smartphone
+Check
+Home
+Layout
+CloudLightning
+Trophy
+GraduationCap
+Package2
+Key
