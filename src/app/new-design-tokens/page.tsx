@@ -271,7 +271,7 @@ function TypographyCard({ name, spec, example }: {
       {/* Typography Example */}
       <div className="mb-4 p-4 bg-mw-gray-50 dark:bg-mw-gray-900 rounded-lg">
         <div 
-          className="text-mw-gray-900 dark:text-white font-sf-pro"
+          className="text-mw-gray-900 dark:text-white font-poppins"
           style={{ 
             fontSize: spec.size, 
             lineHeight: spec.lineHeight, 
@@ -646,7 +646,7 @@ export default function NewDesignTokensPage() {
                 Typography Scale
               </h2>
               <p className="text-mw-gray-600 dark:text-mw-gray-300 mt-2">
-                Comprehensive type system using SF Pro font family with clear hierarchy
+                Comprehensive type system using Poppins font family with clear hierarchy
               </p>
             </div>
           </div>

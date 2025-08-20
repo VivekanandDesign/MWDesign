@@ -242,7 +242,7 @@ function App() {
                     </li>
                     <li className="flex items-start space-x-2">
                       <div className="w-2 h-2 bg-mw-gray-600 rounded-full mt-2 flex-shrink-0"></div>
-                      <span>Use SF Pro for optimal readability on all platforms</span>
+                      <span>Use Poppins for optimal readability on all platforms</span>
                     </li>
                     <li className="flex items-start space-x-2">
                       <div className="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0"></div>

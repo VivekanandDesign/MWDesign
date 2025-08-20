@@ -24,9 +24,9 @@ import CustomerSuccessPreview from '../../components/previews/CustomerSuccessPre
 import UserOnboardingPreview from '../../components/previews/UserOnboardingPreview'
 
 interface ExamplePreviewPageProps {
-  params: {
+  params: Promise<{
     id: string
-  }
+  }>
 }
 
 export default function ExamplePreviewPage({ params }: ExamplePreviewPageProps) {

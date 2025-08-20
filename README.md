@@ -1,6 +1,6 @@
 # Moving Walls Global Design System
 
-A comprehensive design system website built with Next.js, TypeScript, and Tailwind CSS. This project showcases the Moving Walls design system featuring a sophisticated blue color palette, SF Pro typography, and a complete component library.
+A comprehensive design system website built with Next.js, TypeScript, and Tailwind CSS. This project showcases the Moving Walls design system featuring a sophisticated blue color palette, Poppins typography, and a complete component library.
 
 ## 🌟 Features
 
@@ -73,7 +73,7 @@ npm run dev
 - **Utility**: Success, Warning, Error, Info colors
 
 ### Typography
-- **Font Family**: SF Pro Display & SF Pro Text
+- **Font Family**: Poppins (Google Fonts)
 - **Scale**: From caption (12px) to display (60px)
 - **Responsive**: Fluid typography scaling
 

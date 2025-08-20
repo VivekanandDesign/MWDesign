@@ -140,7 +140,7 @@ export default function TokensPage() {
         }}
         stats={[
           { label: "Color Tokens", value: "50+" },
-          { label: "Typography", value: "SF Pro" },
+          { label: "Typography", value: "Poppins" },
           { label: "Grid System", value: "4pt" },
           { label: "Accessibility", value: "AA" }
         ]}
@@ -220,7 +220,7 @@ export default function TokensPage() {
             <Card>
               <CardHeader>
                 <h3 className="text-xl font-semibold text-mw-gray-900 dark:text-white">
-                  SF Pro Type Scale
+                  Poppins Type Scale
                 </h3>
                 <p className="text-mw-gray-600 dark:text-mw-gray-300">
                   A structured type scale providing clarity and consistency across all screen sizes.
@@ -231,7 +231,7 @@ export default function TokensPage() {
                   {Object.entries(typography).map(([name, props]) => (
                     <div key={name} className="border-b border-mw-gray-200 dark:border-mw-gray-700 pb-6 last:border-b-0 last:pb-0">
                       <div 
-                        className="text-mw-gray-900 dark:text-white font-sf-pro mb-2"
+                        className="text-mw-gray-900 dark:text-white font-poppins mb-2"
                         style={{ 
                           fontSize: props.size, 
                           lineHeight: props.lineHeight,

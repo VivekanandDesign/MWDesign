@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className="font-sf-pro antialiased bg-white dark:bg-mw-gray-900 text-mw-gray-900 dark:text-white">
+      <body className="font-poppins antialiased bg-white dark:bg-mw-gray-900 text-mw-gray-900 dark:text-white">
         {children}
       </body>
     </html>

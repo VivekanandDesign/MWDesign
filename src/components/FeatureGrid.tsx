@@ -14,7 +14,7 @@ const features = [
     title: 'Design Tokens',
     description: 'Colors, typography, spacing, and elevation tokens that ensure visual consistency across all products.',
     href: '/tokens',
-    items: ['Blue color palette', 'SF Pro typography', '4pt grid system', 'Elevation shadows']
+    items: ['Blue color palette', 'Poppins typography', '4pt grid system', 'Elevation shadows']
   },
   {
     icon: Code,
