@@ -26,12 +26,9 @@ export function Navigation() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-mw-primary-600 rounded-lg flex items-center justify-center shadow-lg">
-                <span className="text-white font-bold text-sm">MW</span>
-              </div>
+            <Link href="/" className="flex items-center">
               <span className="font-bold text-xl text-mw-gray-900 dark:text-white">
-                Design System
+                MWDesign
               </span>
             </Link>
           </div>

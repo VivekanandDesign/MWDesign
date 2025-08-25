@@ -35,6 +35,7 @@ import { Dialog, DialogContent, DialogHeader, DialogFooter, DialogTitle, DialogD
 import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/Popover'
 import { Sheet, SheetContent, SheetHeader, SheetFooter, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/Sheet'
 import { Collapsible, CollapsibleTrigger, CollapsibleContent } from '@/components/ui/Collapsible'
+import { CollapsibleCode } from '@/components/ui/CollapsibleCode'
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/ToggleGroup'
 import { EmptyState, NoDataEmptyState, NoResultsEmptyState } from '@/components/ui/EmptyState'
 import { ScrollArea } from '@/components/ui/ScrollArea'
@@ -182,6 +183,7 @@ const componentCategories = [
     description: 'Utility and helper components',
     components: [
       { id: 'command', name: 'Command', description: 'Search and command palette' },
+      { id: 'collapsiblecode', name: 'Collapsible Code', description: 'Collapsible code blocks with copy functionality' },
     ]
   },
 ]
@@ -4191,7 +4193,246 @@ const { success, error, warning, info } = useSnackbarHelpers()
           </div>
         )
 
-      default:
+      case 'collapsiblecode':
+        return (
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-3xl font-bold text-mw-gray-900 dark:text-white mb-4">
+                Collapsible Code
+              </h2>
+              <p className="text-lg text-mw-gray-600 dark:text-mw-gray-300 mb-8">
+                Collapsible code blocks with syntax highlighting and copy functionality for documentation and tutorials.
+              </p>
+            </div>
+            
+            <ComponentShowcase
+              title="Basic Collapsible Code"
+              description="Code blocks that can be expanded/collapsed with copy functionality"
+              preview={
+                <div className="space-y-4">
+                  <CollapsibleCode
+                    title="React Component Example"
+                    code={`import React from 'react'
+
+function HelloWorld({ name }: { name: string }) {
+  return (
+    <div className="p-4 bg-blue-100 rounded-lg">
+      <h1 className="text-xl font-bold">Hello, {name}!</h1>
+      <p className="text-gray-600">Welcome to our application.</p>
+    </div>
+  )
+}
+
+export default HelloWorld`}
+                    language="tsx"
+                  />
+                  
+                  <CollapsibleCode
+                    title="CSS Styles"
+                    code={`.button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}`}
+                    language="css"
+                    defaultExpanded={true}
+                  />
+                </div>
+              }
+              code={`<CollapsibleCode
+  title="React Component Example"
+  code={\`import React from 'react'
+
+function HelloWorld({ name }: { name: string }) {
+  return (
+    <div className="p-4 bg-blue-100 rounded-lg">
+      <h1 className="text-xl font-bold">Hello, {name}!</h1>
+      <p className="text-gray-600">Welcome to our application.</p>
+    </div>
+  )
+}
+
+export default HelloWorld\`}
+  language="tsx"
+/>
+
+<CollapsibleCode
+  title="CSS Styles"
+  code={\`/* CSS code here */\`}
+  language="css"
+  defaultExpanded={true}
+/>`}
+            />
+
+            <ComponentShowcase
+              title="Different Languages"
+              description="Syntax highlighting support for various programming languages"
+              preview={
+                <div className="space-y-4">
+                  <CollapsibleCode
+                    title="JavaScript Function"
+                    code={`function calculateTotal(items) {
+  return items.reduce((sum, item) => {
+    return sum + (item.price * item.quantity);
+  }, 0);
+}
+
+const cart = [
+  { name: 'Apple', price: 1.20, quantity: 3 },
+  { name: 'Banana', price: 0.80, quantity: 5 }
+];
+
+console.log('Total:', calculateTotal(cart));`}
+                    language="javascript"
+                  />
+                  
+                  <CollapsibleCode
+                    title="Python Script"
+                    code={`def fibonacci(n):
+    """Generate Fibonacci sequence up to n terms"""
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    
+    sequence = [0, 1]
+    for i in range(2, n):
+        sequence.append(sequence[i-1] + sequence[i-2])
+    
+    return sequence
+
+# Generate first 10 Fibonacci numbers
+result = fibonacci(10)
+print(f"First 10 Fibonacci numbers: {result}")`}
+                    language="python"
+                  />
+                  
+                  <CollapsibleCode
+                    title="JSON Configuration"
+                    code={`{
+  "name": "mw-design-system",
+  "version": "1.0.0",
+  "description": "MovingWalls Design System",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "next": "^14.0.0",
+    "tailwindcss": "^3.3.0"
+  },
+  "keywords": ["design-system", "react", "typescript", "tailwind"]
+}`}
+                    language="json"
+                  />
+                </div>
+              }
+              code={`<CollapsibleCode
+  title="JavaScript Function"
+  code={\`function calculateTotal(items) {
+    return items.reduce((sum, item) => {
+      return sum + (item.price * item.quantity);
+    }, 0);
+  }\`}
+  language="javascript"
+/>
+
+<CollapsibleCode
+  title="Python Script"
+  code={\`def fibonacci(n):
+    if n <= 0:
+        return []
+    # ... rest of the code
+  \`}
+  language="python"
+/>
+
+<CollapsibleCode
+  title="JSON Configuration"
+  code={\`{
+    "name": "my-project",
+    "version": "1.0.0"
+  }\`}
+  language="json"
+/>`}
+            />
+
+            <ComponentShowcase
+              title="Advanced Options"
+              description="Customization options for different use cases"
+              preview={
+                <div className="space-y-4">
+                  <CollapsibleCode
+                    code={`// Simple inline code without title
+const greeting = "Hello, World!";
+console.log(greeting);`}
+                    language="javascript"
+                  />
+                  
+                  <CollapsibleCode
+                    title="Auto-expanded Code"
+                    code={`// This code block is expanded by default
+import { useState, useEffect } from 'react'
+
+export function useLocalStorage(key: string, initialValue: any) {
+  const [storedValue, setStoredValue] = useState(() => {
+    try {
+      const item = window.localStorage.getItem(key)
+      return item ? JSON.parse(item) : initialValue
+    } catch (error) {
+      return initialValue
+    }
+  })
+
+  const setValue = (value: any) => {
+    try {
+      setStoredValue(value)
+      window.localStorage.setItem(key, JSON.stringify(value))
+    } catch (error) {
+      console.error('Error saving to localStorage:', error)
+    }
+  }
+
+  return [storedValue, setValue]
+}`}
+                    language="typescript"
+                    defaultExpanded={true}
+                  />
+                </div>
+              }
+              code={`// Without title
+<CollapsibleCode
+  code={\`const greeting = "Hello, World!";\`}
+  language="javascript"
+/>
+
+// Expanded by default
+<CollapsibleCode
+  title="Auto-expanded Code"
+  code={\`// Your code here\`}
+  language="typescript"
+  defaultExpanded={true}
+/>`}
+            />
+          </div>
+        )
         return (
           <div className="text-center py-12">
             <h2 className="text-2xl font-bold text-mw-gray-900 dark:text-white mb-4">
@@ -4213,11 +4454,11 @@ const { success, error, warning, info } = useSnackbarHelpers()
         title="Components"
         description="Comprehensive UI component library with interactive examples and code snippets. Built with accessibility and consistency in mind."
         badge={{
-          text: "55+ Components",
+          text: "66+ Components",
           variant: "primary"
         }}
         stats={[
-          { label: "Total Components", value: "38" },
+          { label: "Total Components", value: "66" },
           { label: "Categories", value: "7" },
           { label: "Code Examples", value: "100+" },
           { label: "Accessibility", value: "WCAG 2.1" }

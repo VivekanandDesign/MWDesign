@@ -27,16 +27,16 @@ export default function ExamplesPage() {
       
       <PageHero
         title="Moving Walls Examples"
-        description="Explore our comprehensive Advanced Table component demo showcasing enterprise-grade functionality built with the Moving Walls Design System. Experience 50+ features including sorting, filtering, pagination, and advanced data management."
+        description="Explore our comprehensive component showcases and application demos built with the Moving Walls Design System. From advanced data tables to AI chatbots, interactive carousels, and custom sliders."
         badge={{
-          text: "Component Demo",
+          text: "Component Demos",
           variant: "secondary"
         }}
         stats={[
-          { label: "Applications", value: "1" },
-          { label: "MW Components", value: "8" },
-          { label: "Pages", value: "12" },
-          { label: "Use Cases", value: "1" }
+          { label: "Applications", value: "17" },
+          { label: "MW Components", value: "15+" },
+          { label: "Demo Pages", value: "200+" },
+          { label: "Use Cases", value: "25+" }
         ]}
       />
       
