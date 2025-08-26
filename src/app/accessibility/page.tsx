@@ -433,68 +433,6 @@ export default function AccessibilityPage() {
             </div>
           </section>
 
-          {/* Testing Tools */}
-          <section className="mb-16">
-            <h2 className="text-2xl font-bold text-mw-gray-900 dark:text-white mb-6">
-              Testing Tools & Methods
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {testingTools.map((tool, index) => (
-                <Card key={index}>
-                  <CardHeader>
-                    <div className="flex items-center justify-between">
-                      <h3 className="font-semibold text-mw-gray-900 dark:text-white">
-                        {tool.name}
-                      </h3>
-                      <Badge variant="outline">{tool.cost}</Badge>
-                    </div>
-                    <p className="text-sm text-mw-gray-600 dark:text-mw-gray-300 mb-2">
-                      {tool.description}
-                    </p>
-                    <Badge className="bg-blue-100 text-blue-800 dark:bg-blue-900/20 dark:text-blue-300">
-                      {tool.type}
-                    </Badge>
-                  </CardHeader>
-                  <CardContent>
-                    <div className="space-y-2">
-                      {tool.features.map((feature, i) => (
-                        <div key={i} className="flex items-center gap-2">
-                          <CheckCircle className="w-4 h-4 text-green-600" />
-                          <span className="text-sm text-mw-gray-600 dark:text-mw-gray-300">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </section>
-
-          {/* Getting Started */}
-          <section className="mb-16">
-            <Card className="bg-gradient-to-r from-mw-blue-600 to-mw-blue-700 text-white">
-              <CardContent className="p-8 text-center">
-                <h2 className="text-2xl font-bold mb-4">Start Building Accessible Experiences</h2>
-                <p className="text-mw-blue-100 mb-6 max-w-2xl mx-auto">
-                  Our components are accessibility-ready out of the box. Follow our guidelines 
-                  and testing practices to ensure your applications meet WCAG standards.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button variant="secondary">
-                    <BookOpen className="w-4 h-4 mr-2" />
-                    Accessibility Guide
-                  </Button>
-                  <Button variant="outline" className="text-white border-white hover:bg-white/10">
-                    <TestTube className="w-4 h-4 mr-2" />
-                    Testing Checklist
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          </section>
-
         </div>
       </main>
       

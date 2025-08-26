@@ -401,7 +401,9 @@ function CommandExample() {
       </CommandGroup>
     </Command>
   )
-}export default function ComponentsPage() {
+}
+
+export default function ComponentsPage() {
   return (
     <ToastProvider>
       <ComponentsPageContent />
@@ -432,27 +434,110 @@ function ComponentsPageContent() {
                 Button
               </h2>
               <p className="text-lg text-mw-gray-600 dark:text-mw-gray-300 mb-8">
-                Interactive elements for triggering actions and navigation.
+                Interactive elements showcasing MW brand colors, spacing tokens, and accessibility features.
               </p>
             </div>
             
             <ComponentShowcase
-              title="Button Variants"
-              description="Different button styles for various use cases"
+              title="MW Brand Color Variants"
+              description="Primary action buttons using Energy Blue, Breakthrough Orange, and Flow Teal brand colors"
               preview={
                 <div className="flex flex-wrap gap-4">
-                  <Button variant="primary">Primary</Button>
-                  <Button variant="secondary">Secondary</Button>
-                  <Button variant="outline">Outline</Button>
-                  <Button variant="ghost">Ghost</Button>
-                  <Button variant="destructive">Destructive</Button>
+                  <Button variant="primary" className="bg-blue-600 hover:bg-blue-700 text-white">Energy Blue</Button>
+                  <Button variant="secondary" className="bg-orange-500 hover:bg-orange-600 text-white">Breakthrough Orange</Button>
+                  <Button variant="outline" className="border-teal-500 text-teal-600 hover:bg-teal-50">Flow Teal</Button>
+                  <Button variant="ghost" className="text-blue-600 hover:bg-blue-50">Ghost Energy</Button>
                 </div>
               }
-              code={`<Button variant="primary">Primary</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="destructive">Destructive</Button>`}
+              code={`<!-- MW Energy Blue (Primary) -->
+<Button variant="primary" className="bg-blue-600 hover:bg-blue-700 text-white">
+  Energy Blue
+</Button>
+
+<!-- MW Breakthrough Orange (Secondary) -->
+<Button variant="secondary" className="bg-orange-500 hover:bg-orange-600 text-white">
+  Breakthrough Orange  
+</Button>
+
+<!-- MW Flow Teal (Outline) -->
+<Button variant="outline" className="border-teal-500 text-teal-600 hover:bg-teal-50">
+  Flow Teal
+</Button>`}
+            />
+
+            <ComponentShowcase
+              title="Semantic Color System"
+              description="Action buttons using semantic colors with proper contrast ratios for accessibility"
+              preview={
+                <div className="flex flex-wrap gap-4">
+                  <Button variant="primary" className="bg-green-600 hover:bg-green-700 text-white">Success Action</Button>
+                  <Button variant="secondary" className="bg-yellow-500 hover:bg-yellow-600 text-white">Warning Action</Button>
+                  <Button variant="destructive" className="bg-red-600 hover:bg-red-700 text-white">Danger Action</Button>
+                  <Button variant="outline" className="border-cyan-500 text-cyan-600 hover:bg-cyan-50">Info Action</Button>
+                </div>
+              }
+              code={`<!-- Success (Green) -->
+<Button className="bg-green-600 hover:bg-green-700 text-white">Success Action</Button>
+
+<!-- Warning (Yellow) -->  
+<Button className="bg-yellow-500 hover:bg-yellow-600 text-white">Warning Action</Button>
+
+<!-- Danger (Red) -->
+<Button className="bg-red-600 hover:bg-red-700 text-white">Danger Action</Button>
+
+<!-- Info (Cyan) -->
+<Button className="border-cyan-500 text-cyan-600 hover:bg-cyan-50">Info Action</Button>`}
+            />
+
+            <ComponentShowcase
+              title="Spacing & Size Tokens"
+              description="Button sizes using 4pt grid spacing system for consistent vertical rhythm"
+              preview={
+                <div className="flex flex-wrap items-center gap-4">
+                  <Button size="sm" className="px-3 py-1.5 text-sm">Small (12px padding)</Button>
+                  <Button size="md" className="px-4 py-2 text-base">Medium (16px padding)</Button>
+                  <Button size="lg" className="px-6 py-3 text-lg">Large (24px padding)</Button>
+                  <Button className="px-8 py-4 text-xl">XLarge (32px padding)</Button>
+                </div>
+              }
+              code={`<!-- 4pt Grid Spacing System -->
+<Button size="sm" className="px-3 py-1.5">Small (12px padding)</Button>
+<Button size="md" className="px-4 py-2">Medium (16px padding)</Button> 
+<Button size="lg" className="px-6 py-3">Large (24px padding)</Button>
+<Button size="xl" className="px-8 py-4">XLarge (32px padding)</Button>`}
+            />
+
+            <ComponentShowcase
+              title="Focus Ring & Accessibility"
+              description="WCAG-compliant focus indicators with MW color system and keyboard navigation"
+              preview={
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-4">
+                    <Button className="focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 bg-blue-600 text-white">Energy Blue Focus</Button>
+                    <Button className="focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 bg-orange-500 text-white">Orange Focus</Button>
+                    <Button className="focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 border border-teal-500 text-teal-600">Teal Focus</Button>
+                  </div>
+                  <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md">
+                    <p className="text-blue-800 dark:text-blue-200 text-sm">
+                      <strong>Accessibility:</strong> All buttons include 2px focus rings with 2px offset for WCAG AA compliance. 
+                      Tab through buttons to see focus indicators.
+                    </p>
+                  </div>
+                </div>
+              }
+              code={`<!-- Focus Ring System -->
+<Button className="focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+  Energy Blue Focus
+</Button>
+
+<Button className="focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+  Orange Focus  
+</Button>
+
+<!-- WCAG AA Compliant Focus Rings -->
+.btn-focus {
+  @apply focus:ring-2 focus:ring-offset-2 focus:outline-none;
+}`}
             />
 
             <ComponentShowcase
@@ -495,50 +580,264 @@ function ComponentsPageContent() {
                 Input
               </h2>
               <p className="text-lg text-mw-gray-600 dark:text-mw-gray-300 mb-8">
-                Form controls for collecting user input with validation support.
+                Form controls showcasing MW brand colors, focus ring system, and 4pt grid spacing.
               </p>
             </div>
             
             <ComponentShowcase
-              title="Input States"
-              description="Standard input field with different states"
+              title="MW Focus Ring System"
+              description="Inputs demonstrating the comprehensive WCAG-compliant focus ring system"
+              preview={
+                <div className="space-y-6 max-w-md">
+                  <div className="space-y-2">
+                    <Input 
+                      label="Energy Blue Focus" 
+                      placeholder="Click to see Energy Blue focus ring"
+                      className="focus:ring-blue-600 focus:border-blue-600"
+                    />
+                    <p className="text-xs text-mw-gray-500">MW Energy Blue (#1d65af) focus state</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Input 
+                      label="Breakthrough Orange Focus" 
+                      placeholder="Click to see Breakthrough Orange focus"
+                      className="focus:ring-orange-500 focus:border-orange-500"
+                    />
+                    <p className="text-xs text-mw-gray-500">MW Breakthrough Orange focus state</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Input 
+                      label="Flow Teal Focus" 
+                      placeholder="Click to see Flow Teal focus ring"
+                      className="focus:ring-teal-500 focus:border-teal-500"
+                    />
+                    <p className="text-xs text-mw-gray-500">MW Flow Teal focus state</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <Input 
+                      label="Standard Focus Ring" 
+                      placeholder="Default MW focus experience"
+                      className="focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                    />
+                    <p className="text-xs text-mw-gray-500">WCAG-compliant 2px ring with offset</p>
+                  </div>
+                </div>
+              }
+              code={`<!-- MW Focus Ring System -->
+<Input 
+  className="focus:ring-blue-600 focus:border-blue-600"
+  placeholder="Energy Blue focus ring"
+/>
+
+<Input 
+  className="focus:ring-orange-500 focus:border-orange-500"
+  placeholder="Breakthrough Orange focus"
+/>
+
+<Input 
+  className="focus:ring-teal-500 focus:border-teal-500"
+  placeholder="Flow Teal focus ring"
+/>
+
+<Input 
+  className="focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+  placeholder="WCAG-compliant focus ring"
+/>`}
+            />
+
+            <ComponentShowcase
+              title="Semantic State Colors"
+              description="Inputs using MW semantic color system for different validation states"
               preview={
                 <div className="space-y-4 max-w-md">
-                  <Input label="Email" placeholder="Enter your email" />
                   <Input 
-                    label="Password" 
-                    type="password" 
-                    placeholder="Enter your password"
-                    helpText="Must be at least 8 characters"
+                    label="Success State" 
+                    placeholder="Valid input"
+                    className="border-green-600 focus:ring-green-600"
+                    helpText="✓ This field meets all requirements"
                   />
+                  
                   <Input 
-                    label="Invalid field" 
-                    placeholder="This field has an error"
-                    error="This field is required"
+                    label="Warning State" 
+                    placeholder="Input with warning"
+                    className="border-yellow-500 focus:ring-yellow-500"
+                    helpText="⚠ This field needs attention"
                   />
+                  
                   <Input 
-                    label="Disabled field" 
-                    placeholder="Disabled input"
-                    disabled
+                    label="Error State" 
+                    placeholder="Invalid input"
+                    className="border-red-600 focus:ring-red-600"
+                    error="✗ This field contains errors"
+                  />
+                  
+                  <Input 
+                    label="Info State" 
+                    placeholder="Information provided"
+                    className="border-blue-500 focus:ring-blue-500"
+                    helpText="ℹ Additional information available"
                   />
                 </div>
               }
-              code={`<Input label="Email" placeholder="Enter your email" />
+              code={`<!-- MW Semantic State Colors -->
 <Input 
-  label="Password" 
-  type="password" 
-  placeholder="Enter your password"
-  description="Must be at least 8 characters"
+  className="border-green-600 focus:ring-green-600"
+  helpText="✓ Success - MW Green (#2d7d32)"
 />
+
 <Input 
-  label="Invalid field" 
-  placeholder="This field has an error"
-  error="This field is required"
+  className="border-yellow-500 focus:ring-yellow-500"
+  helpText="⚠ Warning - MW Orange (#f9a825)"
 />
+
 <Input 
-  label="Disabled field" 
-  placeholder="Disabled input"
-  disabled
+  className="border-red-600 focus:ring-red-600"
+  error="✗ Error - MW Red (#d63535)"
+/>
+
+<Input 
+  className="border-blue-500 focus:ring-blue-500"
+  helpText="ℹ Info - MW Info Blue (#0188d1)"
+/>`}
+            />
+
+            <ComponentShowcase
+              title="4pt Grid Sizing System"
+              description="Input fields demonstrating the 4pt grid sizing and spacing system"
+              preview={
+                <div className="space-y-6">
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-mw-gray-700 dark:text-mw-gray-300">
+                      Small (32px height)
+                    </label>
+                    <Input 
+                      placeholder="Compact input for dense layouts"
+                      className="h-8 px-3 text-sm"
+                    />
+                    <p className="text-xs text-mw-gray-500">8px padding, 32px total height</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-mw-gray-700 dark:text-mw-gray-300">
+                      Medium (40px height - MW Default)
+                    </label>
+                    <Input 
+                      placeholder="Standard MW input field"
+                      className="h-10 px-4"
+                    />
+                    <p className="text-xs text-mw-gray-500">16px padding, 40px total height</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-mw-gray-700 dark:text-mw-gray-300">
+                      Large (48px height)
+                    </label>
+                    <Input 
+                      placeholder="Comfortable input for important forms"
+                      className="h-12 px-4 text-lg"
+                    />
+                    <p className="text-xs text-mw-gray-500">16px padding, 48px total height</p>
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label className="text-sm font-medium text-mw-gray-700 dark:text-mw-gray-300">
+                      Extra Large (56px height)
+                    </label>
+                    <Input 
+                      placeholder="Prominent input for hero sections"
+                      className="h-14 px-6 text-lg"
+                    />
+                    <p className="text-xs text-mw-gray-500">24px padding, 56px total height</p>
+                  </div>
+                </div>
+              }
+              code={`<!-- 4pt Grid Sizing System -->
+<Input 
+  className="h-8 px-3 text-sm"
+  placeholder="Small (32px) - Compact layouts"
+/>
+
+<Input 
+  className="h-10 px-4"
+  placeholder="Medium (40px) - MW Default"
+/>
+
+<Input 
+  className="h-12 px-4 text-lg"
+  placeholder="Large (48px) - Important forms"
+/>
+
+<Input 
+  className="h-14 px-6 text-lg"
+  placeholder="XL (56px) - Hero sections"
+/>`}
+            />
+
+            <ComponentShowcase
+              title="MW Typography Integration"
+              description="Input labels and help text using MW typography scale and brand colors"
+              preview={
+                <div className="space-y-6 max-w-md">
+                  <div>
+                    <h3 className="text-2xl font-bold text-blue-600 mb-4">Energy Blue Section</h3>
+                    <Input 
+                      label="Primary Input Field"
+                      placeholder="Main action input"
+                      className="focus:ring-blue-600 focus:border-blue-600"
+                      helpText="Using MW Energy Blue for primary actions"
+                    />
+                  </div>
+                  
+                  <div>
+                    <h4 className="text-xl font-semibold text-orange-500 mb-3">Breakthrough Orange Section</h4>
+                    <Input 
+                      label="Secondary Input Field"
+                      placeholder="Achievement tracking input"
+                      className="focus:ring-orange-500 focus:border-orange-500"
+                      helpText="Using MW Breakthrough Orange for progress tracking"
+                    />
+                  </div>
+                  
+                  <div>
+                    <h5 className="text-lg font-medium text-teal-500 mb-2">Flow Teal Section</h5>
+                    <Input 
+                      label="Workflow Input Field"
+                      placeholder="Process management input"
+                      className="focus:ring-teal-500 focus:border-teal-500"
+                      helpText="Using MW Flow Teal for seamless workflows"
+                    />
+                  </div>
+                </div>
+              }
+              code={`<!-- MW Typography Integration -->
+<h3 className="text-2xl font-bold text-blue-600">
+  Energy Blue Section
+</h3>
+<Input 
+  label="Primary Input Field"
+  className="focus:ring-blue-600 focus:border-blue-600"
+  helpText="Using MW Energy Blue for primary actions"
+/>
+
+<h4 className="text-xl font-semibold text-orange-500">
+  Breakthrough Orange Section
+</h4>
+<Input 
+  label="Secondary Input Field"
+  className="focus:ring-orange-500 focus:border-orange-500"
+  helpText="Using MW Breakthrough Orange for progress"
+/>
+
+<h5 className="text-lg font-medium text-teal-500">
+  Flow Teal Section
+</h5>
+<Input 
+  label="Workflow Input Field"
+  className="focus:ring-teal-500 focus:border-teal-500"
+  helpText="Using MW Flow Teal for workflows"
 />`}
             />
           </div>
@@ -663,83 +962,222 @@ function ComponentsPageContent() {
                 Card
               </h2>
               <p className="text-lg text-mw-gray-600 dark:text-mw-gray-300 mb-8">
-                Flexible content containers for organizing related information.
+                Flexible content containers showcasing MW elevation system, 4pt grid spacing, and border radius tokens.
               </p>
             </div>
             
             <ComponentShowcase
-              title="Basic Card"
-              description="Simple card with header and content"
+              title="MW Elevation System"
+              description="Cards demonstrating the complete elevation scale from flat to maximum depth"
               preview={
-                <div className="max-w-md">
-                  <Card>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <Card className="shadow-none border-2 border-gray-200">
                     <CardHeader>
-                      <h3 className="text-lg font-semibold text-mw-gray-900 dark:text-white">
-                        Card Title
-                      </h3>
-                      <p className="text-mw-gray-600 dark:text-mw-gray-300">
-                        Card subtitle or description
-                      </p>
+                      <h3 className="text-lg font-semibold text-mw-gray-900 dark:text-white">None</h3>
+                      <p className="text-mw-gray-600 dark:text-mw-gray-300">Flat design, disabled states</p>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-mw-gray-600 dark:text-mw-gray-300">
-                        This is the main content area of the card. You can put any content here.
-                      </p>
+                      <p className="text-sm text-mw-gray-500">shadow-none - No elevation</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="shadow-sm">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold text-mw-gray-900 dark:text-white">Small</h3>
+                      <p className="text-mw-gray-600 dark:text-mw-gray-300">Subtle depth for small elements</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-mw-gray-500">shadow-sm - Input fields, small cards</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="shadow-md">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold text-mw-gray-900 dark:text-white">Medium</h3>
+                      <p className="text-mw-gray-600 dark:text-mw-gray-300">Standard elevation for components</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-mw-gray-500">shadow-md - MW Default card elevation</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="shadow-lg">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold text-mw-gray-900 dark:text-white">Large</h3>
+                      <p className="text-mw-gray-600 dark:text-mw-gray-300">Elevated components, hover states</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-mw-gray-500">shadow-lg - Dropdown menus, tooltips</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="shadow-xl">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold text-mw-gray-900 dark:text-white">Extra Large</h3>
+                      <p className="text-mw-gray-600 dark:text-mw-gray-300">High elevation for important elements</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-mw-gray-500">shadow-xl - Modals, important notifications</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="shadow-2xl">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold text-mw-gray-900 dark:text-white">2X Large</h3>
+                      <p className="text-mw-gray-600 dark:text-mw-gray-300">Maximum elevation for overlays</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-mw-gray-500">shadow-2xl - Modal overlays, dialogs</p>
                     </CardContent>
                   </Card>
                 </div>
               }
-              code={`<Card>
-  <CardHeader>
-    <h3 className="text-lg font-semibold">Card Title</h3>
-    <p className="text-mw-gray-600">Card subtitle</p>
-  </CardHeader>
-  <CardContent>
-    <p>This is the main content area of the card.</p>
-  </CardContent>
-</Card>`}
+              code={`<!-- MW Elevation System -->
+<Card className="shadow-none">Flat design, disabled states</Card>
+<Card className="shadow-sm">Subtle depth for small elements</Card>
+<Card className="shadow-md">Standard elevation (MW Default)</Card>
+<Card className="shadow-lg">Elevated components, hover states</Card>
+<Card className="shadow-xl">High elevation for important elements</Card>
+<Card className="shadow-2xl">Maximum elevation for overlays</Card>`}
             />
 
             <ComponentShowcase
-              title="Card with Footer"
-              description="Card with actions in the footer"
+              title="4pt Grid Spacing System"
+              description="Cards demonstrating consistent spacing patterns using the 4pt grid system"
               preview={
-                <div className="max-w-md">
-                  <Card>
-                    <CardHeader>
-                      <h3 className="text-lg font-semibold text-mw-gray-900 dark:text-white">
-                        Feature Card
-                      </h3>
-                      <p className="text-mw-gray-600 dark:text-mw-gray-300">
-                        A card with action buttons
-                      </p>
-                    </CardHeader>
-                    <CardContent>
-                      <p className="text-mw-gray-600 dark:text-mw-gray-300">
-                        This card includes action buttons for user interaction.
-                      </p>
+                <div className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Card className="p-2">
+                      <h4 className="font-medium text-mw-gray-900 dark:text-white mb-1">Compact (8px)</h4>
+                      <p className="text-sm text-mw-gray-600">Dense layouts, mobile interfaces</p>
+                    </Card>
+                    
+                    <Card className="p-4">
+                      <h4 className="font-medium text-mw-gray-900 dark:text-white mb-2">Standard (16px)</h4>
+                      <p className="text-sm text-mw-gray-600">MW default spacing for cards</p>
+                    </Card>
+                    
+                    <Card className="p-6">
+                      <h4 className="font-medium text-mw-gray-900 dark:text-white mb-3">Comfortable (24px)</h4>
+                      <p className="text-sm text-mw-gray-600">Generous spacing for important content</p>
+                    </Card>
+                    
+                    <Card className="p-8">
+                      <h4 className="font-medium text-mw-gray-900 dark:text-white mb-4">Spacious (32px)</h4>
+                      <p className="text-sm text-mw-gray-600">Maximum spacing for hero sections</p>
+                    </Card>
+                  </div>
+                </div>
+              }
+              code={`<!-- 4pt Grid Spacing System -->
+<Card className="p-2">Compact (8px) - Dense layouts</Card>
+<Card className="p-4">Standard (16px) - MW Default</Card>
+<Card className="p-6">Comfortable (24px) - Generous spacing</Card>
+<Card className="p-8">Spacious (32px) - Maximum spacing</Card>`}
+            />
+
+            <ComponentShowcase
+              title="Border Radius Variations"
+              description="Cards showing MW border radius tokens from sharp to fully rounded"
+              preview={
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Card className="rounded-none shadow-md">
+                    <CardContent className="p-4">
+                      <h4 className="font-medium text-mw-gray-900 dark:text-white">Sharp (0px)</h4>
+                      <p className="text-sm text-mw-gray-600">Modern, technical feel</p>
                     </CardContent>
-                    <CardFooter>
-                      <Button size="sm" variant="primary">Learn More</Button>
-                      <Button size="sm" variant="outline">Cancel</Button>
-                    </CardFooter>
+                  </Card>
+                  
+                  <Card className="rounded-md shadow-md">
+                    <CardContent className="p-4">
+                      <h4 className="font-medium text-mw-gray-900 dark:text-white">Medium (6px)</h4>
+                      <p className="text-sm text-mw-gray-600">MW standard border radius</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="rounded-lg shadow-md">
+                    <CardContent className="p-4">
+                      <h4 className="font-medium text-mw-gray-900 dark:text-white">Large (8px)</h4>
+                      <p className="text-sm text-mw-gray-600">Friendly, approachable design</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="rounded-2xl shadow-md">
+                    <CardContent className="p-4">
+                      <h4 className="font-medium text-mw-gray-900 dark:text-white">2XL (16px)</h4>
+                      <p className="text-sm text-mw-gray-600">Soft, premium appearance</p>
+                    </CardContent>
                   </Card>
                 </div>
               }
-              code={`<Card>
-  <CardHeader>
-    <h3 className="text-lg font-semibold">Feature Card</h3>
-    <p className="text-mw-gray-600">A card with action buttons</p>
-  </CardHeader>
-  <CardContent>
-    <p className="text-mw-gray-600">
-      This card includes action buttons for user interaction.
-    </p>
-  </CardContent>
-  <CardFooter>
-    <Button size="sm" variant="primary">Learn More</Button>
-    <Button size="sm" variant="outline">Cancel</Button>
-  </CardFooter>
+              code={`<!-- Border Radius Tokens -->
+<Card className="rounded-none">Sharp (0px) - Technical</Card>
+<Card className="rounded-md">Medium (6px) - MW Standard</Card>
+<Card className="rounded-lg">Large (8px) - Friendly</Card>
+<Card className="rounded-2xl">2XL (16px) - Premium</Card>`}
+            />
+
+            <ComponentShowcase
+              title="MW Brand Color Accents"
+              description="Cards with MW brand color accents and semantic color borders"
+              preview={
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <Card className="border-l-4 border-blue-600 shadow-md">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100">Energy Blue Feature</h3>
+                      <p className="text-blue-700 dark:text-blue-300">Primary brand color accent</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-mw-gray-600">Using MW Energy Blue (#1d65af) for primary features and main actions.</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-l-4 border-orange-500 shadow-md">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold text-orange-900 dark:text-orange-100">Breakthrough Orange</h3>
+                      <p className="text-orange-700 dark:text-orange-300">Secondary brand color accent</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-mw-gray-600">Using MW Breakthrough Orange (#4cb0e4) for momentum and achievements.</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-l-4 border-teal-500 shadow-md">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold text-teal-900 dark:text-teal-100">Flow Teal Accent</h3>
+                      <p className="text-teal-700 dark:text-teal-300">Tertiary brand color accent</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-mw-gray-600">Using MW Flow Teal for seamless experiences and smooth processes.</p>
+                    </CardContent>
+                  </Card>
+                  
+                  <Card className="border-l-4 border-green-600 shadow-md">
+                    <CardHeader>
+                      <h3 className="text-lg font-semibold text-green-900 dark:text-green-100">Success State</h3>
+                      <p className="text-green-700 dark:text-green-300">Semantic success color</p>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-mw-gray-600">Using MW Success Green (#2d7d32) for positive outcomes and completions.</p>
+                    </CardContent>
+                  </Card>
+                </div>
+              }
+              code={`<!-- MW Brand Color Accents -->
+<Card className="border-l-4 border-blue-600">
+  Energy Blue Feature (#1d65af)
+</Card>
+
+<Card className="border-l-4 border-orange-500">
+  Breakthrough Orange (#4cb0e4)
+</Card>
+
+<Card className="border-l-4 border-teal-500">
+  Flow Teal Accent
+</Card>
+
+<Card className="border-l-4 border-green-600">
+  Success State (#2d7d32)
 </Card>`}
             />
           </div>
@@ -753,46 +1191,154 @@ function ComponentsPageContent() {
                 Badge
               </h2>
               <p className="text-lg text-mw-gray-600 dark:text-mw-gray-300 mb-8">
-                Small status and label indicators with different variants.
+                Status indicators and labels showcasing MW color system, border radius tokens, and 4pt grid spacing.
               </p>
             </div>
             
             <ComponentShowcase
-              title="Badge Variants"
-              description="Different badge styles for various use cases"
+              title="MW Brand Color Badges"
+              description="Badges using Energy Blue, Breakthrough Orange, Flow Teal, and semantic colors"
               preview={
-                <div className="flex flex-wrap gap-2">
-                  <Badge variant="default">Default</Badge>
-                  <Badge variant="primary">Primary</Badge>
-                  <Badge variant="secondary">Secondary</Badge>
-                  <Badge variant="success">Success</Badge>
-                  <Badge variant="warning">Warning</Badge>
-                  <Badge variant="error">Error</Badge>
-                  <Badge variant="outline">Outline</Badge>
+                <div className="flex flex-wrap gap-3">
+                  <Badge className="bg-blue-600 text-white">Energy Blue</Badge>
+                  <Badge className="bg-orange-500 text-white">Breakthrough Orange</Badge>
+                  <Badge className="bg-teal-500 text-white">Flow Teal</Badge>
+                  <Badge variant="success" className="bg-green-600 text-white">Success Green</Badge>
+                  <Badge variant="warning" className="bg-yellow-500 text-white">Warning Orange</Badge>
+                  <Badge variant="error" className="bg-red-600 text-white">Danger Red</Badge>
+                  <Badge className="bg-cyan-500 text-white">Info Blue</Badge>
                 </div>
               }
-              code={`<Badge variant="default">Default</Badge>
-<Badge variant="primary">Primary</Badge>
-<Badge variant="secondary">Secondary</Badge>
-<Badge variant="success">Success</Badge>
-<Badge variant="warning">Warning</Badge>
-<Badge variant="error">Error</Badge>
-<Badge variant="outline">Outline</Badge>`}
+              code={`<!-- MW Brand Colors -->
+<Badge className="bg-blue-600 text-white">Energy Blue</Badge>
+<Badge className="bg-orange-500 text-white">Breakthrough Orange</Badge>
+<Badge className="bg-teal-500 text-white">Flow Teal</Badge>
+
+<!-- MW Semantic Colors -->
+<Badge className="bg-green-600 text-white">Success Green</Badge>
+<Badge className="bg-yellow-500 text-white">Warning Orange</Badge>
+<Badge className="bg-red-600 text-white">Danger Red</Badge>
+<Badge className="bg-cyan-500 text-white">Info Blue</Badge>`}
             />
 
             <ComponentShowcase
-              title="Badge Sizes"
-              description="Different badge sizes"
+              title="Border Radius Token System"
+              description="Badges demonstrating MW border radius tokens from sharp to fully rounded"
               preview={
-                <div className="flex flex-wrap items-center gap-2">
-                  <Badge size="sm">Small</Badge>
-                  <Badge size="md">Medium</Badge>
-                  <Badge size="lg">Large</Badge>
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-3">
+                    <Badge className="rounded-none bg-gray-600 text-white">None (0px)</Badge>
+                    <Badge className="rounded-sm bg-blue-600 text-white">Small (4px)</Badge>
+                    <Badge className="rounded-md bg-orange-500 text-white">Medium (6px)</Badge>
+                    <Badge className="rounded-lg bg-teal-500 text-white">Large (8px)</Badge>
+                    <Badge className="rounded-xl bg-green-600 text-white">XL (12px)</Badge>
+                    <Badge className="rounded-2xl bg-purple-600 text-white">2XL (16px)</Badge>
+                    <Badge className="rounded-full bg-pink-600 text-white">Full (9999px)</Badge>
+                  </div>
+                  <div className="p-4 bg-gray-50 dark:bg-gray-900/20 border border-gray-200 dark:border-gray-800 rounded-md">
+                    <p className="text-gray-700 dark:text-gray-300 text-sm">
+                      <strong>MW Standard:</strong> Medium (6px) is our default border radius. 
+                      Use Full for pill-shaped badges and indicators.
+                    </p>
+                  </div>
                 </div>
               }
-              code={`<Badge size="sm">Small</Badge>
-<Badge size="md">Medium</Badge>
-<Badge size="lg">Large</Badge>`}
+              code={`<!-- Border Radius Tokens -->
+<Badge className="rounded-none">None (0px)</Badge>
+<Badge className="rounded-sm">Small (4px)</Badge>
+<Badge className="rounded-md">Medium (6px) - MW Default</Badge>
+<Badge className="rounded-lg">Large (8px)</Badge>
+<Badge className="rounded-xl">XL (12px)</Badge>
+<Badge className="rounded-2xl">2XL (16px)</Badge>
+<Badge className="rounded-full">Full (9999px) - Pills</Badge>`}
+            />
+
+            <ComponentShowcase
+              title="4pt Grid Spacing System"
+              description="Badge sizes and padding using consistent 4pt grid spacing tokens"
+              preview={
+                <div className="space-y-6">
+                  <div className="space-y-3">
+                    <h4 className="font-medium text-mw-gray-900 dark:text-white">Size Variations</h4>
+                    <div className="flex flex-wrap items-center gap-3">
+                      <Badge size="sm" className="px-2 py-0.5 text-xs bg-blue-600 text-white">Small (8px/2px)</Badge>
+                      <Badge size="md" className="px-3 py-1 text-sm bg-orange-500 text-white">Medium (12px/4px)</Badge>
+                      <Badge size="lg" className="px-4 py-1.5 text-base bg-teal-500 text-white">Large (16px/6px)</Badge>
+                      <Badge className="px-5 py-2 text-lg bg-green-600 text-white">XLarge (20px/8px)</Badge>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <h4 className="font-medium text-mw-gray-900 dark:text-white">Spacing Examples</h4>
+                    <div className="space-y-2">
+                      <div className="flex gap-1">
+                        <Badge className="bg-gray-500 text-white">Tight (4px)</Badge>
+                        <Badge className="bg-gray-500 text-white">Spacing</Badge>
+                      </div>
+                      <div className="flex gap-2">
+                        <Badge className="bg-blue-600 text-white">Standard (8px)</Badge>
+                        <Badge className="bg-blue-600 text-white">Spacing</Badge>
+                      </div>
+                      <div className="flex gap-4">
+                        <Badge className="bg-orange-500 text-white">Comfortable (16px)</Badge>
+                        <Badge className="bg-orange-500 text-white">Spacing</Badge>
+                      </div>
+                      <div className="flex gap-6">
+                        <Badge className="bg-teal-500 text-white">Generous (24px)</Badge>
+                        <Badge className="bg-teal-500 text-white">Spacing</Badge>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+              code={`<!-- 4pt Grid Size System -->
+<Badge className="px-2 py-0.5 text-xs">Small (8px/2px)</Badge>
+<Badge className="px-3 py-1 text-sm">Medium (12px/4px)</Badge> 
+<Badge className="px-4 py-1.5 text-base">Large (16px/6px)</Badge>
+<Badge className="px-5 py-2 text-lg">XLarge (20px/8px)</Badge>
+
+<!-- 4pt Grid Spacing Between Elements -->
+<div class="flex gap-1">Tight (4px) spacing</div>
+<div class="flex gap-2">Standard (8px) spacing</div>
+<div class="flex gap-4">Comfortable (16px) spacing</div>
+<div class="flex gap-6">Generous (24px) spacing</div>`}
+            />
+
+            <ComponentShowcase
+              title="Interactive States & Accessibility"
+              description="Badge hover states, focus indicators, and accessibility features"
+              preview={
+                <div className="space-y-4">
+                  <div className="flex flex-wrap gap-3">
+                    <Badge className="bg-blue-600 text-white hover:bg-blue-700 transition-colors cursor-pointer">Hoverable Energy</Badge>
+                    <Badge className="bg-orange-500 text-white hover:bg-orange-600 transition-colors cursor-pointer">Hoverable Orange</Badge>
+                    <Badge className="border-2 border-teal-500 text-teal-600 hover:bg-teal-50 transition-colors cursor-pointer">Hoverable Outline</Badge>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <Badge className="bg-green-600 text-white focus:ring-2 focus:ring-green-500 focus:ring-offset-2 tabindex-0">Focusable Success</Badge>
+                    <Badge className="bg-red-600 text-white focus:ring-2 focus:ring-red-500 focus:ring-offset-2 tabindex-0">Focusable Danger</Badge>
+                  </div>
+                  <div className="p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-md">
+                    <p className="text-blue-800 dark:text-blue-200 text-sm">
+                      <strong>Accessibility:</strong> Interactive badges include focus rings and sufficient contrast ratios (4.5:1 minimum).
+                      Hover states use 200ms transitions for smooth interactions.
+                    </p>
+                  </div>
+                </div>
+              }
+              code={`<!-- Interactive Badges with MW Colors -->
+<Badge className="bg-blue-600 hover:bg-blue-700 transition-colors cursor-pointer">
+  Hoverable Energy
+</Badge>
+
+<!-- Focus Ring System -->
+<Badge className="bg-green-600 focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
+  Focusable Success
+</Badge>
+
+<!-- Smooth Transitions (200ms) -->
+.badge-hover {
+  @apply transition-colors duration-200 ease-in-out;
+}`}
             />
           </div>
         )
@@ -805,41 +1351,142 @@ function ComponentsPageContent() {
                 Alert
               </h2>
               <p className="text-lg text-mw-gray-600 dark:text-mw-gray-300 mb-8">
-                Contextual feedback messages for user actions.
+                Contextual feedback messages using MW semantic colors and accessibility-compliant contrast ratios.
               </p>
             </div>
             
             <ComponentShowcase
-              title="Alert Variants"
-              description="Different alert types for various messages"
+              title="MW Semantic Color System"
+              description="Alert variants using MW semantic colors: Success Green, Warning Orange, Danger Red, and Info Blue"
               preview={
                 <div className="space-y-4">
-                  <Alert variant="info" title="Information" dismissible>
-                    This is an informational alert with some important details.
+                  <Alert variant="info" title="Energy Information" dismissible className="border-blue-200 bg-blue-50 text-blue-800">
+                    Using MW Energy Blue (#0188d1) for informational messages with proper contrast ratios.
                   </Alert>
-                  <Alert variant="success" title="Success" dismissible>
-                    Your changes have been saved successfully.
+                  <Alert variant="success" title="Breakthrough Success" dismissible className="border-green-200 bg-green-50 text-green-800">
+                    Using MW Success Green (#2d7d32) for positive feedback and successful operations.
                   </Alert>
-                  <Alert variant="warning" title="Warning">
-                    Please review your settings before continuing.
+                  <Alert variant="warning" title="Flow Warning" className="border-yellow-200 bg-yellow-50 text-yellow-800">
+                    Using MW Warning Orange (#f9a825) for cautionary messages and important notices.
                   </Alert>
-                  <Alert variant="error" title="Error">
-                    Something went wrong. Please try again.
+                  <Alert variant="error" title="Critical Alert" className="border-red-200 bg-red-50 text-red-800">
+                    Using MW Danger Red (#d63535) for error states and critical warnings.
                   </Alert>
                 </div>
               }
-              code={`<Alert variant="info" title="Information" dismissible>
-  This is an informational alert.
+              code={`<!-- MW Info Blue Alert -->
+<Alert variant="info" className="border-blue-200 bg-blue-50 text-blue-800">
+  Using MW Energy Blue (#0188d1) for informational messages.
 </Alert>
-<Alert variant="success" title="Success">
-  Your changes have been saved successfully.
+
+<!-- MW Success Green Alert -->
+<Alert variant="success" className="border-green-200 bg-green-50 text-green-800">
+  Using MW Success Green (#2d7d32) for positive feedback.
 </Alert>
-<Alert variant="warning" title="Warning">
-  Please review your settings before continuing.
+
+<!-- MW Warning Orange Alert -->
+<Alert variant="warning" className="border-yellow-200 bg-yellow-50 text-yellow-800">
+  Using MW Warning Orange (#f9a825) for cautionary messages.
 </Alert>
-<Alert variant="error" title="Error">
-  Something went wrong. Please try again.
+
+<!-- MW Danger Red Alert -->
+<Alert variant="error" className="border-red-200 bg-red-50 text-red-800">
+  Using MW Danger Red (#d63535) for error states.
 </Alert>`}
+            />
+
+            <ComponentShowcase
+              title="MW Brand Color Examples"
+              description="Special alerts using MW brand colors for enhanced visual hierarchy"
+              preview={
+                <div className="space-y-4">
+                  <div className="p-4 border-l-4 border-blue-600 bg-blue-50 dark:bg-blue-900/20">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <div className="w-5 h-5 bg-blue-600 rounded-full"></div>
+                      </div>
+                      <div className="ml-3">
+                        <h3 className="text-sm font-medium text-blue-800 dark:text-blue-200">Energy Blue Brand Alert</h3>
+                        <p className="mt-1 text-sm text-blue-700 dark:text-blue-300">This alert uses our primary Energy Blue color for brand-related messages.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-4 border-l-4 border-orange-500 bg-orange-50 dark:bg-orange-900/20">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <div className="w-5 h-5 bg-orange-500 rounded-full"></div>
+                      </div>
+                      <div className="ml-3">
+                        <h3 className="text-sm font-medium text-orange-800 dark:text-orange-200">Breakthrough Orange Alert</h3>
+                        <p className="mt-1 text-sm text-orange-700 dark:text-orange-300">This alert uses our secondary Breakthrough Orange for momentum-related messages.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-4 border-l-4 border-teal-500 bg-teal-50 dark:bg-teal-900/20">
+                    <div className="flex items-start">
+                      <div className="flex-shrink-0">
+                        <div className="w-5 h-5 bg-teal-500 rounded-full"></div>
+                      </div>
+                      <div className="ml-3">
+                        <h3 className="text-sm font-medium text-teal-800 dark:text-teal-200">Flow Teal Accent Alert</h3>
+                        <p className="mt-1 text-sm text-teal-700 dark:text-teal-300">This alert uses our Flow Teal accent color for smooth experience messages.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              }
+              code={`<!-- Energy Blue Brand Alert -->
+<div class="p-4 border-l-4 border-blue-600 bg-blue-50">
+  <div class="flex items-start">
+    <div class="w-5 h-5 bg-blue-600 rounded-full"></div>
+    <div class="ml-3">
+      <h3 class="text-sm font-medium text-blue-800">Energy Blue Brand Alert</h3>
+      <p class="text-sm text-blue-700">Brand-related messages using Energy Blue.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Breakthrough Orange Alert -->
+<div class="p-4 border-l-4 border-orange-500 bg-orange-50">
+  <h3 class="text-sm font-medium text-orange-800">Breakthrough Orange Alert</h3>
+  <p class="text-sm text-orange-700">Momentum messages using Breakthrough Orange.</p>
+</div>`}
+            />
+
+            <ComponentShowcase
+              title="Spacing & Border Radius Tokens"
+              description="Alert layouts using 4pt grid spacing and MW border radius tokens"
+              preview={
+                <div className="space-y-6">
+                  <div className="space-y-3">
+                    <h4 className="font-medium text-mw-gray-900 dark:text-white">Border Radius Variations</h4>
+                    <div className="space-y-3">
+                      <Alert className="rounded-none border-blue-200 bg-blue-50 text-blue-800">Sharp corners (none) - Modern, technical feel</Alert>
+                      <Alert className="rounded-md border-green-200 bg-green-50 text-green-800">Standard corners (6px) - Default MW radius</Alert>
+                      <Alert className="rounded-lg border-orange-200 bg-orange-50 text-orange-800">Large corners (8px) - Friendly, approachable</Alert>
+                      <Alert className="rounded-xl border-purple-200 bg-purple-50 text-purple-800">Extra large (12px) - Soft, premium feel</Alert>
+                    </div>
+                  </div>
+                  <div className="space-y-3">
+                    <h4 className="font-medium text-mw-gray-900 dark:text-white">Spacing Variations (4pt Grid)</h4>
+                    <div className="space-y-3">
+                      <Alert className="p-2 border-gray-200 bg-gray-50 text-gray-800">Compact (8px) - Dense layouts</Alert>
+                      <Alert className="p-4 border-gray-200 bg-gray-50 text-gray-800">Standard (16px) - Default spacing</Alert>
+                      <Alert className="p-6 border-gray-200 bg-gray-50 text-gray-800">Comfortable (24px) - Generous spacing</Alert>
+                    </div>
+                  </div>
+                </div>
+              }
+              code={`<!-- Border Radius Tokens -->
+<Alert className="rounded-none">Sharp corners (none)</Alert>
+<Alert className="rounded-md">Standard corners (6px)</Alert>  
+<Alert className="rounded-lg">Large corners (8px)</Alert>
+<Alert className="rounded-xl">Extra large (12px)</Alert>
+
+<!-- Spacing Tokens (4pt Grid) -->
+<Alert className="p-2">Compact (8px)</Alert>
+<Alert className="p-4">Standard (16px)</Alert>
+<Alert className="p-6">Comfortable (24px)</Alert>`}
             />
           </div>
         )
@@ -904,152 +1551,230 @@ function ComponentsPageContent() {
                 Spinner & Loading
               </h2>
               <p className="text-lg text-mw-gray-600 dark:text-mw-gray-300 mb-8">
-                Loading indicators and wrapper components.
+                Loading indicators showcasing MW brand colors, animation tokens, and 4pt grid sizing.
               </p>
             </div>
             
             <ComponentShowcase
-              title="Spinner Variants"
-              description="Different spinner configurations"
+              title="MW Brand Color Spinners"
+              description="Spinners using the complete MW brand color palette with animation tokens"
               preview={
-                <div className="flex items-center space-x-4">
-                  <Spinner size="sm" />
-                  <Spinner size="md" />
-                  <Spinner size="lg" />
-                  <Spinner variant="primary" />
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                  <div className="text-center space-y-2">
+                    <Spinner className="text-blue-600 h-8 w-8 animate-spin" />
+                    <p className="text-sm font-medium text-blue-600">Energy Blue</p>
+                    <p className="text-xs text-mw-gray-500">#1d65af</p>
+                  </div>
+                  
+                  <div className="text-center space-y-2">
+                    <Spinner className="text-orange-500 h-8 w-8 animate-spin" />
+                    <p className="text-sm font-medium text-orange-500">Breakthrough Orange</p>
+                    <p className="text-xs text-mw-gray-500">#4cb0e4</p>
+                  </div>
+                  
+                  <div className="text-center space-y-2">
+                    <Spinner className="text-teal-500 h-8 w-8 animate-spin" />
+                    <p className="text-sm font-medium text-teal-500">Flow Teal</p>
+                    <p className="text-xs text-mw-gray-500">Seamless processes</p>
+                  </div>
+                  
+                  <div className="text-center space-y-2">
+                    <Spinner className="text-mw-gray-600 h-8 w-8 animate-spin" />
+                    <p className="text-sm font-medium text-mw-gray-600">Neutral Gray</p>
+                    <p className="text-xs text-mw-gray-500">Default state</p>
+                  </div>
                 </div>
               }
-              code={`<Spinner size="sm" />
-<Spinner size="md" />
-<Spinner size="lg" />
-<Spinner variant="primary" />`}
+              code={`<!-- MW Brand Color Spinners -->
+<Spinner className="text-blue-600 h-8 w-8 animate-spin" />
+<!-- Energy Blue (#1d65af) -->
+
+<Spinner className="text-orange-500 h-8 w-8 animate-spin" />
+<!-- Breakthrough Orange (#4cb0e4) -->
+
+<Spinner className="text-teal-500 h-8 w-8 animate-spin" />
+<!-- Flow Teal -->
+
+<Spinner className="text-mw-gray-600 h-8 w-8 animate-spin" />
+<!-- Neutral Gray -->`}
             />
 
             <ComponentShowcase
-              title="Loading Wrapper"
-              description="Component that shows loading state over content"
+              title="4pt Grid Size System"
+              description="Spinner sizes following the 4pt grid system with consistent scaling"
               preview={
-                <Loading overlay={true}>
-                  <div className="p-4 bg-mw-gray-100 dark:bg-mw-gray-700 rounded">
-                    <p>This content is loading...</p>
+                <div className="flex items-center justify-center space-x-8">
+                  <div className="text-center space-y-2">
+                    <Spinner className="text-blue-600 h-4 w-4 animate-spin" />
+                    <p className="text-sm font-medium">Small</p>
+                    <p className="text-xs text-mw-gray-500">16px (4pt×4)</p>
                   </div>
-                </Loading>
+                  
+                  <div className="text-center space-y-2">
+                    <Spinner className="text-blue-600 h-6 w-6 animate-spin" />
+                    <p className="text-sm font-medium">Medium</p>
+                    <p className="text-xs text-mw-gray-500">24px (4pt×6)</p>
+                  </div>
+                  
+                  <div className="text-center space-y-2">
+                    <Spinner className="text-blue-600 h-8 w-8 animate-spin" />
+                    <p className="text-sm font-medium">Large</p>
+                    <p className="text-xs text-mw-gray-500">32px (4pt×8)</p>
+                  </div>
+                  
+                  <div className="text-center space-y-2">
+                    <Spinner className="text-blue-600 h-12 w-12 animate-spin" />
+                    <p className="text-sm font-medium">X-Large</p>
+                    <p className="text-xs text-mw-gray-500">48px (4pt×12)</p>
+                  </div>
+                  
+                  <div className="text-center space-y-2">
+                    <Spinner className="text-blue-600 h-16 w-16 animate-spin" />
+                    <p className="text-sm font-medium">2X-Large</p>
+                    <p className="text-xs text-mw-gray-500">64px (4pt×16)</p>
+                  </div>
+                </div>
               }
-              code={`<Loading isLoading={true}>
-  <div>Content being loaded...</div>
-</Loading>`}
+              code={`<!-- 4pt Grid Size System -->
+<Spinner className="h-4 w-4" /> <!-- 16px Small -->
+<Spinner className="h-6 w-6" /> <!-- 24px Medium -->
+<Spinner className="h-8 w-8" /> <!-- 32px Large -->
+<Spinner className="h-12 w-12" /> <!-- 48px X-Large -->
+<Spinner className="h-16 w-16" /> <!-- 64px 2X-Large -->`}
             />
 
             <ComponentShowcase
-              title="MW Brand Loaders"
-              description="Custom Moving Walls branded text loaders"
+              title="MW Animation Token System"
+              description="Loading states using MW animation duration and easing tokens"
               preview={
                 <div className="space-y-6">
-                  <div className="space-y-4">
-                    <h4 className="font-semibold">MW Text Loader</h4>
-                    <div className="flex items-center space-x-6">
-                      <MWLoader size="sm" animation="pulse" />
-                      <MWLoader size="md" animation="wave" />
-                      <MWLoader size="lg" animation="glow" />
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-semibold">MW Dots Loader</h4>
-                    <div className="flex items-center space-x-6">
-                      <MWDotsLoader size="sm" dotAnimation="bouncing" />
-                      <MWDotsLoader size="md" dotAnimation="typing" />
-                      <MWDotsLoader size="lg" dotAnimation="fading" />
-                    </div>
-                  </div>
-                  <div className="space-y-4">
-                    <h4 className="font-semibold">MW Progressive Loader</h4>
-                    <div className="space-y-6">
-                      <div>
-                        <p className="text-sm text-gray-600 mb-3">Horizontal Directions</p>
-                        <div className="flex items-center space-x-6">
-                          <MWProgressiveLoader size="md" variant="primary" speed="normal" direction="left-to-right" />
-                          <MWProgressiveLoader size="md" variant="gradient" speed="normal" direction="right-to-left" />
-                        </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-mw-gray-900 dark:text-white">Fast Animation (150ms)</h4>
+                      <div className="flex items-center space-x-4">
+                        <Spinner className="text-blue-600 h-6 w-6" style={{animationDuration: '150ms'}} />
+                        <span className="text-sm text-mw-gray-600">Quick feedback for micro-interactions</span>
                       </div>
-                      <div>
-                        <p className="text-sm text-gray-600 mb-3">Vertical Directions</p>
-                        <div className="flex items-center space-x-6">
-                          <MWProgressiveLoader size="md" variant="default" speed="normal" direction="top-to-bottom" />
-                          <MWProgressiveLoader size="md" variant="primary" speed="normal" direction="bottom-to-top" />
-                        </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-mw-gray-900 dark:text-white">Standard Animation (300ms)</h4>
+                      <div className="flex items-center space-x-4">
+                        <Spinner className="text-orange-500 h-6 w-6" style={{animationDuration: '300ms'}} />
+                        <span className="text-sm text-mw-gray-600">MW default animation speed</span>
                       </div>
-                      <div>
-                        <p className="text-sm text-gray-600 mb-3">Radial Directions</p>
-                        <div className="flex items-center space-x-6">
-                          <MWProgressiveLoader size="md" variant="gradient" speed="normal" direction="center-out" />
-                          <MWProgressiveLoader size="md" variant="primary" speed="normal" direction="edges-in" />
-                        </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-mw-gray-900 dark:text-white">Slow Animation (500ms)</h4>
+                      <div className="flex items-center space-x-4">
+                        <Spinner className="text-teal-500 h-6 w-6" style={{animationDuration: '500ms'}} />
+                        <span className="text-sm text-mw-gray-600">Calm, steady progress indication</span>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      <h4 className="font-semibold text-mw-gray-900 dark:text-white">Accessibility (1000ms)</h4>
+                      <div className="flex items-center space-x-4">
+                        <Spinner className="text-green-600 h-6 w-6" style={{animationDuration: '1000ms'}} />
+                        <span className="text-sm text-mw-gray-600">Reduced motion preference</span>
                       </div>
                     </div>
                   </div>
                 </div>
               }
-              code={`// MW Text Loader
-<MWLoader size="md" animation="wave" />
-<MWLoader size="lg" animation="glow" />
+              code={`<!-- MW Animation Token System -->
+<Spinner 
+  className="text-blue-600 h-6 w-6" 
+  style={{animationDuration: '150ms'}}
+/>
+<!-- Fast (150ms) - Micro-interactions -->
 
-// MW Dots Loader  
-<MWDotsLoader size="md" dotAnimation="typing" />
-<MWDotsLoader size="lg" dotAnimation="fading" />
+<Spinner 
+  className="text-orange-500 h-6 w-6" 
+  style={{animationDuration: '300ms'}}
+/>
+<!-- Standard (300ms) - MW Default -->
 
-// MW Progressive Loader - All Directions
-// Horizontal
-<MWProgressiveLoader size="md" variant="primary" direction="left-to-right" />
-<MWProgressiveLoader size="md" variant="gradient" direction="right-to-left" />
+<Spinner 
+  className="text-teal-500 h-6 w-6" 
+  style={{animationDuration: '500ms'}}
+/>
+<!-- Slow (500ms) - Steady progress -->
 
-// Vertical  
-<MWProgressiveLoader size="md" variant="default" direction="top-to-bottom" />
-<MWProgressiveLoader size="md" variant="primary" direction="bottom-to-top" />
-
-// Radial
-<MWProgressiveLoader size="md" variant="gradient" direction="center-out" />
-<MWProgressiveLoader size="md" variant="primary" direction="edges-in" />`}
+<Spinner 
+  className="text-green-600 h-6 w-6" 
+  style={{animationDuration: '1000ms'}}
+/>
+<!-- Accessibility (1000ms) - Reduced motion -->`}
             />
 
             <ComponentShowcase
-              title="Creative MW Loaders"
-              description="Advanced animated MW loaders with special effects"
+              title="Semantic State Loaders"
+              description="Loading indicators for different semantic states using MW color system"
               preview={
-                <div className="space-y-6">
-                  <div className="space-y-4">
-                    <h4 className="font-semibold">Heartbeat/Breathing</h4>
-                    <div className="flex items-center space-x-6">
-                      <MWHeartbeatLoader size="sm" variant="primary" speed="fast" />
-                      <MWHeartbeatLoader size="md" variant="gradient" speed="normal" />
-                      <MWHeartbeatLoader size="lg" variant="pulse" speed="slow" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="p-4 border border-green-200 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <Spinner className="text-green-600 h-5 w-5" />
+                      <div>
+                        <h4 className="font-medium text-green-900 dark:text-green-100">Success Loading</h4>
+                        <p className="text-sm text-green-700 dark:text-green-300">Processing successful operation...</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <h4 className="font-semibold">Matrix Rain</h4>
-                    <div className="flex items-center space-x-6">
-                      <MWMatrixLoader size="sm" speed="fast" />
-                      <MWMatrixLoader size="md" speed="normal" />
-                      <MWMatrixLoader size="lg" speed="slow" />
+                  
+                  <div className="p-4 border border-yellow-200 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <Spinner className="text-yellow-600 h-5 w-5" />
+                      <div>
+                        <h4 className="font-medium text-yellow-900 dark:text-yellow-100">Warning Processing</h4>
+                        <p className="text-sm text-yellow-700 dark:text-yellow-300">Validation in progress...</p>
+                      </div>
                     </div>
                   </div>
-                  <div className="space-y-4">
-                    <h4 className="font-semibold">Bouncing Letters</h4>
-                    <div className="flex items-center space-x-6">
-                      <MWBounceLoader size="sm" variant="primary" />
-                      <MWBounceLoader size="md" variant="gradient" />
-                      <MWBounceLoader size="lg" variant="rainbow" />
+                  
+                  <div className="p-4 border border-red-200 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <Spinner className="text-red-600 h-5 w-5" />
+                      <div>
+                        <h4 className="font-medium text-red-900 dark:text-red-100">Error Recovery</h4>
+                        <p className="text-sm text-red-700 dark:text-red-300">Attempting to recover...</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="p-4 border border-blue-200 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <Spinner className="text-blue-600 h-5 w-5" />
+                      <div>
+                        <h4 className="font-medium text-blue-900 dark:text-blue-100">Info Processing</h4>
+                        <p className="text-sm text-blue-700 dark:text-blue-300">Gathering information...</p>
+                      </div>
                     </div>
                   </div>
                 </div>
               }
-              code={`// Heartbeat Animation
-<MWHeartbeatLoader size="md" variant="gradient" speed="normal" />
+              code={`<!-- Semantic State Loaders -->
+<div className="border border-green-200 bg-green-50">
+  <Spinner className="text-green-600" />
+  <span>Success Loading - MW Green (#2d7d32)</span>
+</div>
 
-// Matrix Rain Effect
-<MWMatrixLoader size="md" speed="normal" />
+<div className="border border-yellow-200 bg-yellow-50">
+  <Spinner className="text-yellow-600" />
+  <span>Warning - MW Orange (#f9a825)</span>
+</div>
 
-// Bouncing Letters
-<MWBounceLoader size="md" variant="rainbow" />`}
+<div className="border border-red-200 bg-red-50">
+  <Spinner className="text-red-600" />
+  <span>Error Recovery - MW Red (#d63535)</span>
+</div>
+
+<div className="border border-blue-200 bg-blue-50">
+  <Spinner className="text-blue-600" />
+  <span>Info - MW Info Blue (#0188d1)</span>
+</div>`}
             />
           </div>
         )
@@ -4574,13 +5299,12 @@ export function useLocalStorage(key: string, initialValue: any) {
         title="Components"
         description="Comprehensive UI component library with interactive examples and code snippets. Built with accessibility and consistency in mind."
         badge={{
-          text: "66+ Components",
+          text: "78+ Components",
           variant: "primary"
         }}
         stats={[
-          { label: "Total Components", value: "66" },
+          { label: "Total Components", value: "78" },
           { label: "Categories", value: "7" },
-          { label: "Code Examples", value: "100+" },
           { label: "Accessibility", value: "WCAG 2.1" }
         ]}
       />

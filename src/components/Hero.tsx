@@ -71,7 +71,7 @@ export function Hero() {
                 Moving Walls Components
               </h3>
               <p className="text-mw-gray-600 dark:text-mw-gray-300">
-                68+ components designed for breakthrough experiences - from micro-interactions to complex patterns.
+                78+ components designed for breakthrough experiences - from micro-interactions to complex patterns.
               </p>
             </div>
 

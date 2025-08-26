@@ -1,6 +1,5 @@
 import { Navigation } from '@/components/Navigation'
 import { Hero } from '@/components/Hero'
-import { BrandShowcase } from '@/components/BrandShowcase'
 import { FeatureGrid } from '@/components/FeatureGrid'
 import { Footer } from '@/components/Footer'
 
@@ -10,7 +9,6 @@ export default function HomePage() {
       <Navigation />
       <main>
         <Hero />
-        <BrandShowcase />
         <FeatureGrid />
       </main>
       <Footer />
