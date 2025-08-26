@@ -963,10 +963,28 @@ function ComponentsPageContent() {
                   </div>
                   <div className="space-y-4">
                     <h4 className="font-semibold">MW Progressive Loader</h4>
-                    <div className="flex items-center space-x-6">
-                      <MWProgressiveLoader size="sm" variant="default" speed="fast" />
-                      <MWProgressiveLoader size="md" variant="primary" speed="normal" />
-                      <MWProgressiveLoader size="lg" variant="gradient" speed="slow" />
+                    <div className="space-y-6">
+                      <div>
+                        <p className="text-sm text-gray-600 mb-3">Horizontal Directions</p>
+                        <div className="flex items-center space-x-6">
+                          <MWProgressiveLoader size="md" variant="primary" speed="normal" direction="left-to-right" />
+                          <MWProgressiveLoader size="md" variant="gradient" speed="normal" direction="right-to-left" />
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600 mb-3">Vertical Directions</p>
+                        <div className="flex items-center space-x-6">
+                          <MWProgressiveLoader size="md" variant="default" speed="normal" direction="top-to-bottom" />
+                          <MWProgressiveLoader size="md" variant="primary" speed="normal" direction="bottom-to-top" />
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600 mb-3">Radial Directions</p>
+                        <div className="flex items-center space-x-6">
+                          <MWProgressiveLoader size="md" variant="gradient" speed="normal" direction="center-out" />
+                          <MWProgressiveLoader size="md" variant="primary" speed="normal" direction="edges-in" />
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -979,9 +997,18 @@ function ComponentsPageContent() {
 <MWDotsLoader size="md" dotAnimation="typing" />
 <MWDotsLoader size="lg" dotAnimation="fading" />
 
-// MW Progressive Loader (Left to Right Fill)
-<MWProgressiveLoader size="md" variant="primary" speed="normal" />
-<MWProgressiveLoader size="lg" variant="gradient" speed="slow" />`}
+// MW Progressive Loader - All Directions
+// Horizontal
+<MWProgressiveLoader size="md" variant="primary" direction="left-to-right" />
+<MWProgressiveLoader size="md" variant="gradient" direction="right-to-left" />
+
+// Vertical  
+<MWProgressiveLoader size="md" variant="default" direction="top-to-bottom" />
+<MWProgressiveLoader size="md" variant="primary" direction="bottom-to-top" />
+
+// Radial
+<MWProgressiveLoader size="md" variant="gradient" direction="center-out" />
+<MWProgressiveLoader size="md" variant="primary" direction="edges-in" />`}
             />
 
             <ComponentShowcase

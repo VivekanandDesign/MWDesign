@@ -118,6 +118,85 @@
   }
 }
 
+/* Directional fill animations for MW Progressive Loader */
+@keyframes mw-fill-left-right {
+  0% {
+    clip-path: inset(0 100% 0 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 100% 0 0);
+  }
+}
+
+@keyframes mw-fill-right-left {
+  0% {
+    clip-path: inset(0 0 0 100%);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 0 100%);
+  }
+}
+
+@keyframes mw-fill-top-bottom {
+  0% {
+    clip-path: inset(100% 0 0 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(100% 0 0 0);
+  }
+}
+
+@keyframes mw-fill-bottom-top {
+  0% {
+    clip-path: inset(0 0 100% 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+@keyframes mw-fill-center-out {
+  0% {
+    clip-path: inset(0 50% 0 50%);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+  100% {
+    clip-path: inset(0 50% 0 50%);
+  }
+}
+
+@keyframes mw-fill-edges-in {
+  0% {
+    clip-path: inset(0 0 0 0);
+  }
+  25% {
+    clip-path: inset(0 25% 0 25%);
+  }
+  50% {
+    clip-path: inset(0 50% 0 50%);
+  }
+  75% {
+    clip-path: inset(0 25% 0 25%);
+  }
+  100% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
 /* Glitch effect animations */
 @keyframes mw-glitch-low {
   0%, 90%, 100% { transform: translate(0); }

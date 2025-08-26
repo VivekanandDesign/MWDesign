@@ -276,6 +276,7 @@ export interface MWProgressiveLoaderProps extends React.HTMLAttributes<HTMLDivEl
   size?: 'sm' | 'md' | 'lg' | 'xl'
   variant?: 'default' | 'primary' | 'gradient' | 'outline'
   speed?: 'slow' | 'normal' | 'fast'
+  direction?: 'left-to-right' | 'right-to-left' | 'top-to-bottom' | 'bottom-to-top' | 'center-out' | 'edges-in'
   fillColor?: string
 }
 
@@ -285,6 +286,7 @@ export const MWProgressiveLoader = forwardRef<HTMLDivElement, MWProgressiveLoade
     size = 'md', 
     variant = 'primary',
     speed = 'normal',
+    direction = 'left-to-right',
     fillColor,
     ...props 
   }, ref) => {
@@ -321,6 +323,32 @@ export const MWProgressiveLoader = forwardRef<HTMLDivElement, MWProgressiveLoade
       return {}
     }
 
+    const getAnimationName = () => {
+      switch (direction) {
+        case 'left-to-right':
+          return 'mw-fill-left-right'
+        case 'right-to-left':
+          return 'mw-fill-right-left'
+        case 'top-to-bottom':
+          return 'mw-fill-top-bottom'
+        case 'bottom-to-top':
+          return 'mw-fill-bottom-top'
+        case 'center-out':
+          return 'mw-fill-center-out'
+        case 'edges-in':
+          return 'mw-fill-edges-in'
+        default:
+          return 'mw-fill-left-right'
+      }
+    }
+
+    const getClipPathStyle = () => {
+      const animationName = getAnimationName()
+      return {
+        animation: `${animationName} ${animationDuration[speed]} ease-in-out infinite`
+      }
+    }
+
     return (
       <div
         ref={ref}
@@ -345,26 +373,24 @@ export const MWProgressiveLoader = forwardRef<HTMLDivElement, MWProgressiveLoade
         <div 
           className="absolute inset-0 flex items-center justify-center overflow-hidden z-20"
           style={{
-            animation: `mw-slide-reveal ${animationDuration[speed]} ease-in-out infinite`
+            color: getVariantColor(),
+            background: variant === 'gradient' 
+              ? 'linear-gradient(90deg, #2563EB 0%, #1D4ED8 100%)' 
+              : 'transparent',
+            WebkitBackgroundClip: variant === 'gradient' ? 'text' : 'initial',
+            backgroundClip: variant === 'gradient' ? 'text' : 'initial',
+            ...getClipPathStyle(),
+            ...getOutlineStyle()
           }}
         >
-          <div 
-            className="w-0 h-full flex items-center justify-center font-bold tracking-wider"
-            style={{
-              color: getVariantColor(),
-              background: variant === 'gradient' 
-                ? 'linear-gradient(90deg, #2563EB 0%, #1D4ED8 100%)' 
-                : 'transparent',
-              WebkitBackgroundClip: variant === 'gradient' ? 'text' : 'initial',
-              backgroundClip: variant === 'gradient' ? 'text' : 'initial',
-              animation: `mw-width-expand ${animationDuration[speed]} ease-in-out infinite`,
-              ...getOutlineStyle()
+          <span 
+            className="font-bold tracking-wider select-none"
+            style={{ 
+              color: variant === 'gradient' ? 'transparent' : getVariantColor()
             }}
           >
-            <span style={{ color: variant === 'gradient' ? 'transparent' : getVariantColor() }}>
-              MW
-            </span>
-          </div>
+            MW
+          </span>
         </div>
 
         {/* Gradient definition for SVG-like gradient effect */}

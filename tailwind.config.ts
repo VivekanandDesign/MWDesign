@@ -157,6 +157,13 @@ const config: Config = {
         'mw-progressive-fill': 'mw-progressive-fill 2s ease-in-out infinite',
         'mw-width-expand': 'mw-width-expand 2s ease-in-out infinite',
         'mw-slide-reveal': 'mw-slide-reveal 2s ease-in-out infinite',
+        // Directional MW Progressive Loader Animations
+        'mw-fill-left-right': 'mw-fill-left-right 2s ease-in-out infinite',
+        'mw-fill-right-left': 'mw-fill-right-left 2s ease-in-out infinite',
+        'mw-fill-top-bottom': 'mw-fill-top-bottom 2s ease-in-out infinite',
+        'mw-fill-bottom-top': 'mw-fill-bottom-top 2s ease-in-out infinite',
+        'mw-fill-center-out': 'mw-fill-center-out 2s ease-in-out infinite',
+        'mw-fill-edges-in': 'mw-fill-edges-in 2s ease-in-out infinite',
         // New MW Loader Animations
         'mw-glitch-low': 'mw-glitch-low 2s linear infinite',
         'mw-glitch-medium': 'mw-glitch-medium 2s linear infinite',
@@ -234,6 +241,39 @@ const config: Config = {
           '0%': { transform: 'translateX(-100%)' },
           '50%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(100%)' },
+        },
+        // Directional MW Progressive Loader Keyframes
+        'mw-fill-left-right': {
+          '0%': { clipPath: 'inset(0 100% 0 0)' },
+          '50%': { clipPath: 'inset(0 0 0 0)' },
+          '100%': { clipPath: 'inset(0 100% 0 0)' },
+        },
+        'mw-fill-right-left': {
+          '0%': { clipPath: 'inset(0 0 0 100%)' },
+          '50%': { clipPath: 'inset(0 0 0 0)' },
+          '100%': { clipPath: 'inset(0 0 0 100%)' },
+        },
+        'mw-fill-top-bottom': {
+          '0%': { clipPath: 'inset(100% 0 0 0)' },
+          '50%': { clipPath: 'inset(0 0 0 0)' },
+          '100%': { clipPath: 'inset(100% 0 0 0)' },
+        },
+        'mw-fill-bottom-top': {
+          '0%': { clipPath: 'inset(0 0 100% 0)' },
+          '50%': { clipPath: 'inset(0 0 0 0)' },
+          '100%': { clipPath: 'inset(0 0 100% 0)' },
+        },
+        'mw-fill-center-out': {
+          '0%': { clipPath: 'inset(0 50% 0 50%)' },
+          '50%': { clipPath: 'inset(0 0 0 0)' },
+          '100%': { clipPath: 'inset(0 50% 0 50%)' },
+        },
+        'mw-fill-edges-in': {
+          '0%': { clipPath: 'inset(0 0 0 0)' },
+          '25%': { clipPath: 'inset(0 25% 0 25%)' },
+          '50%': { clipPath: 'inset(0 50% 0 50%)' },
+          '75%': { clipPath: 'inset(0 25% 0 25%)' },
+          '100%': { clipPath: 'inset(0 0 0 0)' },
         },
         // New MW Loader Keyframes
         'mw-glitch-low': {
