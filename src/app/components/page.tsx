@@ -11,6 +11,14 @@ import { Badge } from '@/components/ui/Badge'
 import { Alert } from '@/components/ui/Alert'
 import { Avatar, AvatarGroup } from '@/components/ui/Avatar'
 import { Spinner, Loading } from '@/components/ui/Spinner'
+import { 
+  MWLoader, 
+  MWDotsLoader, 
+  MWProgressiveLoader,
+  MWHeartbeatLoader,
+  MWMatrixLoader,
+  MWBounceLoader
+} from '@/components/ui/MWLoader'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/Tabs'
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/Accordion'
 import { Tooltip } from '@/components/ui/Tooltip'
@@ -930,6 +938,91 @@ function ComponentsPageContent() {
               code={`<Loading isLoading={true}>
   <div>Content being loaded...</div>
 </Loading>`}
+            />
+
+            <ComponentShowcase
+              title="MW Brand Loaders"
+              description="Custom Moving Walls branded text loaders"
+              preview={
+                <div className="space-y-6">
+                  <div className="space-y-4">
+                    <h4 className="font-semibold">MW Text Loader</h4>
+                    <div className="flex items-center space-x-6">
+                      <MWLoader size="sm" animation="pulse" />
+                      <MWLoader size="md" animation="wave" />
+                      <MWLoader size="lg" animation="glow" />
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="font-semibold">MW Dots Loader</h4>
+                    <div className="flex items-center space-x-6">
+                      <MWDotsLoader size="sm" dotAnimation="bouncing" />
+                      <MWDotsLoader size="md" dotAnimation="typing" />
+                      <MWDotsLoader size="lg" dotAnimation="fading" />
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="font-semibold">MW Progressive Loader</h4>
+                    <div className="flex items-center space-x-6">
+                      <MWProgressiveLoader size="sm" variant="default" speed="fast" />
+                      <MWProgressiveLoader size="md" variant="primary" speed="normal" />
+                      <MWProgressiveLoader size="lg" variant="gradient" speed="slow" />
+                    </div>
+                  </div>
+                </div>
+              }
+              code={`// MW Text Loader
+<MWLoader size="md" animation="wave" />
+<MWLoader size="lg" animation="glow" />
+
+// MW Dots Loader  
+<MWDotsLoader size="md" dotAnimation="typing" />
+<MWDotsLoader size="lg" dotAnimation="fading" />
+
+// MW Progressive Loader (Left to Right Fill)
+<MWProgressiveLoader size="md" variant="primary" speed="normal" />
+<MWProgressiveLoader size="lg" variant="gradient" speed="slow" />`}
+            />
+
+            <ComponentShowcase
+              title="Creative MW Loaders"
+              description="Advanced animated MW loaders with special effects"
+              preview={
+                <div className="space-y-6">
+                  <div className="space-y-4">
+                    <h4 className="font-semibold">Heartbeat/Breathing</h4>
+                    <div className="flex items-center space-x-6">
+                      <MWHeartbeatLoader size="sm" variant="primary" speed="fast" />
+                      <MWHeartbeatLoader size="md" variant="gradient" speed="normal" />
+                      <MWHeartbeatLoader size="lg" variant="pulse" speed="slow" />
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="font-semibold">Matrix Rain</h4>
+                    <div className="flex items-center space-x-6">
+                      <MWMatrixLoader size="sm" speed="fast" />
+                      <MWMatrixLoader size="md" speed="normal" />
+                      <MWMatrixLoader size="lg" speed="slow" />
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <h4 className="font-semibold">Bouncing Letters</h4>
+                    <div className="flex items-center space-x-6">
+                      <MWBounceLoader size="sm" variant="primary" />
+                      <MWBounceLoader size="md" variant="gradient" />
+                      <MWBounceLoader size="lg" variant="rainbow" />
+                    </div>
+                  </div>
+                </div>
+              }
+              code={`// Heartbeat Animation
+<MWHeartbeatLoader size="md" variant="gradient" speed="normal" />
+
+// Matrix Rain Effect
+<MWMatrixLoader size="md" speed="normal" />
+
+// Bouncing Letters
+<MWBounceLoader size="md" variant="rainbow" />`}
             />
           </div>
         )

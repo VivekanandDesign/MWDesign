@@ -65,6 +65,14 @@ export { Sidebar, SidebarHeader, SidebarContent, SidebarFooter, SidebarTrigger }
 
 // Feedback Components
 export { Spinner, Loading } from './Spinner'
+export { 
+  MWLoader, 
+  MWDotsLoader, 
+  MWProgressiveLoader,
+  MWHeartbeatLoader,
+  MWMatrixLoader,
+  MWBounceLoader
+} from './MWLoader'
 
 // Navigation Components
 export { Breadcrumb, BreadcrumbItem, BreadcrumbSeparator } from './Breadcrumb'

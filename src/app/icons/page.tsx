@@ -7,7 +7,7 @@ import { PageHero } from '@/components/PageHero'
 import { Footer } from '@/components/Footer'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
-import { getIconsData, searchIcons, getIconsByCategory, DynamicIcon } from '@/data/icons'
+import { getIconsData, searchIcons, getIconsByCategory, DynamicIcon, type IconCategory } from '@/data/icons'
 
 export default function IconsPage() {
   const [searchTerm, setSearchTerm] = useState('')
@@ -186,9 +186,9 @@ export default function IconsPage() {
                         : 'text-mw-gray-700 hover:bg-mw-gray-100 dark:text-mw-gray-300 dark:hover:bg-mw-gray-700'
                     }`}
                   >
-                    <span className="capitalize">{category.name}</span>
+                    <span className="capitalize">{(category as IconCategory).name}</span>
                     <Badge variant="secondary" className="text-xs">
-                      {category.icons.length}
+                      {(category as IconCategory).icons.length}
                     </Badge>
                   </button>
                 ))}

@@ -7,20 +7,23 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "figma:screenshots": "node figma-export/screenshot-automation.js",
+    "figma:setup": "echo 'Opening Figma setup guide...' && open figma-export/figma-setup-guide.md"
   },
   "dependencies": {
-    "next": "15.4.6",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "framer-motion": "^11.12.0",
-    "clsx": "^2.1.1",
-    "lucide-react": "^0.462.0",
-    "@next/mdx": "^15.4.6",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
-    "react-syntax-highlighter": "^15.5.0",
-    "copy-to-clipboard": "^3.3.3"
+    "@next/mdx": "^15.4.6",
+    "clsx": "^2.1.1",
+    "copy-to-clipboard": "^3.3.3",
+    "framer-motion": "^11.12.0",
+    "lucide-react": "^0.462.0",
+    "next": "15.4.6",
+    "puppeteer": "^24.17.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
     "@types/node": "^20.17.9",

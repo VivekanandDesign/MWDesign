@@ -146,6 +146,30 @@ const config: Config = {
         'mw-float': 'mw-float 3s ease-in-out infinite',
         'mw-breakthrough': 'mw-breakthrough 2s ease-in-out infinite',
         'mw-flow': 'mw-flow 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+        // MW Loader Animations
+        'mw-wave': 'mw-wave 2s ease-in-out infinite',
+        'mw-glow': 'mw-glow 2s ease-in-out infinite alternate',
+        'mw-typewriter': 'mw-typewriter 2s steps(2,end) infinite',
+        'mw-typing-dots': 'mw-typing-dots 1.5s ease-in-out infinite',
+        'mw-scale': 'mw-scale 2s ease-in-out infinite',
+        'mw-letter-1': 'mw-letter-1 2s ease-in-out infinite',
+        'mw-letter-2': 'mw-letter-2 2s ease-in-out infinite 0.2s',
+        'mw-progressive-fill': 'mw-progressive-fill 2s ease-in-out infinite',
+        'mw-width-expand': 'mw-width-expand 2s ease-in-out infinite',
+        'mw-slide-reveal': 'mw-slide-reveal 2s ease-in-out infinite',
+        // New MW Loader Animations
+        'mw-glitch-low': 'mw-glitch-low 2s linear infinite',
+        'mw-glitch-medium': 'mw-glitch-medium 2s linear infinite',
+        'mw-glitch-high': 'mw-glitch-high 2s linear infinite',
+        'mw-glitch-red': 'mw-glitch-red 2s linear infinite',
+        'mw-glitch-cyan': 'mw-glitch-cyan 2s linear infinite',
+        'mw-heartbeat': 'mw-heartbeat 1.5s ease-in-out infinite',
+        'mw-matrix-rain': 'mw-matrix-rain 2s linear infinite',
+        'mw-matrix-1': 'mw-matrix-1 3s linear infinite',
+        'mw-matrix-2': 'mw-matrix-2 3s linear infinite 0.5s',
+        'mw-matrix-3': 'mw-matrix-3 3s linear infinite 1s',
+        'mw-neon-flicker': 'mw-neon-flicker 2s ease-in-out infinite',
+        'mw-bounce-letter': 'mw-bounce-letter 1s ease-in-out infinite',
       },
       keyframes: {
         'mw-float': {
@@ -160,6 +184,120 @@ const config: Config = {
         'mw-flow': {
           '0%': { transform: 'translateX(-100%)', opacity: '0' },
           '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        // MW Loader Keyframes
+        'mw-wave': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
+        },
+        'mw-glow': {
+          'from': { 
+            textShadow: '0 0 5px #2563EB, 0 0 10px #2563EB, 0 0 15px #2563EB',
+            transform: 'scale(1)' 
+          },
+          'to': { 
+            textShadow: '0 0 10px #2563EB, 0 0 20px #2563EB, 0 0 30px #2563EB',
+            transform: 'scale(1.05)' 
+          },
+        },
+        'mw-typewriter': {
+          'from': { width: '0' },
+          'to': { width: '100%' },
+        },
+        'mw-typing-dots': {
+          '0%, 80%, 100%': { opacity: '0' },
+          '40%': { opacity: '1' },
+        },
+        'mw-scale': {
+          '0%, 100%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' },
+        },
+        'mw-letter-1': {
+          '0%, 100%': { opacity: '0.3', transform: 'translateY(0)' },
+          '50%': { opacity: '1', transform: 'translateY(-5px)' },
+        },
+        'mw-letter-2': {
+          '0%, 100%': { opacity: '0.3', transform: 'translateY(0)' },
+          '50%': { opacity: '1', transform: 'translateY(-5px)' },
+        },
+        'mw-progressive-fill': {
+          '0%': { clipPath: 'inset(0 100% 0 0)' },
+          '50%': { clipPath: 'inset(0 0 0 0)' },
+          '100%': { clipPath: 'inset(0 100% 0 0)' },
+        },
+        'mw-width-expand': {
+          '0%': { width: '0%' },
+          '50%': { width: '100%' },
+          '100%': { width: '0%' },
+        },
+        'mw-slide-reveal': {
+          '0%': { transform: 'translateX(-100%)' },
+          '50%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        // New MW Loader Keyframes
+        'mw-glitch-low': {
+          '0%, 90%, 100%': { transform: 'translate(0)' },
+          '10%': { transform: 'translate(-1px, 1px)' },
+          '20%': { transform: 'translate(1px, -1px)' },
+        },
+        'mw-glitch-medium': {
+          '0%, 80%, 100%': { transform: 'translate(0)' },
+          '10%': { transform: 'translate(-2px, 2px)' },
+          '20%': { transform: 'translate(2px, -2px)' },
+          '30%': { transform: 'translate(-1px, 1px)' },
+        },
+        'mw-glitch-high': {
+          '0%, 70%, 100%': { transform: 'translate(0)' },
+          '10%': { transform: 'translate(-3px, 3px)' },
+          '20%': { transform: 'translate(3px, -3px)' },
+          '30%': { transform: 'translate(-2px, 2px)' },
+          '40%': { transform: 'translate(2px, -2px)' },
+        },
+        'mw-glitch-red': {
+          '0%, 90%, 100%': { transform: 'translate(0)' },
+          '10%': { transform: 'translate(-2px, 0)' },
+          '20%': { transform: 'translate(2px, 0)' },
+        },
+        'mw-glitch-cyan': {
+          '0%, 90%, 100%': { transform: 'translate(0)' },
+          '10%': { transform: 'translate(2px, 0)' },
+          '20%': { transform: 'translate(-2px, 0)' },
+        },
+        'mw-heartbeat': {
+          '0%, 50%, 100%': { transform: 'scale(1)' },
+          '25%': { transform: 'scale(1.1)' },
+          '75%': { transform: 'scale(1.05)' },
+        },
+        'mw-matrix-rain': {
+          '0%': { transform: 'translateY(-100%)' },
+          '100%': { transform: 'translateY(100%)' },
+        },
+        'mw-matrix-1': {
+          '0%': { transform: 'translate(-20px, -30px)', opacity: '0' },
+          '50%': { opacity: '1' },
+          '100%': { transform: 'translate(20px, 30px)', opacity: '0' },
+        },
+        'mw-matrix-2': {
+          '0%': { transform: 'translate(10px, -20px)', opacity: '0' },
+          '50%': { opacity: '1' },
+          '100%': { transform: 'translate(-10px, 20px)', opacity: '0' },
+        },
+        'mw-matrix-3': {
+          '0%': { transform: 'translate(-10px, -25px)', opacity: '0' },
+          '50%': { opacity: '1' },
+          '100%': { transform: 'translate(15px, 25px)', opacity: '0' },
+        },
+        'mw-neon-flicker': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.8' },
+          '75%': { opacity: '1' },
+          '85%': { opacity: '0.9' },
+          '95%': { opacity: '1' },
+        },
+        'mw-bounce-letter': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
     },
