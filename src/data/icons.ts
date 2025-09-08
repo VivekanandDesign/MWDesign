@@ -20,73 +20,73 @@ export function getIconsData(): IconsData {
       name: 'Arrows & Navigation',
       description: 'Direction arrows, navigation icons, and movement indicators',
       icons: [
-        'arrow-up', 'arrow-down', 'arrow-left', 'arrow-right',
-        'chevron-up', 'chevron-down', 'chevron-left', 'chevron-right',
-        'arrow-up-right', 'arrow-down-left', 'corner-up-left', 'corner-down-right',
-        'move', 'move-3d', 'navigation', 'compass'
+        'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight',
+        'ChevronUp', 'ChevronDown', 'ChevronLeft', 'ChevronRight',
+        'ArrowUpRight', 'ArrowDownLeft', 'CornerUpLeft', 'CornerDownRight',
+        'Move', 'Move3d', 'Navigation', 'Compass'
       ]
     },
     'interface': {
       name: 'Interface & Controls',
       description: 'Common UI elements, buttons, and interactive controls',
       icons: [
-        'home', 'settings', 'menu', 'search', 'filter', 'sort',
-        'plus', 'minus', 'x', 'check', 'star', 'heart',
-        'bell', 'bookmark', 'flag', 'info', 'help-circle', 'alert-circle'
+        'Home', 'Settings', 'Menu', 'Search', 'Filter', 'ArrowUpDown',
+        'Plus', 'Minus', 'X', 'Check', 'Star', 'Heart',
+        'Bell', 'Bookmark', 'Flag', 'Info', 'HelpCircle', 'AlertCircle'
       ]
     },
     'communication': {
       name: 'Communication',
       description: 'Email, messaging, phone, and social interaction icons',
       icons: [
-        'mail', 'message-circle', 'message-square', 'send',
-        'phone', 'phone-call', 'video', 'mic', 'mic-off',
-        'share', 'share-2', 'at-sign', 'hash', 'link', 'external-link'
+        'Mail', 'MessageCircle', 'MessageSquare', 'Send',
+        'Phone', 'PhoneCall', 'Video', 'Mic', 'MicOff',
+        'Share', 'Share2', 'AtSign', 'Hash', 'Link', 'ExternalLink'
       ]
     },
     'files': {
       name: 'Files & Documents',
       description: 'File types, folders, and document management icons',
       icons: [
-        'file', 'file-text', 'folder', 'folder-open',
-        'download', 'upload', 'save', 'copy', 'scissors', 'clipboard',
-        'image', 'video', 'music', 'archive', 'database', 'hard-drive'
+        'File', 'FileText', 'Folder', 'FolderOpen',
+        'Download', 'Upload', 'Save', 'Copy', 'Scissors', 'Clipboard',
+        'Image', 'Video', 'Music', 'Archive', 'Database', 'HardDrive'
       ]
     },
     'design': {
       name: 'Design & Graphics',
       description: 'Design tools, graphics, and creative icons',
       icons: [
-        'palette', 'brush', 'pen-tool', 'edit', 'edit-2', 'edit-3',
-        'eye', 'eye-off', 'layers', 'layout', 'grid', 'circle',
-        'square', 'triangle', 'hexagon', 'zap', 'sun', 'moon'
+        'Palette', 'Brush', 'PenTool', 'Edit', 'Edit2', 'Edit3',
+        'Eye', 'EyeOff', 'Layers', 'Layout', 'Grid3x3', 'Circle',
+        'Square', 'Triangle', 'Hexagon', 'Zap', 'Sun', 'Moon'
       ]
     },
     'business': {
       name: 'Business & Finance',
       description: 'Business, finance, shopping, and commercial icons',
       icons: [
-        'dollar-sign', 'credit-card', 'shopping-cart', 'shopping-bag',
-        'briefcase', 'users', 'user', 'building', 'store',
-        'trending-up', 'trending-down', 'bar-chart', 'pie-chart', 'target', 'award'
+        'DollarSign', 'CreditCard', 'ShoppingCart', 'ShoppingBag',
+        'Briefcase', 'Users', 'User', 'Building', 'Store',
+        'TrendingUp', 'TrendingDown', 'BarChart', 'PieChart', 'Target', 'Award'
       ]
     },
     'technology': {
       name: 'Technology',
       description: 'Tech devices, connectivity, and digital icons',
       icons: [
-        'smartphone', 'tablet', 'laptop', 'monitor', 'printer',
-        'wifi', 'bluetooth', 'battery', 'plug', 'cpu', 'server',
-        'cloud', 'cloud-upload', 'cloud-download', 'globe', 'lock', 'unlock'
+        'Smartphone', 'Tablet', 'Laptop', 'Monitor', 'Printer',
+        'Wifi', 'Bluetooth', 'Battery', 'Plug', 'Cpu', 'Server',
+        'Cloud', 'CloudUpload', 'CloudDownload', 'Globe', 'Lock', 'Unlock'
       ]
     },
     'travel': {
       name: 'Travel & Transportation',
       description: 'Travel, maps, vehicles, and location icons',
       icons: [
-        'map', 'map-pin', 'navigation', 'compass', 'car', 'truck',
-        'plane', 'train', 'bike', 'walking', 'ship', 'anchor',
-        'luggage', 'camera', 'tent', 'mountain', 'tree', 'palmtree'
+        'Map', 'MapPin', 'Navigation', 'Compass', 'Car', 'Truck',
+        'Plane', 'Train', 'Bike', 'Footprints', 'Ship', 'Anchor',
+        'Luggage', 'Camera', 'Tent', 'Mountain', 'Trees', 'Palmtree'
       ]
     }
   };
