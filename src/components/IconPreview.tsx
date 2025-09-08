@@ -3,50 +3,13 @@ import { Button } from './ui/Button';
 import { Badge } from './ui/Badge';
 import { Eye, EyeOff, Maximize2, Minimize2, Star } from 'lucide-react';
 import { IconCustomization } from '@/hooks/useIconCustomization';
+import { DynamicIcon } from './DynamicIcon';
 
 interface IconPreviewProps {
   iconName: string;
   customization: IconCustomization;
   className?: string;
 }
-
-// Mock icon component for preview - shows different shapes based on icon name
-const MockIcon = ({ iconName, size, color, strokeWidth, fillColor }: any) => {
-  // Generate different shapes based on icon name
-  const getIconPath = (name: string) => {
-    const hash = name.split('').reduce((a, b) => a + b.charCodeAt(0), 0);
-    const shapes = [
-      "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z", // star
-      "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z", // hexagon
-      "M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z", // circle
-      "M3 3h18v18H3V3z", // square
-      "M12 2L2 7l10 5 10-5-10-5z m0 6.5L2 7l10 5 10-5-10-5z M2 17l10 5 10-5M2 12l10 5 10-5", // layers
-      "M4.93 4.93l14.14 14.14m0-14.14L4.93 19.07", // x
-      "M20 6L9 17l-5-5", // check
-      "M12 1l9 3v8c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V4l9-3z", // shield
-      "M9 12l2 2 4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0z", // check circle
-      "M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" // plus circle
-    ];
-    return shapes[hash % shapes.length];
-  };
-
-  return (
-    <div className="flex flex-col items-center justify-center">
-      <svg
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        fill={fillColor === 'none' ? 'none' : fillColor || 'none'}
-        stroke={color}
-        strokeWidth={strokeWidth}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d={getIconPath(iconName)} />
-      </svg>
-    </div>
-  );
-};
 
 
 
@@ -137,12 +100,14 @@ export function IconPreview({ iconName, customization, className = '' }: IconPre
         >
           <div className="text-center">
             <div className="mb-4">
-              <MockIcon 
-                iconName={iconName}
+              <DynamicIcon 
+                name={iconName}
                 size={customization.size}
-                color={customization.color}
+                style={{ 
+                  color: customization.color,
+                  fill: customization.fillColor && customization.fillColor !== 'none' ? customization.fillColor : 'none'
+                }}
                 strokeWidth={customization.strokeWidth}
-                fillColor={customization.fillColor}
               />
             </div>
             <Badge variant="outline" className="text-xs">
@@ -201,12 +166,14 @@ export function IconPreview({ iconName, customization, className = '' }: IconPre
               key={size}
               className="flex flex-col items-center p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
             >
-              <MockIcon 
-                iconName={iconName}
+              <DynamicIcon 
+                name={iconName}
                 size={size}
-                color={customization.color}
+                style={{ 
+                  color: customization.color,
+                  fill: customization.fillColor && customization.fillColor !== 'none' ? customization.fillColor : 'none'
+                }}
                 strokeWidth={customization.strokeWidth}
-                fillColor={customization.fillColor}
               />
               <span className="text-xs text-gray-500 dark:text-gray-400 mt-2">
                 {size}px
@@ -236,12 +203,14 @@ export function IconPreview({ iconName, customization, className = '' }: IconPre
               key={colorOption.name}
               className="flex flex-col items-center p-3 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
             >
-              <MockIcon 
-                iconName={`${iconName}-${colorOption.name.toLowerCase()}`}
+              <DynamicIcon 
+                name={iconName}
                 size={24}
-                color={colorOption.color}
+                style={{ 
+                  color: colorOption.color,
+                  fill: customization.fillColor && customization.fillColor !== 'none' ? customization.fillColor : 'none'
+                }}
                 strokeWidth={customization.strokeWidth}
-                fillColor={customization.fillColor}
               />
               <span className="text-xs text-gray-500 dark:text-gray-400 mt-2">
                 {colorOption.name}
