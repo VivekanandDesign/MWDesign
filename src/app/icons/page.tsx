@@ -1,27 +1,116 @@
 'use client'
 
 import React, { useState, useMemo, useCallback } from 'react'
-import { Search, Grid, List, Heart, Copy, Check, X, Menu } from 'lucide-react'
+import { Search, Grid, List, Heart, Copy, Check, X, Menu, Download, Code, FileText, Settings, History, Keyboard } from 'lucide-react'
 import { Navigation } from '@/components/Navigation'
 import { PageHero } from '@/components/PageHero'
+import { formatIconName } from '@/utils/iconNameFormatter'
 import { Footer } from '@/components/Footer'
 import { Button } from '@/components/ui/Button'
 import { Badge } from '@/components/ui/Badge'
-import { getIconsData, searchIcons, getIconsByCategory, DynamicIcon, type IconCategory } from '@/data/icons'
+import { EnhancedCopyIconButton, SimpleCopyButton } from '@/components/EnhancedCopyIconButton'
+import { CustomizationPanel } from '@/components/CustomizationPanel'
+import { HistoryFavoritesPanel } from '@/components/HistoryFavoritesPanel'
+import { KeyboardShortcutsHelp } from '@/components/KeyboardShortcutsHelp'
+import { IconDetailsModal } from '@/components/IconDetailsModal'
+import { Toast, useToast, ToastContainer } from '@/components/Toast'
+import { useCopyIcon } from '@/hooks/useCopyIcon'
+import { useCopyHistory } from '@/hooks/useCopyHistory'
+import { useIconCustomization } from '@/hooks/useIconCustomization'
+import { useIconKeyboardShortcuts } from '@/hooks/useKeyboardShortcuts'
+import { useIconDetailsModal } from '@/hooks/useIconDetailsModal'
+import { CopyType } from '@/utils/svgExtractor'
+import { getIconsData, getIconsByCategory, type IconCategory } from '@/data/icons'
+import { DynamicIcon } from '@/components/DynamicIcon'
+import { useIconSearch } from '@/hooks/useIconSearch'
 
 export default function IconsPage() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid')
   const [iconSize, setIconSize] = useState(24)
-  const [favorites, setFavorites] = useState<string[]>([])
-  const [copiedIcon, setCopiedIcon] = useState<string | null>(null)
   const [sidebarOpen, setSidebarOpen] = useState(false)
+  const [selectedIcon, setSelectedIcon] = useState<string | null>(null)
 
-  // Get icon data
-  const iconData = getIconsData()
+  // Enhanced panel states
+  const [customizationOpen, setCustomizationOpen] = useState(false)
+  const [historyOpen, setHistoryOpen] = useState(false)
+  const [keyboardHelpOpen, setKeyboardHelpOpen] = useState(false)
 
-  // Get filtered icons
+  // Toast notifications
+  const { toasts, addToast, removeToast } = useToast()
+
+  // Enhanced hooks
+  const { copyState } = useCopyIcon(
+    (iconName, type) => {
+      const typeLabels = {
+        [CopyType.SVG]: 'SVG',
+        [CopyType.JSX]: 'JSX',
+        [CopyType.IMPORT]: 'Import',
+        [CopyType.DOWNLOAD]: 'Downloaded'
+      }
+      addToast({
+        message: `${iconName} ${typeLabels[type]} copied!`,
+        type: 'success',
+        copyType: type,
+        iconName
+      })
+    },
+    (error) => {
+      addToast({
+        message: 'Copy failed',
+        type: 'error'
+      })
+    }
+  )
+
+  // Get icon data - memoize to prevent recreation
+  const iconData = useMemo(() => getIconsData(), [])
+
+  // History and favorites
+  const historyHook = useCopyHistory()
+  
+  // Customization
+  const customizationHook = useIconCustomization()
+
+  // Enhanced search with favorites integration
+  const favorites = historyHook.favorites.map(fav => fav.iconName)
+
+    // Keyboard shortcuts
+  const keyboardShortcuts = useIconKeyboardShortcuts({
+    onCopyAsSVG: () => selectedIcon && copyIcon(selectedIcon, CopyType.SVG),
+    onCopyAsJSX: () => selectedIcon && copyIcon(selectedIcon, CopyType.JSX),
+    onCopyAsImport: () => selectedIcon && copyIcon(selectedIcon, CopyType.IMPORT),
+    onDownload: () => selectedIcon && copyIcon(selectedIcon, CopyType.DOWNLOAD),
+    onToggleFavorite: () => selectedIcon && historyHook.toggleFavorite(selectedIcon),
+    onToggleCustomization: () => setCustomizationOpen(!customizationOpen),
+    onToggleHistory: () => setHistoryOpen(!historyOpen),
+    onSearch: () => {
+      const searchInput = document.querySelector('input[type="search"]') as HTMLInputElement;
+      searchInput?.focus();
+    },
+    onEscape: () => {
+      setCustomizationOpen(false);
+      setHistoryOpen(false);
+      setKeyboardHelpOpen(false);
+    }
+  })
+
+  // Icon Details Modal
+  const modalHook = useIconDetailsModal()
+  const { searchIcons } = useIconSearch()
+
+  // Copy function for keyboard shortcuts
+  const copyIcon = async (iconName: string, type: CopyType) => {
+    try {
+      const { copyIcon: copy } = useCopyIcon();
+      await copy(iconName, type);
+    } catch (error) {
+      console.error('Copy failed:', error);
+    }
+  }
+
+  // Get filtered icons with optimized search
   const filteredIcons = useMemo(() => {
     let icons: string[] = []
     
@@ -39,31 +128,16 @@ export default function IconsPage() {
     }
 
     return icons
-  }, [searchTerm, selectedCategory, favorites, iconData.allIcons])
+  }, [searchTerm, selectedCategory, favorites, iconData.allIcons, searchIcons])
 
   // Reset search when filters change
   React.useEffect(() => {
     // Reset any necessary state when search changes
   }, [searchTerm, selectedCategory])
 
-  const handleCopyIcon = useCallback(async (iconName: string) => {
-    const importStatement = `import { ${iconName} } from 'lucide-react'`
-    try {
-      await navigator.clipboard.writeText(importStatement)
-      setCopiedIcon(iconName)
-      setTimeout(() => setCopiedIcon(null), 2000)
-    } catch (err) {
-      console.error('Failed to copy:', err)
-    }
-  }, [])
-
   const handleToggleFavorite = useCallback((iconName: string) => {
-    setFavorites(prev => 
-      prev.includes(iconName) 
-        ? prev.filter(fav => fav !== iconName)
-        : [...prev, iconName]
-    )
-  }, [])
+    historyHook.toggleFavorite(iconName)
+  }, [historyHook])
 
   const getGridColumns = () => {
     // Always show 8 icons per row with responsive breakpoints
@@ -326,6 +400,43 @@ export default function IconsPage() {
             </div>
           </div>
 
+          {/* Enhanced Toolbar */}
+          <div className="px-6 py-3 bg-gray-50 dark:bg-gray-800/50 border-b border-gray-200 dark:border-gray-700">
+            <div className="flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <Button
+                  onClick={() => setHistoryOpen(!historyOpen)}
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                >
+                  <History className="w-4 h-4" />
+                  History
+                </Button>
+                
+                <Button
+                  onClick={() => setCustomizationOpen(!customizationOpen)}
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                >
+                  <Settings className="w-4 h-4" />
+                  Customize
+                </Button>
+                
+                <Button
+                  onClick={() => setKeyboardHelpOpen(!keyboardHelpOpen)}
+                  variant="outline"
+                  size="sm"
+                  className="flex items-center gap-2"
+                >
+                  <Keyboard className="w-4 h-4" />
+                  Shortcuts
+                </Button>
+              </div>
+            </div>
+          </div>
+
           {/* Icons Content */}
           <div className="flex-1 overflow-auto px-6 py-6">
             {/* Empty State */}
@@ -353,44 +464,24 @@ export default function IconsPage() {
                         size={iconSize} 
                         className="text-mw-gray-700 dark:text-mw-gray-300 flex-shrink-0"
                       />
-                      <span className="font-mono text-sm text-mw-gray-900 dark:text-white">
+                      <span className="font-medium text-sm text-mw-gray-900 dark:text-white">
+                        {formatIconName(iconName)}
+                      </span>
+                      <span className="font-mono text-xs text-mw-gray-500 dark:text-mw-gray-400 ml-2">
                         {iconName}
                       </span>
                     </div>
                     
                     <div className="flex items-center gap-2">
-                      <Button
-                        size="sm"
+                      <EnhancedCopyIconButton
+                        iconName={iconName}
                         variant="primary"
-                        onClick={() => handleCopyIcon(iconName)}
-                        className="h-8 bg-mw-blue-600 hover:bg-mw-blue-700 text-white border-mw-blue-600 hover:border-mw-blue-700"
-                      >
-                        {copiedIcon === iconName ? (
-                          <>
-                            <Check className="w-3 h-3 mr-1" />
-                            Copied!
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3 h-3 mr-1" />
-                            Copy
-                          </>
-                        )}
-                      </Button>
-                      <Button
                         size="sm"
-                        variant="outline"
-                        onClick={() => handleToggleFavorite(iconName)}
-                        className="h-8 px-2"
-                      >
-                        <Heart 
-                          className={`w-3 h-3 ${
-                            favorites.includes(iconName) 
-                              ? 'fill-red-500 text-red-500' 
-                              : 'text-mw-gray-600 dark:text-mw-gray-400'
-                          }`} 
-                        />
-                      </Button>
+                        onCustomizeClick={() => {
+                          setSelectedIcon(iconName);
+                          setCustomizationOpen(true);
+                        }}
+                      />
                     </div>
                   </div>
                 ))}
@@ -401,7 +492,8 @@ export default function IconsPage() {
                 {filteredIcons.map((iconName) => (
                   <div
                     key={iconName}
-                    className="group relative aspect-[4/5] bg-white dark:bg-mw-gray-800 border border-mw-gray-200 dark:border-mw-gray-700 rounded-lg hover:border-mw-blue-300 dark:hover:border-mw-blue-600 hover:shadow-md transition-all duration-200"
+                    className="group relative aspect-[4/5] bg-white dark:bg-mw-gray-800 border border-mw-gray-200 dark:border-mw-gray-700 rounded-lg hover:border-mw-blue-300 dark:hover:border-mw-blue-600 hover:shadow-md transition-all duration-200 cursor-pointer"
+                    onClick={() => modalHook.openModal(iconName)}
                   >
                     <div className="absolute inset-0 flex flex-col items-center justify-center p-3">
                       <DynamicIcon 
@@ -410,31 +502,21 @@ export default function IconsPage() {
                         className="text-mw-gray-700 dark:text-mw-gray-300 group-hover:text-mw-blue-600 dark:group-hover:text-mw-blue-400 transition-colors flex-shrink-0 mb-2"
                       />
                       <div className="text-xs text-center text-mw-gray-600 dark:text-mw-gray-400 truncate w-full px-1 leading-tight">
-                        {iconName}
+                        {formatIconName(iconName)}
                       </div>
                     </div>
                     
                     {/* Hover Actions */}
                     <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 rounded-lg flex items-end justify-center pb-3">
-                      <Button
-                        size="sm"
-                        variant="primary"
-                        onClick={() => handleCopyIcon(iconName)}
-                        className="px-3 py-1 h-8 text-xs bg-mw-blue-600 hover:bg-mw-blue-700 text-white border-mw-blue-600 hover:border-mw-blue-700"
-                        title="Copy import statement"
-                      >
-                        {copiedIcon === iconName ? (
-                          <>
-                            <Check className="w-3 h-3 mr-1" />
-                            Copied!
-                          </>
-                        ) : (
-                          <>
-                            <Copy className="w-3 h-3 mr-1" />
-                            Copy
-                          </>
-                        )}
-                      </Button>
+                      <div onClick={(e) => e.stopPropagation()}>
+                        <SimpleCopyButton
+                          iconName={iconName}
+                          type={CopyType.JSX}
+                          variant="primary"
+                          size="sm"
+                          className="px-3 py-1 h-8 text-xs"
+                        />
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -443,6 +525,43 @@ export default function IconsPage() {
           </div>
         </div>
       </div>
+      
+      {/* Enhanced Panels */}
+      <HistoryFavoritesPanel 
+        isOpen={historyOpen}
+        onClose={() => setHistoryOpen(false)}
+      />
+      
+      <CustomizationPanel 
+        isOpen={customizationOpen}
+        onClose={() => setCustomizationOpen(false)}
+        iconName={selectedIcon || undefined}
+      />
+      
+      <KeyboardShortcutsHelp
+        isOpen={keyboardHelpOpen}
+        onClose={() => setKeyboardHelpOpen(false)}
+      />
+      
+      {/* Icon Details Modal */}
+      <IconDetailsModal
+        isOpen={modalHook.isOpen}
+        iconName={modalHook.selectedIcon}
+        activeTab={modalHook.activeTab}
+        onClose={modalHook.closeModal}
+        onTabChange={modalHook.setActiveTab}
+        onIconChange={modalHook.openModal}
+      />
+      
+      {/* Toast Notifications */}
+      {toasts.map((toast) => (
+        <Toast
+          key={toast.id}
+          {...toast}
+          onClose={() => removeToast(toast.id)}
+        />
+      ))}
+      
       <Footer />
     </div>
   )

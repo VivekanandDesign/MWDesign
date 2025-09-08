@@ -8,8 +8,7 @@ import { ThemeToggle } from './ThemeToggle'
 
 const navigationItems = [
   { name: 'Brand Identity', href: '/brand-identity', icon: Heart },
-  { name: 'Design Tokens', href: '/tokens', icon: Palette },
-  { name: 'New Design Tokens', href: '/new-design-tokens', icon: Palette },
+  { name: 'Design Tokens', href: '/new-design-tokens', icon: Palette },
   { name: 'Components', href: '/components', icon: Code },
   { name: 'Examples', href: '/examples', icon: Layout },
   { name: 'Icons', href: '/icons', icon: Palette },
