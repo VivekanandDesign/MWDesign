@@ -191,14 +191,10 @@ const DesignProcessPage = () => {
             </AnimatedElement>
             
             <AnimatedElement direction="up" delay={800}>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <Button size="lg" className="group">
                   Explore Process
                   <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <Button size="lg" variant="outline">
-                  <Play className="mr-2 w-4 h-4" />
-                  Watch Demo
                 </Button>
               </div>
             </AnimatedElement>

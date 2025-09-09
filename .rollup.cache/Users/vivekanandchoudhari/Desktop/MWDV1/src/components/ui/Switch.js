@@ -1,0 +1,95 @@
+'use client';
+import { __rest } from "tslib";
+import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { forwardRef } from 'react';
+import { clsx } from 'clsx';
+import { Check, X, Loader2 } from 'lucide-react';
+const switchSizes = {
+    sm: {
+        track: 'w-8 h-4',
+        thumb: 'w-3 h-3',
+        translate: 'translate-x-4',
+        icon: 'w-2 h-2',
+        gap: 'ml-8'
+    },
+    md: {
+        track: 'w-11 h-6',
+        thumb: 'w-5 h-5',
+        translate: 'translate-x-5',
+        icon: 'w-3 h-3',
+        gap: 'ml-14'
+    },
+    lg: {
+        track: 'w-14 h-8',
+        thumb: 'w-6 h-6',
+        translate: 'translate-x-6',
+        icon: 'w-4 h-4',
+        gap: 'ml-16'
+    }
+};
+const switchVariants = {
+    default: {
+        off: 'bg-mw-gray-200 dark:bg-mw-gray-700',
+        on: 'bg-mw-blue-600',
+        thumb: 'bg-white',
+        focus: 'peer-focus:ring-mw-blue-500'
+    },
+    success: {
+        off: 'bg-mw-gray-200 dark:bg-mw-gray-700',
+        on: 'bg-green-600',
+        thumb: 'bg-white',
+        focus: 'peer-focus:ring-green-500'
+    },
+    warning: {
+        off: 'bg-mw-gray-200 dark:bg-mw-gray-700',
+        on: 'bg-yellow-600',
+        thumb: 'bg-white',
+        focus: 'peer-focus:ring-yellow-500'
+    },
+    danger: {
+        off: 'bg-mw-gray-200 dark:bg-mw-gray-700',
+        on: 'bg-red-600',
+        thumb: 'bg-white',
+        focus: 'peer-focus:ring-red-500'
+    }
+};
+export const Switch = forwardRef((_a, ref) => {
+    var { className, label, description, error, size = 'md', variant = 'default', loading = false, showIcons = false, onLabel, offLabel, thumbIcon, trackIcon, animate = true, immediate = false, checked = false, onChange } = _a, props = __rest(_a, ["className", "label", "description", "error", "size", "variant", "loading", "showIcons", "onLabel", "offLabel", "thumbIcon", "trackIcon", "animate", "immediate", "checked", "onChange"]);
+    const sizeConfig = switchSizes[size];
+    const variantConfig = switchVariants[variant];
+    const handleChange = (e) => {
+        if (loading)
+            return;
+        if (immediate) {
+            onChange === null || onChange === void 0 ? void 0 : onChange(e);
+        }
+        else {
+            // Simulate async operation
+            setTimeout(() => {
+                onChange === null || onChange === void 0 ? void 0 : onChange(e);
+            }, 150);
+        }
+    };
+    const renderThumbContent = () => {
+        if (loading) {
+            return _jsx(Loader2, { className: clsx(sizeConfig.icon, 'animate-spin text-mw-gray-400') });
+        }
+        if (thumbIcon) {
+            return thumbIcon;
+        }
+        if (showIcons) {
+            return checked ? (_jsx(Check, { className: clsx(sizeConfig.icon, 'text-green-600') })) : (_jsx(X, { className: clsx(sizeConfig.icon, 'text-mw-gray-400') }));
+        }
+        return null;
+    };
+    return (_jsxs("div", { className: "space-y-2", children: [_jsxs("div", { className: "flex items-center justify-between", children: [_jsxs("div", { className: "flex items-center space-x-3", children: [_jsxs("div", { className: "relative inline-flex items-center", children: [_jsx("input", Object.assign({ type: "checkbox", ref: ref, className: "sr-only peer", checked: checked, onChange: handleChange, disabled: loading || props.disabled }, props)), _jsxs("div", { className: clsx('relative rounded-full cursor-pointer', animate ? 'transition-colors duration-200' : '', 'peer-focus:ring-2 peer-focus:ring-offset-2', variantConfig.focus, 'peer-disabled:opacity-50 peer-disabled:cursor-not-allowed', error
+                                            ? 'bg-red-200 peer-checked:bg-red-600'
+                                            : checked
+                                                ? variantConfig.on
+                                                : variantConfig.off, sizeConfig.track, className), children: [trackIcon && (_jsx("div", { className: "absolute inset-0 flex items-center justify-center", children: trackIcon })), _jsx("div", { className: clsx('absolute left-0.5 top-0.5 rounded-full flex items-center justify-center', animate ? 'transition-transform duration-200' : '', checked ? 'peer-checked:' + sizeConfig.translate : '', variantConfig.thumb, sizeConfig.thumb, loading && 'shadow-sm'), children: renderThumbContent() })] })] }), _jsxs("div", { className: "flex flex-col", children: [label && (_jsx("label", { className: "text-sm font-medium text-mw-gray-700 dark:text-mw-gray-300 cursor-pointer", children: label })), (onLabel || offLabel) && (_jsx("span", { className: "text-xs text-mw-gray-500 dark:text-mw-gray-400", children: checked ? onLabel : offLabel }))] })] }), loading && (_jsxs("div", { className: "flex items-center space-x-2", children: [_jsx(Loader2, { className: "w-4 h-4 animate-spin text-mw-gray-400" }), _jsx("span", { className: "text-xs text-mw-gray-500", children: "Updating..." })] }))] }), description && !error && (_jsx("p", { className: clsx('text-sm text-mw-gray-500 dark:text-mw-gray-400', sizeConfig.gap), children: description })), error && (_jsx("p", { className: clsx('text-sm text-red-600 dark:text-red-400', sizeConfig.gap), children: error }))] }));
+});
+Switch.displayName = 'Switch';
+export function SwitchGroup({ label, description, children, orientation = 'vertical', className }) {
+    return (_jsxs("div", { className: clsx('space-y-3', className), children: [label && (_jsxs("div", { className: "space-y-1", children: [_jsx("h3", { className: "text-sm font-medium text-mw-gray-900 dark:text-white", children: label }), description && (_jsx("p", { className: "text-sm text-mw-gray-500 dark:text-mw-gray-400", children: description }))] })), _jsx("div", { className: clsx(orientation === 'horizontal' ? 'flex flex-wrap gap-6' : 'space-y-4'), children: children })] }));
+}
+//# sourceMappingURL=Switch.js.map

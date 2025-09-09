@@ -1,0 +1,1 @@
+{"version":3,"file":"IconPreview.d.ts","sourceRoot":"","sources":["IconPreview.tsx"],"names":[],"mappings":"AAIA,OAAO,EAAE,iBAAiB,EAAE,MAAM,8BAA8B,CAAC;AAGjE,UAAU,gBAAgB;IACxB,QAAQ,EAAE,MAAM,CAAC;IACjB,aAAa,EAAE,iBAAiB,CAAC;IACjC,SAAS,CAAC,EAAE,MAAM,CAAC;CACpB;AAID,wBAAgB,WAAW,CAAC,EAAE,QAAQ,EAAE,aAAa,EAAE,SAAc,EAAE,EAAE,gBAAgB,2CAgNxF"}

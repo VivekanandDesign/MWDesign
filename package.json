@@ -1,39 +1,94 @@
 {
-  "name": "mw-design-system",
-  "version": "0.1.0",
-  "private": true,
+  "name": "movingwalls-ds",
+  "version": "1.0.0",
+  "description": "A comprehensive React component library and design system with TypeScript support, providing modern UI components, design tokens, and a complete icon system.",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    },
+    "./dist/styles/*": "./dist/styles/*",
+    "./dist/tokens/*": "./dist/tokens/*",
+    "./dist/components/*": "./dist/components/*"
+  },
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "type-check": "tsc --noEmit",
-    "figma:screenshots": "node figma-export/screenshot-automation.js",
-    "figma:setup": "echo 'Opening Figma setup guide...' && open figma-export/figma-setup-guide.md"
+    "lint": "next lint"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "design-system",
+    "ui",
+    "typescript",
+    "tailwind",
+    "icons",
+    "design-tokens"
+  ],
+  "author": {
+    "name": "Vivekanand Design",
+    "email": "your-email@example.com",
+    "url": "https://mwdesignsystem.netlify.app"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VivekanandDesign/MWDesign.git"
+  },
+  "bugs": {
+    "url": "https://github.com/VivekanandDesign/MWDesign/issues"
+  },
+  "homepage": "https://mwdesignsystem.netlify.app",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.462.0",
+    "tailwind-merge": "^3.3.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.25.9",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.25.9",
+    "@babel/preset-typescript": "^7.26.0",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.4.6",
-    "clsx": "^2.1.1",
-    "copy-to-clipboard": "^3.3.3",
-    "framer-motion": "^11.12.0",
-    "lucide-react": "^0.462.0",
-    "next": "15.4.6",
-    "puppeteer": "^24.17.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-syntax-highlighter": "^15.5.0"
-  },
-  "devDependencies": {
+    "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.1",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^12.1.4",
     "@types/node": "^20.17.9",
     "@types/react": "^18.3.17",
     "@types/react-dom": "^18.3.1",
     "@types/react-syntax-highlighter": "^15.5.13",
-    "autoprefixer": "^10.4.20",
+    "autoprefixer": "^10.4.21",
+    "copy-to-clipboard": "^3.3.3",
     "eslint": "^8.57.1",
     "eslint-config-next": "15.4.6",
+    "framer-motion": "^11.12.0",
+    "next": "15.4.6",
     "postcss": "^8.5.1",
+    "puppeteer": "^24.17.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-syntax-highlighter": "^15.5.0",
+    "rollup": "^4.50.1",
+    "rollup-plugin-postcss": "^4.0.2",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2"
   }

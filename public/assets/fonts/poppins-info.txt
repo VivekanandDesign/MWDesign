@@ -1,0 +1,29 @@
+Poppins Font Family
+
+This package contains the complete Poppins font family from Google Fonts.
+
+Font Weights Included:
+- Poppins Thin (100)
+- Poppins ExtraLight (200)
+- Poppins Light (300)
+- Poppins Regular (400)
+- Poppins Medium (500)
+- Poppins SemiBold (600)
+- Poppins Bold (700)
+- Poppins ExtraBold (800)
+- Poppins Black (900)
+
+Each weight includes:
+- Regular style
+- Italic style
+
+File Formats:
+- TTF (TrueType Font)
+- WOFF (Web Open Font Format)
+- WOFF2 (Web Open Font Format 2.0)
+
+License: Open Font License (OFL)
+Designer: Indian Type Foundry, Jonny Pinhorn
+Source: Google Fonts
+
+For latest versions, visit: https://fonts.google.com/specimen/Poppins

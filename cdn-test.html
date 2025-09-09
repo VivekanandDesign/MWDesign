@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovingWalls DS - CDN Test</title>
+    <link rel="stylesheet" href="https://unpkg.com/movingwalls-ds@1.0.0/dist/styles/index.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 2rem;
+            background: #f8fafc;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .success {
+            color: #059669;
+            background: #d1fae5;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .error {
+            color: #dc2626;
+            background: #fee2e2;
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🚀 MovingWalls Design System - CDN Test</h1>
+        
+        <div id="status">⏳ Loading MovingWalls DS...</div>
+        
+        <div id="test-components" style="display: none;">
+            <h2>✅ Package Loaded Successfully!</h2>
+            
+            <div class="success">
+                <strong>CDN Distribution Working!</strong><br>
+                Package: movingwalls-ds@1.0.0<br>
+                CDN: https://unpkg.com/movingwalls-ds@1.0.0/dist/index.umd.js
+            </div>
+            
+            <h3>Components Available:</h3>
+            <div id="component-list"></div>
+            
+            <h3>Live Component Test:</h3>
+            <div id="live-test"></div>
+        </div>
+    </div>
+
+    <!-- Load React -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    
+    <!-- Load MovingWalls DS -->
+    <script src="https://unpkg.com/movingwalls-ds@1.0.0/dist/index.umd.js"></script>
+    
+    <script>
+        // Test the package loading
+        setTimeout(() => {
+            try {
+                if (typeof MovingWallsDS !== 'undefined') {
+                    // Show available components
+                    const components = Object.keys(MovingWallsDS);
+                    document.getElementById('component-list').innerHTML = 
+                        '<p>Available components: ' + components.length + '</p>' +
+                        '<details><summary>View all components</summary><ul>' + 
+                        components.map(comp => '<li>' + comp + '</li>').join('') + 
+                        '</ul></details>';
+                    
+                    // Test a few components
+                    const { Button, Card, Badge } = MovingWallsDS;
+                    
+                    if (Button && Card && Badge) {
+                        // Create a test component
+                        const testElement = React.createElement('div', {},
+                            React.createElement(Card, { className: 'p-6' },
+                                React.createElement('h3', { className: 'text-xl font-bold mb-4' }, 
+                                    'Live Component Test ',
+                                    React.createElement(Badge, { variant: 'success' }, 'Working!')
+                                ),
+                                React.createElement('p', { className: 'mb-4' }, 
+                                    'This card and button are rendered using MovingWalls DS from CDN.'
+                                ),
+                                React.createElement(Button, { 
+                                    variant: 'primary', 
+                                    onClick: () => alert('Button works! 🎉') 
+                                }, 'Click Me')
+                            )
+                        );
+                        
+                        // Render the test
+                        ReactDOM.render(testElement, document.getElementById('live-test'));
+                        
+                        // Show success
+                        document.getElementById('status').style.display = 'none';
+                        document.getElementById('test-components').style.display = 'block';
+                    } else {
+                        throw new Error('Required components not found');
+                    }
+                } else {
+                    throw new Error('MovingWallsDS not loaded');
+                }
+            } catch (error) {
+                document.getElementById('status').innerHTML = 
+                    '<div class="error"><strong>❌ Error:</strong> ' + error.message + '</div>';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
