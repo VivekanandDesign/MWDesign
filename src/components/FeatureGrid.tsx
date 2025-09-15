@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Palette, Code, Layout, FileText, Heart, Accessibility } from 'lucide-react'
+import { ArrowRight, Palette, Code, Layout, FileText, Heart, Accessibility, Sparkles } from 'lucide-react'
 
 const features = [
   {
@@ -22,6 +22,13 @@ const features = [
     description: 'Atomic design components from simple buttons to complex organisms, all accessible and responsive.',
     href: '/components',
     items: ['68+ components', 'Interactive states', 'Props documentation', 'Code examples']
+  },
+  {
+    icon: Sparkles,
+    title: 'Icons',
+    description: 'Complete Lucide icon library with over 3,400 carefully crafted icons organized in 20 categories.',
+    href: '/icons',
+    items: ['3,478 Lucide icons', '20 categories', 'Search functionality', 'Copy-paste ready']
   },
   {
     icon: Layout,
