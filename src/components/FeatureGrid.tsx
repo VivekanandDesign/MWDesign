@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Palette, Code, Layout, FileText, Heart, Accessibility, Sparkles, Bot } from 'lucide-react'
+import { ArrowRight, Palette, Code, Layout, FileText, Heart, Accessibility, Sparkles, Bot, Figma } from 'lucide-react'
 
 const features = [
   {
@@ -36,6 +36,13 @@ const features = [
     description: 'AI-powered design system tools for intelligent component generation, theme creation, and breakthrough creativity.',
     href: '/ai',
     items: ['AI Assistant', 'Theme Generator', 'Smart Search', 'Component AI']
+  },
+  {
+    icon: Figma,
+    title: 'Figma Integration',
+    description: 'Live Figma design system viewer with design-code sync, token comparison, and collaboration tools.',
+    href: '/figma',
+    items: ['Live Figma viewer', 'Design token sync', 'Component mapping', 'Real-time collaboration']
   },
   {
     icon: Layout,

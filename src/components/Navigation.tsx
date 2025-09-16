@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Menu, X, Palette, Code, BookOpen, Heart, Layout, Bot } from 'lucide-react'
+import { Menu, X, Palette, Code, BookOpen, Heart, Layout, Bot, Figma } from 'lucide-react'
 import { Button } from './ui/Button'
 import { ThemeToggle } from './ThemeToggle'
 
@@ -12,6 +12,7 @@ const navigationItems = [
   { name: 'Components', href: '/components', icon: Code },
   { name: 'Examples', href: '/examples', icon: Layout },
   { name: 'Icons', href: '/icons', icon: Palette },
+  { name: 'Figma', href: '/figma', icon: Figma },
   { name: 'MW-AI-DS', href: '/ai', icon: Bot },
 ]
 
