@@ -1,0 +1,60 @@
+{
+  "timestamp": "2025-09-09T08:32:34.870Z",
+  "totalOriginal": 4120683,
+  "totalGzipped": 750311,
+  "files": [
+    {
+      "file": "index.umd.js",
+      "originalSize": 836452,
+      "gzippedSize": 212211,
+      "compressionRatio": "74.6",
+      "exists": true,
+      "exceedsLimit": true,
+      "limit": 512000
+    },
+    {
+      "file": "index.esm.js",
+      "originalSize": 1625320,
+      "gzippedSize": 267112,
+      "compressionRatio": "83.6",
+      "exists": true,
+      "exceedsLimit": true,
+      "limit": 409600
+    },
+    {
+      "file": "index.js",
+      "originalSize": 1646998,
+      "gzippedSize": 268154,
+      "compressionRatio": "83.7",
+      "exists": true
+    },
+    {
+      "file": "styles/index.css",
+      "originalSize": 3360,
+      "gzippedSize": 739,
+      "compressionRatio": "78.0",
+      "exists": true,
+      "exceedsLimit": false,
+      "limit": 204800
+    },
+    {
+      "file": "tokens/tokens.css",
+      "originalSize": 6040,
+      "gzippedSize": 1383,
+      "compressionRatio": "77.1",
+      "exists": true
+    },
+    {
+      "file": "tokens/tokens.json",
+      "originalSize": 2513,
+      "gzippedSize": 712,
+      "compressionRatio": "71.7",
+      "exists": true
+    }
+  ],
+  "recommendations": {
+    "treeshaking": true,
+    "codeSplitting": true,
+    "compressionOptimization": false
+  }
+}

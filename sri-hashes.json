@@ -1,0 +1,54 @@
+{
+  "timestamp": "2025-09-09T08:33:33.033Z",
+  "version": "1.0.0",
+  "files": {
+    "index.umd.js": {
+      "hash": "sha384-3U3GNZbsLseR8c9yB/jeXMzb59V4mosjh2NoACbIn61ZPXxPTG4KL+HjS+RS9dGf",
+      "unpkg": "https://unpkg.com/movingwalls-ds@1.0.0/dist/index.umd.js",
+      "jsdelivr": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.umd.js"
+    },
+    "index.esm.js": {
+      "hash": "sha384-421W55PMfPtn9nHaj/0RVWOrL4WFRoM+GffGQcOWi6EKuw+FfuCPnH+zBuutRsmw",
+      "unpkg": "https://unpkg.com/movingwalls-ds@1.0.0/dist/index.esm.js",
+      "jsdelivr": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.esm.js"
+    },
+    "styles/index.css": {
+      "hash": "sha384-HcDiEqLkmwe6FB1S5vTwqdGbMNvRwT6DsXEmbm/SovST0D34Aa1cEU+1IcBvlOLm",
+      "unpkg": "https://unpkg.com/movingwalls-ds@1.0.0/dist/styles/index.css",
+      "jsdelivr": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/styles/index.css"
+    },
+    "tokens/tokens.css": {
+      "hash": "sha384-3RNDKmnKm5F1gXHDsnBCm5AFM1dLzQlJwaoeAhUyq7fqVzXDbatsbCEmONq8p98T",
+      "unpkg": "https://unpkg.com/movingwalls-ds@1.0.0/dist/tokens/tokens.css",
+      "jsdelivr": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/tokens/tokens.css"
+    }
+  },
+  "snippets": [
+    {
+      "type": "script",
+      "file": "index.umd.js",
+      "html": "<script src=\"https://unpkg.com/movingwalls-ds@1.0.0/dist/index.umd.js\" \n         integrity=\"sha384-3U3GNZbsLseR8c9yB/jeXMzb59V4mosjh2NoACbIn61ZPXxPTG4KL+HjS+RS9dGf\" \n         crossorigin=\"anonymous\"\n         onerror=\"this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.umd.js'\">\n</script>"
+    },
+    {
+      "type": "script",
+      "file": "index.esm.js",
+      "html": "<script src=\"https://unpkg.com/movingwalls-ds@1.0.0/dist/index.esm.js\" \n         integrity=\"sha384-421W55PMfPtn9nHaj/0RVWOrL4WFRoM+GffGQcOWi6EKuw+FfuCPnH+zBuutRsmw\" \n         crossorigin=\"anonymous\"\n         onerror=\"this.onerror=null;this.src='https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.esm.js'\">\n</script>"
+    },
+    {
+      "type": "link",
+      "file": "styles/index.css",
+      "html": "<link rel=\"stylesheet\" \n      href=\"https://unpkg.com/movingwalls-ds@1.0.0/dist/styles/index.css\" \n      integrity=\"sha384-HcDiEqLkmwe6FB1S5vTwqdGbMNvRwT6DsXEmbm/SovST0D34Aa1cEU+1IcBvlOLm\" \n      crossorigin=\"anonymous\"\n      onerror=\"this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/styles/index.css'\">"
+    },
+    {
+      "type": "link",
+      "file": "tokens/tokens.css",
+      "html": "<link rel=\"stylesheet\" \n      href=\"https://unpkg.com/movingwalls-ds@1.0.0/dist/tokens/tokens.css\" \n      integrity=\"sha384-3RNDKmnKm5F1gXHDsnBCm5AFM1dLzQlJwaoeAhUyq7fqVzXDbatsbCEmONq8p98T\" \n      crossorigin=\"anonymous\"\n      onerror=\"this.onerror=null;this.href='https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/tokens/tokens.css'\">"
+    }
+  ],
+  "usage": {
+    "primary_cdn": "unpkg.com",
+    "fallback_cdn": "jsdelivr.net",
+    "security": "sha384",
+    "crossorigin": "anonymous"
+  }
+}

@@ -1,0 +1,1072 @@
+{
+  "version": "1.0.0",
+  "generated": "2025-09-10T05:44:06.764Z",
+  "totalComponents": 64,
+  "components": {
+    "Accordion": {
+      "source": "src/components/ui/Accordion.tsx",
+      "bundles": {
+        "esm": "components/accordion.js",
+        "umd": "components/accordion.umd.js"
+      },
+      "sourceSize": 3986,
+      "priority": false,
+      "category": "other"
+    },
+    "AdvancedTable": {
+      "source": "src/components/ui/AdvancedTable.tsx",
+      "bundles": {
+        "esm": "components/advancedtable.js",
+        "umd": "components/advancedtable.umd.js"
+      },
+      "sourceSize": 54164,
+      "priority": false,
+      "category": "other"
+    },
+    "Alert": {
+      "source": "src/components/ui/Alert.tsx",
+      "bundles": {
+        "esm": "components/alert.js",
+        "umd": "components/alert.umd.js"
+      },
+      "sourceSize": 3153,
+      "priority": true,
+      "category": "feedback"
+    },
+    "Autocomplete": {
+      "source": "src/components/ui/Autocomplete.tsx",
+      "bundles": {
+        "esm": "components/autocomplete.js",
+        "umd": "components/autocomplete.umd.js"
+      },
+      "sourceSize": 13809,
+      "priority": false,
+      "category": "other"
+    },
+    "Avatar": {
+      "source": "src/components/ui/Avatar.tsx",
+      "bundles": {
+        "esm": "components/avatar.js",
+        "umd": "components/avatar.umd.js"
+      },
+      "sourceSize": 2977,
+      "priority": true,
+      "category": "interactive"
+    },
+    "Badge": {
+      "source": "src/components/ui/Badge.tsx",
+      "bundles": {
+        "esm": "components/badge.js",
+        "umd": "components/badge.umd.js"
+      },
+      "sourceSize": 1513,
+      "priority": true,
+      "category": "interactive"
+    },
+    "Breadcrumb": {
+      "source": "src/components/ui/Breadcrumb.tsx",
+      "bundles": {
+        "esm": "components/breadcrumb.js",
+        "umd": "components/breadcrumb.umd.js"
+      },
+      "sourceSize": 2264,
+      "priority": false,
+      "category": "navigation"
+    },
+    "Button": {
+      "source": "src/components/ui/Button.tsx",
+      "bundles": {
+        "esm": "components/button.js",
+        "umd": "components/button.umd.js"
+      },
+      "sourceSize": 2155,
+      "priority": true,
+      "category": "interactive"
+    },
+    "Calendar": {
+      "source": "src/components/ui/Calendar.tsx",
+      "bundles": {
+        "esm": "components/calendar.js",
+        "umd": "components/calendar.umd.js"
+      },
+      "sourceSize": 25709,
+      "priority": false,
+      "category": "data"
+    },
+    "Card": {
+      "source": "src/components/ui/Card.tsx",
+      "bundles": {
+        "esm": "components/card.js",
+        "umd": "components/card.umd.js"
+      },
+      "sourceSize": 1390,
+      "priority": true,
+      "category": "layout"
+    },
+    "Carousel": {
+      "source": "src/components/ui/Carousel.tsx",
+      "bundles": {
+        "esm": "components/carousel.js",
+        "umd": "components/carousel.umd.js"
+      },
+      "sourceSize": 9606,
+      "priority": false,
+      "category": "advanced"
+    },
+    "Checkbox": {
+      "source": "src/components/ui/Checkbox.tsx",
+      "bundles": {
+        "esm": "components/checkbox.js",
+        "umd": "components/checkbox.umd.js"
+      },
+      "sourceSize": 3099,
+      "priority": true,
+      "category": "forms"
+    },
+    "Chip": {
+      "source": "src/components/ui/Chip.tsx",
+      "bundles": {
+        "esm": "components/chip.js",
+        "umd": "components/chip.umd.js"
+      },
+      "sourceSize": 2584,
+      "priority": false,
+      "category": "interactive"
+    },
+    "Collapsible": {
+      "source": "src/components/ui/Collapsible.tsx",
+      "bundles": {
+        "esm": "components/collapsible.js",
+        "umd": "components/collapsible.umd.js"
+      },
+      "sourceSize": 2872,
+      "priority": false,
+      "category": "other"
+    },
+    "CollapsibleCode": {
+      "source": "src/components/ui/CollapsibleCode.tsx",
+      "bundles": {
+        "esm": "components/collapsiblecode.js",
+        "umd": "components/collapsiblecode.umd.js"
+      },
+      "sourceSize": 2160,
+      "priority": false,
+      "category": "other"
+    },
+    "Command": {
+      "source": "src/components/ui/Command.tsx",
+      "bundles": {
+        "esm": "components/command.js",
+        "umd": "components/command.umd.js"
+      },
+      "sourceSize": 4466,
+      "priority": false,
+      "category": "other"
+    },
+    "Container": {
+      "source": "src/components/ui/Container.tsx",
+      "bundles": {
+        "esm": "components/container.js",
+        "umd": "components/container.umd.js"
+      },
+      "sourceSize": 6404,
+      "priority": false,
+      "category": "layout"
+    },
+    "DataGrid": {
+      "source": "src/components/ui/DataGrid.tsx",
+      "bundles": {
+        "esm": "components/datagrid.js",
+        "umd": "components/datagrid.umd.js"
+      },
+      "sourceSize": 18245,
+      "priority": false,
+      "category": "data"
+    },
+    "DatePicker": {
+      "source": "src/components/ui/DatePicker.tsx",
+      "bundles": {
+        "esm": "components/datepicker.js",
+        "umd": "components/datepicker.umd.js"
+      },
+      "sourceSize": 5812,
+      "priority": false,
+      "category": "other"
+    },
+    "DateRangePicker": {
+      "source": "src/components/ui/DateRangePicker.tsx",
+      "bundles": {
+        "esm": "components/daterangepicker.js",
+        "umd": "components/daterangepicker.umd.js"
+      },
+      "sourceSize": 13819,
+      "priority": false,
+      "category": "other"
+    },
+    "Dialog": {
+      "source": "src/components/ui/Dialog.tsx",
+      "bundles": {
+        "esm": "components/dialog.js",
+        "umd": "components/dialog.umd.js"
+      },
+      "sourceSize": 4764,
+      "priority": true,
+      "category": "overlays"
+    },
+    "DocumentEditor": {
+      "source": "src/components/ui/DocumentEditor.tsx",
+      "bundles": {
+        "esm": "components/documenteditor.js",
+        "umd": "components/documenteditor.umd.js"
+      },
+      "sourceSize": 12814,
+      "priority": false,
+      "category": "advanced"
+    },
+    "DragDrop": {
+      "source": "src/components/ui/DragDrop.tsx",
+      "bundles": {
+        "esm": "components/dragdrop.js",
+        "umd": "components/dragdrop.umd.js"
+      },
+      "sourceSize": 18424,
+      "priority": false,
+      "category": "advanced"
+    },
+    "Dropdown": {
+      "source": "src/components/ui/Dropdown.tsx",
+      "bundles": {
+        "esm": "components/dropdown.js",
+        "umd": "components/dropdown.umd.js"
+      },
+      "sourceSize": 5214,
+      "priority": false,
+      "category": "overlays"
+    },
+    "EmptyState": {
+      "source": "src/components/ui/EmptyState.tsx",
+      "bundles": {
+        "esm": "components/emptystate.js",
+        "umd": "components/emptystate.umd.js"
+      },
+      "sourceSize": 3021,
+      "priority": false,
+      "category": "other"
+    },
+    "FileUpload": {
+      "source": "src/components/ui/FileUpload.tsx",
+      "bundles": {
+        "esm": "components/fileupload.js",
+        "umd": "components/fileupload.umd.js"
+      },
+      "sourceSize": 10798,
+      "priority": false,
+      "category": "advanced"
+    },
+    "Filter": {
+      "source": "src/components/ui/Filter.tsx",
+      "bundles": {
+        "esm": "components/filter.js",
+        "umd": "components/filter.umd.js"
+      },
+      "sourceSize": 17984,
+      "priority": false,
+      "category": "other"
+    },
+    "Form": {
+      "source": "src/components/ui/Form.tsx",
+      "bundles": {
+        "esm": "components/form.js",
+        "umd": "components/form.umd.js"
+      },
+      "sourceSize": 5635,
+      "priority": true,
+      "category": "forms"
+    },
+    "Icon": {
+      "source": "src/components/ui/Icon.tsx",
+      "bundles": {
+        "esm": "components/icon.js",
+        "umd": "components/icon.umd.js"
+      },
+      "sourceSize": 3191,
+      "priority": false,
+      "category": "other"
+    },
+    "Input": {
+      "source": "src/components/ui/Input.tsx",
+      "bundles": {
+        "esm": "components/input.js",
+        "umd": "components/input.umd.js"
+      },
+      "sourceSize": 1442,
+      "priority": true,
+      "category": "forms"
+    },
+    "List": {
+      "source": "src/components/ui/List.tsx",
+      "bundles": {
+        "esm": "components/list.js",
+        "umd": "components/list.umd.js"
+      },
+      "sourceSize": 4827,
+      "priority": false,
+      "category": "data"
+    },
+    "MWLoader": {
+      "source": "src/components/ui/MWLoader.tsx",
+      "bundles": {
+        "esm": "components/mwloader.js",
+        "umd": "components/mwloader.umd.js"
+      },
+      "sourceSize": 19093,
+      "priority": false,
+      "category": "other"
+    },
+    "Menu": {
+      "source": "src/components/ui/Menu.tsx",
+      "bundles": {
+        "esm": "components/menu.js",
+        "umd": "components/menu.umd.js"
+      },
+      "sourceSize": 5657,
+      "priority": false,
+      "category": "navigation"
+    },
+    "Modal": {
+      "source": "src/components/ui/Modal.tsx",
+      "bundles": {
+        "esm": "components/modal.js",
+        "umd": "components/modal.umd.js"
+      },
+      "sourceSize": 3417,
+      "priority": true,
+      "category": "overlays"
+    },
+    "Notification": {
+      "source": "src/components/ui/Notification.tsx",
+      "bundles": {
+        "esm": "components/notification.js",
+        "umd": "components/notification.umd.js"
+      },
+      "sourceSize": 11923,
+      "priority": false,
+      "category": "feedback"
+    },
+    "Pagination": {
+      "source": "src/components/ui/Pagination.tsx",
+      "bundles": {
+        "esm": "components/pagination.js",
+        "umd": "components/pagination.umd.js"
+      },
+      "sourceSize": 5249,
+      "priority": false,
+      "category": "navigation"
+    },
+    "Panel": {
+      "source": "src/components/ui/Panel.tsx",
+      "bundles": {
+        "esm": "components/panel.js",
+        "umd": "components/panel.umd.js"
+      },
+      "sourceSize": 9973,
+      "priority": false,
+      "category": "layout"
+    },
+    "Popover": {
+      "source": "src/components/ui/Popover.tsx",
+      "bundles": {
+        "esm": "components/popover.js",
+        "umd": "components/popover.umd.js"
+      },
+      "sourceSize": 6067,
+      "priority": false,
+      "category": "overlays"
+    },
+    "Progress": {
+      "source": "src/components/ui/Progress.tsx",
+      "bundles": {
+        "esm": "components/progress.js",
+        "umd": "components/progress.umd.js"
+      },
+      "sourceSize": 2004,
+      "priority": false,
+      "category": "feedback"
+    },
+    "Rating": {
+      "source": "src/components/ui/Rating.tsx",
+      "bundles": {
+        "esm": "components/rating.js",
+        "umd": "components/rating.umd.js"
+      },
+      "sourceSize": 2797,
+      "priority": false,
+      "category": "other"
+    },
+    "RichTextEditor": {
+      "source": "src/components/ui/RichTextEditor.tsx",
+      "bundles": {
+        "esm": "components/richtexteditor.js",
+        "umd": "components/richtexteditor.umd.js"
+      },
+      "sourceSize": 8424,
+      "priority": false,
+      "category": "advanced"
+    },
+    "ScrollArea": {
+      "source": "src/components/ui/ScrollArea.tsx",
+      "bundles": {
+        "esm": "components/scrollarea.js",
+        "umd": "components/scrollarea.umd.js"
+      },
+      "sourceSize": 2286,
+      "priority": false,
+      "category": "other"
+    },
+    "SearchBar": {
+      "source": "src/components/ui/SearchBar.tsx",
+      "bundles": {
+        "esm": "components/searchbar.js",
+        "umd": "components/searchbar.umd.js"
+      },
+      "sourceSize": 9426,
+      "priority": false,
+      "category": "other"
+    },
+    "Select": {
+      "source": "src/components/ui/Select.tsx",
+      "bundles": {
+        "esm": "components/select.js",
+        "umd": "components/select.umd.js"
+      },
+      "sourceSize": 1952,
+      "priority": true,
+      "category": "forms"
+    },
+    "Separator": {
+      "source": "src/components/ui/Separator.tsx",
+      "bundles": {
+        "esm": "components/separator.js",
+        "umd": "components/separator.umd.js"
+      },
+      "sourceSize": 1182,
+      "priority": false,
+      "category": "layout"
+    },
+    "Sheet": {
+      "source": "src/components/ui/Sheet.tsx",
+      "bundles": {
+        "esm": "components/sheet.js",
+        "umd": "components/sheet.umd.js"
+      },
+      "sourceSize": 5842,
+      "priority": false,
+      "category": "layout"
+    },
+    "Sidebar": {
+      "source": "src/components/ui/Sidebar.tsx",
+      "bundles": {
+        "esm": "components/sidebar.js",
+        "umd": "components/sidebar.umd.js"
+      },
+      "sourceSize": 4884,
+      "priority": false,
+      "category": "layout"
+    },
+    "Skeleton": {
+      "source": "src/components/ui/Skeleton.tsx",
+      "bundles": {
+        "esm": "components/skeleton.js",
+        "umd": "components/skeleton.umd.js"
+      },
+      "sourceSize": 2366,
+      "priority": false,
+      "category": "feedback"
+    },
+    "Slider": {
+      "source": "src/components/ui/Slider.tsx",
+      "bundles": {
+        "esm": "components/slider.js",
+        "umd": "components/slider.umd.js"
+      },
+      "sourceSize": 3056,
+      "priority": false,
+      "category": "forms"
+    },
+    "Snackbar": {
+      "source": "src/components/ui/Snackbar.tsx",
+      "bundles": {
+        "esm": "components/snackbar.js",
+        "umd": "components/snackbar.umd.js"
+      },
+      "sourceSize": 8292,
+      "priority": false,
+      "category": "other"
+    },
+    "Spinner": {
+      "source": "src/components/ui/Spinner.tsx",
+      "bundles": {
+        "esm": "components/spinner.js",
+        "umd": "components/spinner.umd.js"
+      },
+      "sourceSize": 2105,
+      "priority": false,
+      "category": "feedback"
+    },
+    "Stepper": {
+      "source": "src/components/ui/Stepper.tsx",
+      "bundles": {
+        "esm": "components/stepper.js",
+        "umd": "components/stepper.umd.js"
+      },
+      "sourceSize": 2987,
+      "priority": false,
+      "category": "navigation"
+    },
+    "Switch": {
+      "source": "src/components/ui/Switch.tsx",
+      "bundles": {
+        "esm": "components/switch.js",
+        "umd": "components/switch.umd.js"
+      },
+      "sourceSize": 7036,
+      "priority": false,
+      "category": "forms"
+    },
+    "Table": {
+      "source": "src/components/ui/Table.tsx",
+      "bundles": {
+        "esm": "components/table.js",
+        "umd": "components/table.umd.js"
+      },
+      "sourceSize": 3938,
+      "priority": true,
+      "category": "data"
+    },
+    "Tabs": {
+      "source": "src/components/ui/Tabs.tsx",
+      "bundles": {
+        "esm": "components/tabs.js",
+        "umd": "components/tabs.umd.js"
+      },
+      "sourceSize": 3001,
+      "priority": true,
+      "category": "navigation"
+    },
+    "Textarea": {
+      "source": "src/components/ui/Textarea.tsx",
+      "bundles": {
+        "esm": "components/textarea.js",
+        "umd": "components/textarea.umd.js"
+      },
+      "sourceSize": 1748,
+      "priority": false,
+      "category": "forms"
+    },
+    "Thumbnail": {
+      "source": "src/components/ui/Thumbnail.tsx",
+      "bundles": {
+        "esm": "components/thumbnail.js",
+        "umd": "components/thumbnail.umd.js"
+      },
+      "sourceSize": 11068,
+      "priority": false,
+      "category": "other"
+    },
+    "TimePicker": {
+      "source": "src/components/ui/TimePicker.tsx",
+      "bundles": {
+        "esm": "components/timepicker.js",
+        "umd": "components/timepicker.umd.js"
+      },
+      "sourceSize": 11715,
+      "priority": false,
+      "category": "other"
+    },
+    "TimeRangePicker": {
+      "source": "src/components/ui/TimeRangePicker.tsx",
+      "bundles": {
+        "esm": "components/timerangepicker.js",
+        "umd": "components/timerangepicker.umd.js"
+      },
+      "sourceSize": 14861,
+      "priority": false,
+      "category": "other"
+    },
+    "Timeline": {
+      "source": "src/components/ui/Timeline.tsx",
+      "bundles": {
+        "esm": "components/timeline.js",
+        "umd": "components/timeline.umd.js"
+      },
+      "sourceSize": 4734,
+      "priority": false,
+      "category": "other"
+    },
+    "Toast": {
+      "source": "src/components/ui/Toast.tsx",
+      "bundles": {
+        "esm": "components/toast.js",
+        "umd": "components/toast.umd.js"
+      },
+      "sourceSize": 4149,
+      "priority": true,
+      "category": "feedback"
+    },
+    "ToggleGroup": {
+      "source": "src/components/ui/ToggleGroup.tsx",
+      "bundles": {
+        "esm": "components/togglegroup.js",
+        "umd": "components/togglegroup.umd.js"
+      },
+      "sourceSize": 4465,
+      "priority": false,
+      "category": "interactive"
+    },
+    "Tooltip": {
+      "source": "src/components/ui/Tooltip.tsx",
+      "bundles": {
+        "esm": "components/tooltip.js",
+        "umd": "components/tooltip.umd.js"
+      },
+      "sourceSize": 2024,
+      "priority": true,
+      "category": "overlays"
+    },
+    "TreeView": {
+      "source": "src/components/ui/TreeView.tsx",
+      "bundles": {
+        "esm": "components/treeview.js",
+        "umd": "components/treeview.umd.js"
+      },
+      "sourceSize": 10184,
+      "priority": false,
+      "category": "data"
+    }
+  },
+  "categories": {
+    "forms": [
+      "Input",
+      "Checkbox",
+      "Select",
+      "Form",
+      "Textarea",
+      "Switch",
+      "Slider"
+    ],
+    "navigation": [
+      "Tabs",
+      "Breadcrumb",
+      "Menu",
+      "Pagination",
+      "Stepper"
+    ],
+    "feedback": [
+      "Alert",
+      "Toast",
+      "Notification",
+      "Progress",
+      "Spinner",
+      "Skeleton"
+    ],
+    "layout": [
+      "Card",
+      "Container",
+      "Panel",
+      "Sheet",
+      "Sidebar",
+      "Separator"
+    ],
+    "data": [
+      "Table",
+      "DataGrid",
+      "List",
+      "TreeView",
+      "Calendar"
+    ],
+    "overlays": [
+      "Modal",
+      "Dialog",
+      "Popover",
+      "Tooltip",
+      "Dropdown"
+    ],
+    "interactive": [
+      "Button",
+      "Badge",
+      "Avatar",
+      "Chip",
+      "ToggleGroup"
+    ],
+    "advanced": [
+      "RichTextEditor",
+      "DocumentEditor",
+      "FileUpload",
+      "DragDrop",
+      "Carousel"
+    ]
+  },
+  "priorityComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Modal",
+    "Table",
+    "Form",
+    "Alert",
+    "Badge",
+    "Avatar",
+    "Checkbox",
+    "Select",
+    "Tabs",
+    "Toast",
+    "Dialog",
+    "Tooltip"
+  ],
+  "bundles": {
+    "individual": {
+      "Accordion": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/accordion.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/accordion.umd.js"
+      },
+      "AdvancedTable": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/advancedtable.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/advancedtable.umd.js"
+      },
+      "Alert": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/alert.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/alert.umd.js"
+      },
+      "Autocomplete": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/autocomplete.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/autocomplete.umd.js"
+      },
+      "Avatar": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/avatar.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/avatar.umd.js"
+      },
+      "Badge": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/badge.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/badge.umd.js"
+      },
+      "Breadcrumb": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/breadcrumb.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/breadcrumb.umd.js"
+      },
+      "Button": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/button.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/button.umd.js"
+      },
+      "Calendar": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/calendar.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/calendar.umd.js"
+      },
+      "Card": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/card.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/card.umd.js"
+      },
+      "Carousel": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/carousel.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/carousel.umd.js"
+      },
+      "Checkbox": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/checkbox.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/checkbox.umd.js"
+      },
+      "Chip": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/chip.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/chip.umd.js"
+      },
+      "Collapsible": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/collapsible.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/collapsible.umd.js"
+      },
+      "CollapsibleCode": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/collapsiblecode.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/collapsiblecode.umd.js"
+      },
+      "Command": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/command.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/command.umd.js"
+      },
+      "Container": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/container.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/container.umd.js"
+      },
+      "DataGrid": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/datagrid.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/datagrid.umd.js"
+      },
+      "DatePicker": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/datepicker.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/datepicker.umd.js"
+      },
+      "DateRangePicker": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/daterangepicker.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/daterangepicker.umd.js"
+      },
+      "Dialog": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/dialog.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/dialog.umd.js"
+      },
+      "DocumentEditor": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/documenteditor.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/documenteditor.umd.js"
+      },
+      "DragDrop": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/dragdrop.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/dragdrop.umd.js"
+      },
+      "Dropdown": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/dropdown.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/dropdown.umd.js"
+      },
+      "EmptyState": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/emptystate.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/emptystate.umd.js"
+      },
+      "FileUpload": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/fileupload.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/fileupload.umd.js"
+      },
+      "Filter": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/filter.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/filter.umd.js"
+      },
+      "Form": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/form.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/form.umd.js"
+      },
+      "Icon": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/icon.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/icon.umd.js"
+      },
+      "Input": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/input.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/input.umd.js"
+      },
+      "List": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/list.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/list.umd.js"
+      },
+      "MWLoader": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/mwloader.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/mwloader.umd.js"
+      },
+      "Menu": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/menu.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/menu.umd.js"
+      },
+      "Modal": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/modal.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/modal.umd.js"
+      },
+      "Notification": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/notification.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/notification.umd.js"
+      },
+      "Pagination": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/pagination.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/pagination.umd.js"
+      },
+      "Panel": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/panel.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/panel.umd.js"
+      },
+      "Popover": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/popover.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/popover.umd.js"
+      },
+      "Progress": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/progress.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/progress.umd.js"
+      },
+      "Rating": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/rating.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/rating.umd.js"
+      },
+      "RichTextEditor": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/richtexteditor.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/richtexteditor.umd.js"
+      },
+      "ScrollArea": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/scrollarea.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/scrollarea.umd.js"
+      },
+      "SearchBar": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/searchbar.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/searchbar.umd.js"
+      },
+      "Select": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/select.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/select.umd.js"
+      },
+      "Separator": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/separator.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/separator.umd.js"
+      },
+      "Sheet": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/sheet.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/sheet.umd.js"
+      },
+      "Sidebar": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/sidebar.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/sidebar.umd.js"
+      },
+      "Skeleton": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/skeleton.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/skeleton.umd.js"
+      },
+      "Slider": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/slider.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/slider.umd.js"
+      },
+      "Snackbar": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/snackbar.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/snackbar.umd.js"
+      },
+      "Spinner": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/spinner.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/spinner.umd.js"
+      },
+      "Stepper": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/stepper.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/stepper.umd.js"
+      },
+      "Switch": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/switch.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/switch.umd.js"
+      },
+      "Table": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/table.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/table.umd.js"
+      },
+      "Tabs": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/tabs.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/tabs.umd.js"
+      },
+      "Textarea": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/textarea.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/textarea.umd.js"
+      },
+      "Thumbnail": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/thumbnail.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/thumbnail.umd.js"
+      },
+      "TimePicker": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/timepicker.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/timepicker.umd.js"
+      },
+      "TimeRangePicker": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/timerangepicker.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/timerangepicker.umd.js"
+      },
+      "Timeline": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/timeline.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/timeline.umd.js"
+      },
+      "Toast": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/toast.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/toast.umd.js"
+      },
+      "ToggleGroup": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/togglegroup.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/togglegroup.umd.js"
+      },
+      "Tooltip": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/tooltip.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/tooltip.umd.js"
+      },
+      "TreeView": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/treeview.js",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/components/treeview.umd.js"
+      }
+    },
+    "categories": {
+      "forms": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/categories/forms/",
+        "components": [
+          "Input",
+          "Checkbox",
+          "Select",
+          "Form",
+          "Textarea",
+          "Switch",
+          "Slider"
+        ]
+      },
+      "navigation": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/categories/navigation/",
+        "components": [
+          "Tabs",
+          "Breadcrumb",
+          "Menu",
+          "Pagination",
+          "Stepper"
+        ]
+      },
+      "feedback": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/categories/feedback/",
+        "components": [
+          "Alert",
+          "Toast",
+          "Notification",
+          "Progress",
+          "Spinner",
+          "Skeleton"
+        ]
+      },
+      "layout": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/categories/layout/",
+        "components": [
+          "Card",
+          "Container",
+          "Panel",
+          "Sheet",
+          "Sidebar",
+          "Separator"
+        ]
+      },
+      "data": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/categories/data/",
+        "components": [
+          "Table",
+          "DataGrid",
+          "List",
+          "TreeView",
+          "Calendar"
+        ]
+      },
+      "overlays": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/categories/overlays/",
+        "components": [
+          "Modal",
+          "Dialog",
+          "Popover",
+          "Tooltip",
+          "Dropdown"
+        ]
+      },
+      "interactive": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/categories/interactive/",
+        "components": [
+          "Button",
+          "Badge",
+          "Avatar",
+          "Chip",
+          "ToggleGroup"
+        ]
+      },
+      "advanced": {
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/categories/advanced/",
+        "components": [
+          "RichTextEditor",
+          "DocumentEditor",
+          "FileUpload",
+          "DragDrop",
+          "Carousel"
+        ]
+      }
+    }
+  }
+}

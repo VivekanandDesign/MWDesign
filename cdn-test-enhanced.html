@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovingWalls DS - CDN Test (Security Enhanced)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .success { color: #22c55e; }
+        .error { color: #ef4444; }
+        .warning { color: #f59e0b; }
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-left: 8px;
+        }
+        .status-success { background: #dcfce7; color: #166534; }
+        .status-error { background: #fecaca; color: #991b1b; }
+        .status-warning { background: #fef3c7; color: #92400e; }
+        .status-security { background: #ddd6fe; color: #5b21b6; }
+        #test-results { margin-top: 20px; }
+        .component-demo {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #e5e5e5;
+            border-radius: 4px;
+        }
+        .cdn-info {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 12px;
+            margin: 10px 0;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .performance-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .metric {
+            background: #f1f5f9;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .console-log {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            margin: 10px 0;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-section">
+        <h1>🔐 MovingWalls DS - Enhanced CDN Test</h1>
+        <p>Testing secure CDN delivery with SRI hashes, fallback mechanisms, and performance monitoring.</p>
+        
+        <div id="cdn-status">
+            <h3>CDN Status <span id="cdn-status-badge" class="status-badge">🔄 Loading...</span></h3>
+            <div class="cdn-info">
+                <div>Primary CDN: <strong>unpkg.com</strong> (Cloudflare)</div>
+                <div>Fallback CDN: <strong>jsdelivr.net</strong> (Cloudflare + Fastly)</div>
+                <div>Security: <strong>SRI sha384</strong> integrity verification</div>
+                <div>CORS: <strong>anonymous</strong> crossorigin policy</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🚀 Performance Metrics</h3>
+        <div class="performance-metrics">
+            <div class="metric">
+                <div>CSS Load Time</div>
+                <div id="css-load-time">-</div>
+            </div>
+            <div class="metric">
+                <div>JS Load Time</div>
+                <div id="js-load-time">-</div>
+            </div>
+            <div class="metric">
+                <div>Total Load Time</div>
+                <div id="total-load-time">-</div>
+            </div>
+            <div class="metric">
+                <div>CDN Used</div>
+                <div id="cdn-used">-</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h3>🧪 Component Test Results</h3>
+        <div id="component-tests">Loading...</div>
+    </div>
+
+    <div class="test-section">
+        <h3>📊 Console Logs</h3>
+        <div id="console-output" class="console-log">Starting CDN test...</div>
+    </div>
+
+    <div class="test-section" id="demo-section" style="display: none;">
+        <h3>🎨 Live Component Demo</h3>
+        <div id="component-demo"></div>
+    </div>
+
+    <script>
+        // Enhanced CDN loader with SRI and performance monitoring
+        window.MovingWallsCDN = {
+            metrics: {
+                startTime: Date.now(),
+                cssLoadTime: null,
+                jsLoadTime: null,
+                cdnUsed: 'primary'
+            },
+            
+            log: function(message, type = 'info') {
+                const timestamp = new Date().toLocaleTimeString();
+                const logElement = document.getElementById('console-output');
+                const colorClass = type === 'error' ? 'error' : type === 'warning' ? 'warning' : 'success';
+                logElement.innerHTML += `<div class="${colorClass}">[${timestamp}] ${message}</div>`;
+                logElement.scrollTop = logElement.scrollHeight;
+                console.log(`[MovingWalls CDN] ${message}`);
+            },
+            
+            updateMetric: function(metric, value) {
+                document.getElementById(metric).textContent = value;
+            },
+            
+            loadCSS: function(primary, fallback, integrity) {
+                const startTime = Date.now();
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = primary;
+                link.integrity = integrity;
+                link.crossOrigin = 'anonymous';
+                
+                link.onload = () => {
+                    this.metrics.cssLoadTime = Date.now() - startTime;
+                    this.updateMetric('css-load-time', `${this.metrics.cssLoadTime}ms`);
+                    this.log(`CSS loaded from primary CDN in ${this.metrics.cssLoadTime}ms`, 'success');
+                };
+                
+                link.onerror = () => {
+                    this.log('Primary CDN failed for CSS, switching to fallback...', 'warning');
+                    this.metrics.cdnUsed = 'fallback';
+                    this.updateMetric('cdn-used', 'jsDelivr (Fallback)');
+                    link.onerror = null;
+                    link.href = fallback;
+                    link.onload = () => {
+                        this.metrics.cssLoadTime = Date.now() - startTime;
+                        this.updateMetric('css-load-time', `${this.metrics.cssLoadTime}ms`);
+                        this.log(`CSS loaded from fallback CDN in ${this.metrics.cssLoadTime}ms`, 'success');
+                    };
+                };
+                
+                document.head.appendChild(link);
+            },
+            
+            loadJS: function(primary, fallback, integrity, callback) {
+                const startTime = Date.now();
+                const script = document.createElement('script');
+                script.src = primary;
+                script.integrity = integrity;
+                script.crossOrigin = 'anonymous';
+                
+                script.onload = () => {
+                    this.metrics.jsLoadTime = Date.now() - startTime;
+                    this.updateMetric('js-load-time', `${this.metrics.jsLoadTime}ms`);
+                    this.updateMetric('total-load-time', `${Date.now() - this.metrics.startTime}ms`);
+                    if (this.metrics.cdnUsed === 'primary') {
+                        this.updateMetric('cdn-used', 'unpkg (Primary)');
+                    }
+                    this.log(`JS loaded from ${this.metrics.cdnUsed} CDN in ${this.metrics.jsLoadTime}ms`, 'success');
+                    callback && callback();
+                };
+                
+                script.onerror = () => {
+                    this.log('Primary CDN failed for JS, switching to fallback...', 'warning');
+                    this.metrics.cdnUsed = 'fallback';
+                    this.updateMetric('cdn-used', 'jsDelivr (Fallback)');
+                    script.onerror = null;
+                    script.onload = () => {
+                        this.metrics.jsLoadTime = Date.now() - startTime;
+                        this.updateMetric('js-load-time', `${this.metrics.jsLoadTime}ms`);
+                        this.updateMetric('total-load-time', `${Date.now() - this.metrics.startTime}ms`);
+                        this.log(`JS loaded from fallback CDN in ${this.metrics.jsLoadTime}ms`, 'success');
+                        callback && callback();
+                    };
+                    script.src = fallback;
+                };
+                
+                document.head.appendChild(script);
+            },
+            
+            testComponents: function() {
+                this.log('Testing MovingWalls DS components...', 'info');
+                
+                if (typeof MovingWallsDS === 'undefined') {
+                    this.log('MovingWalls DS not loaded!', 'error');
+                    document.getElementById('cdn-status-badge').textContent = '❌ Failed';
+                    document.getElementById('cdn-status-badge').className = 'status-badge status-error';
+                    return;
+                }
+                
+                document.getElementById('cdn-status-badge').textContent = '✅ Loaded';
+                document.getElementById('cdn-status-badge').className = 'status-badge status-success';
+                
+                const tests = [];
+                const components = MovingWallsDS;
+                
+                for (const [name, component] of Object.entries(components)) {
+                    if (typeof component === 'function' || (component && typeof component === 'object')) {
+                        tests.push(`✅ ${name}: Available`);
+                        this.log(`Component ${name}: Available`, 'success');
+                    }
+                }
+                
+                document.getElementById('component-tests').innerHTML = tests.join('<br>');
+                document.getElementById('demo-section').style.display = 'block';
+                
+                // Demo components if available
+                this.createDemo();
+                
+                this.log(`CDN test completed successfully! Loaded ${tests.length} components.`, 'success');
+            },
+            
+            createDemo: function() {
+                const demoContainer = document.getElementById('component-demo');
+                
+                try {
+                    // Create demo content using React and MovingWalls components
+                    if (typeof React !== 'undefined' && typeof ReactDOM !== 'undefined' && MovingWallsDS) {
+                        const { createElement: h, useState } = React;
+                        
+                        const Demo = () => {
+                            const [count, setCount] = useState(0);
+                            
+                            return h('div', null,
+                                h('h4', null, '🎯 Interactive Demo'),
+                                h('p', null, 'MovingWalls DS components loaded successfully!'),
+                                h('button', {
+                                    onClick: () => setCount(count + 1),
+                                    style: {
+                                        background: '#1d65af',
+                                        color: 'white',
+                                        border: 'none',
+                                        padding: '8px 16px',
+                                        borderRadius: '4px',
+                                        cursor: 'pointer'
+                                    }
+                                }, `Clicked ${count} times`),
+                                h('div', { style: { marginTop: '10px', fontSize: '12px', color: '#666' } },
+                                    `Version: movingwalls-ds@1.0.0 | React: ${React.version}`
+                                )
+                            );
+                        };
+                        
+                        ReactDOM.render(h(Demo), demoContainer);
+                        this.log('Interactive demo rendered successfully', 'success');
+                    } else {
+                        demoContainer.innerHTML = '<p>✅ MovingWalls DS loaded, but React demo requires React to be loaded first.</p>';
+                    }
+                } catch (error) {
+                    this.log(`Demo creation failed: ${error.message}`, 'error');
+                    demoContainer.innerHTML = '<p>❌ Demo creation failed, but CDN package loaded successfully.</p>';
+                }
+            }
+        };
+
+        // Load React for demo (optional)
+        document.addEventListener('DOMContentLoaded', function() {
+            MovingWallsCDN.log('Starting CDN test with security enhancements...', 'info');
+            
+            // Load React first (for demo)
+            const reactScript = document.createElement('script');
+            reactScript.src = 'https://unpkg.com/react@18/umd/react.development.js';
+            reactScript.onload = () => {
+                const reactDOMScript = document.createElement('script');
+                reactDOMScript.src = 'https://unpkg.com/react-dom@18/umd/react-dom.development.js';
+                reactDOMScript.onload = () => {
+                    MovingWallsCDN.log('React loaded for demo purposes', 'info');
+                    loadMovingWallsDS();
+                };
+                document.head.appendChild(reactDOMScript);
+            };
+            document.head.appendChild(reactScript);
+        });
+        
+        function loadMovingWallsDS() {
+            // Load MovingWalls DS with enhanced security
+            MovingWallsCDN.loadCSS(
+                'https://unpkg.com/movingwalls-ds@1.0.0/dist/styles/index.css',
+                'https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/styles/index.css',
+                'sha384-HcDiEqLkmwe6FB1S5vTwqdGbMNvRwT6DsXEmbm/SovST0D34Aa1cEU+1IcBvlOLm'
+            );
+
+            MovingWallsCDN.loadJS(
+                'https://unpkg.com/movingwalls-ds@1.0.0/dist/index.umd.js',
+                'https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.umd.js',
+                'sha384-3U3GNZbsLseR8c9yB/jeXMzb59V4mosjh2NoACbIn61ZPXxPTG4KL+HjS+RS9dGf',
+                function() {
+                    MovingWallsCDN.testComponents();
+                }
+            );
+        }
+    </script>
+</body>
+</html>

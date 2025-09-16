@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovingWalls DS - CDN Analytics Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #f5f7fa;
+            color: #2d3748;
+        }
+        
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .metric-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #718096;
+            margin-bottom: 8px;
+        }
+        
+        .metric-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 4px;
+        }
+        
+        .metric-change {
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .positive { color: #38a169; }
+        .negative { color: #e53e3e; }
+        .neutral { color: #718096; }
+        
+        .chart-container {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+        
+        .status-indicator {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        
+        .status-healthy { background: #38a169; }
+        .status-warning { background: #d69e2e; }
+        .status-error { background: #e53e3e; }
+        
+        .cdn-status {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+        }
+        
+        .cdn-card {
+            padding: 16px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+        }
+        
+        .real-time {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .log-container {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .log-header {
+            background: #f7fafc;
+            padding: 16px 24px;
+            border-bottom: 1px solid #e2e8f0;
+            font-weight: 600;
+        }
+        
+        .log-content {
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+        }
+        
+        .log-entry {
+            padding: 8px 24px;
+            border-bottom: 1px solid #f7fafc;
+            display: flex;
+            align-items: center;
+        }
+        
+        .log-timestamp {
+            color: #718096;
+            margin-right: 12px;
+            min-width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <h1>📊 MovingWalls DS - CDN Analytics Dashboard</h1>
+            <p>Real-time monitoring of CDN performance and usage metrics</p>
+            <div style="margin-top: 12px;">
+                <span class="status-indicator status-healthy"></span>
+                <span>All systems operational</span>
+                <span style="margin-left: 20px; font-size: 14px; color: #718096;">
+                    Last updated: <span id="last-updated" class="real-time">--</span>
+                </span>
+            </div>
+        </div>
+        
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-title">Total Requests</div>
+                <div class="metric-value" id="total-requests">--</div>
+                <div class="metric-change positive" id="requests-change">--</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Average Load Time</div>
+                <div class="metric-value" id="avg-load-time">--</div>
+                <div class="metric-change" id="load-time-change">--</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">Error Rate</div>
+                <div class="metric-value" id="error-rate">--</div>
+                <div class="metric-change" id="error-rate-change">--</div>
+            </div>
+            
+            <div class="metric-card">
+                <div class="metric-title">CDN Hit Rate</div>
+                <div class="metric-value" id="hit-rate">--</div>
+                <div class="metric-change positive" id="hit-rate-change">--</div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h3>CDN Status Overview</h3>
+            <div class="cdn-status" id="cdn-status">
+                <!-- CDN status cards will be populated here -->
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h3>Performance Timeline</h3>
+            <canvas id="performance-chart" width="800" height="200"></canvas>
+        </div>
+        
+        <div class="log-container">
+            <div class="log-header">Real-time Activity Log</div>
+            <div class="log-content" id="activity-log">
+                <!-- Log entries will be populated here -->
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Dashboard controller
+        class AnalyticsDashboard {
+            constructor() {
+                this.data = {
+                    totalRequests: 0,
+                    avgLoadTime: 0,
+                    errorRate: 0,
+                    hitRate: 0,
+                    timeline: [],
+                    cdnStatus: {}
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.updateMetrics();
+                this.setupRealTimeUpdates();
+                this.renderCDNStatus();
+                this.initChart();
+            }
+            
+            updateMetrics() {
+                // Simulate real metrics (replace with actual API calls)
+                this.data.totalRequests = Math.floor(Math.random() * 10000) + 50000;
+                this.data.avgLoadTime = Math.floor(Math.random() * 200) + 150;
+                this.data.errorRate = (Math.random() * 2).toFixed(2);
+                this.data.hitRate = (95 + Math.random() * 4).toFixed(1);
+                
+                // Update UI
+                document.getElementById('total-requests').textContent = this.data.totalRequests.toLocaleString();
+                document.getElementById('avg-load-time').textContent = this.data.avgLoadTime + 'ms';
+                document.getElementById('error-rate').textContent = this.data.errorRate + '%';
+                document.getElementById('hit-rate').textContent = this.data.hitRate + '%';
+                
+                document.getElementById('last-updated').textContent = new Date().toLocaleTimeString();
+            }
+            
+            setupRealTimeUpdates() {
+                setInterval(() => {
+                    this.updateMetrics();
+                    this.addLogEntry();
+                }, 5000);
+            }
+            
+            renderCDNStatus() {
+                const cdns = [
+                    { name: 'unpkg.com', status: 'healthy', loadTime: 145, uptime: 99.9 },
+                    { name: 'jsdelivr.net', status: 'healthy', loadTime: 167, uptime: 99.8 }
+                ];
+                
+                const container = document.getElementById('cdn-status');
+                container.innerHTML = cdns.map(cdn => `
+                    <div class="cdn-card">
+                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                            <span class="status-indicator status-${cdn.status}"></span>
+                            <strong>${cdn.name}</strong>
+                        </div>
+                        <div style="font-size: 14px; color: #718096;">
+                            Load Time: ${cdn.loadTime}ms<br>
+                            Uptime: ${cdn.uptime}%
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            addLogEntry() {
+                const events = [
+                    'Resource loaded from unpkg.com',
+                    'Cache hit on jsdelivr.net',
+                    'Health check completed',
+                    'Performance metrics updated',
+                    'User session started',
+                    'Component bundle requested'
+                ];
+                
+                const logContainer = document.getElementById('activity-log');
+                const timestamp = new Date().toLocaleTimeString();
+                const event = events[Math.floor(Math.random() * events.length)];
+                
+                const entry = document.createElement('div');
+                entry.className = 'log-entry';
+                entry.innerHTML = `
+                    <span class="log-timestamp">${timestamp}</span>
+                    <span>${event}</span>
+                `;
+                
+                logContainer.insertBefore(entry, logContainer.firstChild);
+                
+                // Keep only last 20 entries
+                while (logContainer.children.length > 20) {
+                    logContainer.removeChild(logContainer.lastChild);
+                }
+            }
+            
+            initChart() {
+                // Placeholder for chart implementation
+                const canvas = document.getElementById('performance-chart');
+                const ctx = canvas.getContext('2d');
+                
+                // Simple demo chart
+                ctx.fillStyle = '#e2e8f0';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                ctx.fillStyle = '#1d65af';
+                ctx.font = '16px sans-serif';
+                ctx.fillText('Performance Chart (Placeholder)', 20, 100);
+                ctx.fillText('Replace with actual charting library (Chart.js, D3, etc.)', 20, 130);
+            }
+        }
+        
+        // Initialize dashboard
+        new AnalyticsDashboard();
+        
+        // Test monitoring integration
+        if (window.MovingWallsMonitor) {
+            console.log('📊 Monitoring system detected');
+            window.MovingWallsMonitor.track('dashboard_viewed');
+        }
+    </script>
+</body>
+</html>

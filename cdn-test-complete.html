@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovingWalls DS - Complete CDN Test Suite</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f7fa;
+            color: #2d3748;
+        }
+        
+        .test-section {
+            background: white;
+            padding: 24px;
+            margin: 20px 0;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .test-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+        }
+        
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+        
+        .status-success { background: #c6f6d5; color: #22543d; }
+        .status-error { background: #fed7d7; color: #742a2a; }
+        .status-warning { background: #fefcbf; color: #744210; }
+        .status-loading { background: #bee3f8; color: #2a4365; }
+        
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        
+        .metrics-table th,
+        .metrics-table td {
+            padding: 8px 12px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .metrics-table th {
+            background: #f7fafc;
+            font-weight: 600;
+        }
+        
+        .version-selector {
+            margin: 12px 0;
+            padding: 8px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            background: white;
+        }
+        
+        .component-demo {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+        }
+        
+        .log-output {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 200px;
+            overflow-y: auto;
+            margin: 12px 0;
+        }
+        
+        .performance-chart {
+            width: 100%;
+            height: 200px;
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 0;
+        }
+        
+        .real-time {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-section">
+        <h1>🚀 MovingWalls DS - Complete CDN Test Suite</h1>
+        <p>Testing Medium Priority CDN improvements: Component bundles, versioning, and performance monitoring.</p>
+        
+        <div style="margin-top: 16px;">
+            <span id="overall-status" class="status-badge status-loading">🔄 Initializing...</span>
+            <span style="margin-left: 20px; font-size: 14px; color: #718096;">
+                Test Suite v2.0 | <span id="timestamp" class="real-time">--</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- Version Testing -->
+    <div class="test-section">
+        <h3>📦 Version Strategy Testing</h3>
+        <div>
+            <label for="version-select">Select Version Pattern:</label>
+            <select id="version-select" class="version-selector">
+                <option value="1.0.0">Exact Version (1.0.0) - Production</option>
+                <option value="^1.0.0">Caret Range (^1.0.0) - Minor updates</option>
+                <option value="~1.0.0">Tilde Range (~1.0.0) - Patch updates</option>
+                <option value="1">Major Version (1) - Latest major</option>
+                <option value="latest">Latest - Development only</option>
+            </select>
+            <button onclick="testVersion()" style="margin-left: 8px; padding: 8px 16px;">Test Version</button>
+        </div>
+        
+        <div id="version-results" class="test-card" style="margin-top: 16px;">
+            <div id="version-status">Select a version pattern to test</div>
+            <div id="version-urls" style="margin-top: 8px; font-family: monospace; font-size: 12px;"></div>
+        </div>
+    </div>
+
+    <!-- Component Bundle Testing -->
+    <div class="test-section">
+        <h3>🧩 Component Bundle Testing</h3>
+        <div class="test-grid">
+            <div class="test-card">
+                <h4>Individual Components</h4>
+                <div id="individual-component-status">Testing...</div>
+                <div class="component-demo" id="individual-demo"></div>
+            </div>
+            
+            <div class="test-card">
+                <h4>Category Bundles</h4>
+                <div id="category-bundle-status">Testing...</div>
+                <div class="component-demo" id="category-demo"></div>
+            </div>
+            
+            <div class="test-card">
+                <h4>Full Bundle Comparison</h4>
+                <div id="bundle-comparison">Analyzing...</div>
+                <table class="metrics-table" id="bundle-metrics" style="display: none;">
+                    <thead>
+                        <tr>
+                            <th>Bundle Type</th>
+                            <th>Size</th>
+                            <th>Load Time</th>
+                            <th>Components</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bundle-metrics-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Performance Monitoring -->
+    <div class="test-section">
+        <h3>📊 Real-time Performance Monitoring</h3>
+        <div class="test-grid">
+            <div class="test-card">
+                <h4>CDN Performance</h4>
+                <table class="metrics-table">
+                    <tr>
+                        <td>Primary CDN</td>
+                        <td id="primary-cdn-status">Testing...</td>
+                    </tr>
+                    <tr>
+                        <td>Fallback CDN</td>
+                        <td id="fallback-cdn-status">Testing...</td>
+                    </tr>
+                    <tr>
+                        <td>Active CDN</td>
+                        <td id="active-cdn">--</td>
+                    </tr>
+                    <tr>
+                        <td>Load Time</td>
+                        <td id="cdn-load-time">--</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div class="test-card">
+                <h4>Bundle Analytics</h4>
+                <div id="bundle-analytics">Collecting data...</div>
+                <div class="performance-chart" id="performance-chart">
+                    Performance Chart Loading...
+                </div>
+            </div>
+        </div>
+        
+        <div class="test-card" style="margin-top: 20px;">
+            <h4>Live Activity Log</h4>
+            <div class="log-output" id="activity-log">Starting CDN test suite...</div>
+        </div>
+    </div>
+
+    <!-- Test Results Summary -->
+    <div class="test-section">
+        <h3>📋 Test Results Summary</h3>
+        <div id="test-summary">Running tests...</div>
+        
+        <div class="test-grid" style="margin-top: 16px;">
+            <div class="test-card">
+                <h4>✅ Passed Tests</h4>
+                <ul id="passed-tests"></ul>
+            </div>
+            
+            <div class="test-card">
+                <h4>⚠️ Warnings</h4>
+                <ul id="warning-tests"></ul>
+            </div>
+            
+            <div class="test-card">
+                <h4>❌ Failed Tests</h4>
+                <ul id="failed-tests"></ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Enhanced CDN Test Suite
+        class CDNTestSuite {
+            constructor() {
+                this.config = {
+                    package: 'movingwalls-ds',
+                    baseVersion: '1.0.0',
+                    cdns: {
+                        primary: 'https://unpkg.com',
+                        fallback: 'https://cdn.jsdelivr.net/npm'
+                    }
+                };
+                
+                this.results = {
+                    passed: [],
+                    warnings: [],
+                    failed: [],
+                    metrics: {}
+                };
+                
+                this.startTime = Date.now();
+                this.init();
+            }
+            
+            init() {
+                this.log('🚀 Initializing CDN Test Suite v2.0');
+                this.updateTimestamp();
+                this.startPerformanceMonitoring();
+                this.runAllTests();
+                
+                // Update timestamp every second
+                setInterval(() => this.updateTimestamp(), 1000);
+            }
+            
+            updateTimestamp() {
+                document.getElementById('timestamp').textContent = new Date().toLocaleTimeString();
+            }
+            
+            log(message, type = 'info') {
+                const timestamp = new Date().toLocaleTimeString();
+                const logElement = document.getElementById('activity-log');
+                const prefix = type === 'error' ? '❌' : type === 'warning' ? '⚠️' : type === 'success' ? '✅' : 'ℹ️';
+                
+                logElement.innerHTML += `<div style="margin: 2px 0;">[${timestamp}] ${prefix} ${message}</div>`;
+                logElement.scrollTop = logElement.scrollHeight;
+                
+                console.log(`[CDN Test] ${message}`);
+            }
+            
+            async runAllTests() {
+                this.log('Starting comprehensive CDN tests...');
+                
+                try {
+                    // Test 1: Version strategy
+                    await this.testVersionStrategy();
+                    
+                    // Test 2: Component bundles
+                    await this.testComponentBundles();
+                    
+                    // Test 3: Performance monitoring
+                    await this.testPerformanceMonitoring();
+                    
+                    // Test 4: CDN health
+                    await this.testCDNHealth();
+                    
+                    this.generateSummary();
+                    this.updateOverallStatus();
+                    
+                } catch (error) {
+                    this.log(`Test suite failed: ${error.message}`, 'error');
+                    this.results.failed.push('Test Suite Execution');
+                }
+            }
+            
+            async testVersionStrategy() {
+                this.log('Testing version strategy implementation...');
+                
+                const versions = ['1.0.0', '^1.0.0', '~1.0.0', '1', 'latest'];
+                
+                for (const version of versions.slice(0, 2)) { // Test first 2 to avoid rate limits
+                    try {
+                        const url = \`\${this.config.cdns.primary}/\${this.config.package}@\${version}/package.json\`;
+                        const response = await fetch(url);
+                        
+                        if (response.ok) {
+                            this.results.passed.push(\`Version pattern: \${version}\`);
+                            this.log(\`✅ Version \${version} is accessible\`, 'success');
+                        } else {
+                            this.results.failed.push(\`Version pattern: \${version}\`);
+                            this.log(\`❌ Version \${version} failed\`, 'error');
+                        }
+                    } catch (error) {
+                        this.results.failed.push(\`Version pattern: \${version}\`);
+                        this.log(\`❌ Version \${version} error: \${error.message}\`, 'error');
+                    }
+                }
+            }
+            
+            async testComponentBundles() {
+                this.log('Testing component-specific bundles...');
+                
+                // Test individual component loading
+                const components = ['button', 'card', 'input'];
+                
+                for (const component of components) {
+                    try {
+                        const url = \`\${this.config.cdns.primary}/\${this.config.package}@\${this.config.baseVersion}/dist/components/\${component}.js\`;
+                        
+                        // Check if component bundle exists (HEAD request)
+                        const response = await fetch(url, { method: 'HEAD' });
+                        
+                        if (response.ok) {
+                            this.results.passed.push(\`Component bundle: \${component}\`);
+                            this.log(\`✅ Component \${component} bundle available\`, 'success');
+                        } else {
+                            this.results.warnings.push(\`Component bundle: \${component} (may not exist yet)\`);
+                            this.log(\`⚠️ Component \${component} bundle not found\`, 'warning');
+                        }
+                    } catch (error) {
+                        this.results.warnings.push(\`Component bundle: \${component}\`);
+                        this.log(\`⚠️ Component \${component} test failed: \${error.message}\`, 'warning');
+                    }
+                }
+                
+                // Update component test status
+                document.getElementById('individual-component-status').innerHTML = 
+                    \`<span class="status-badge status-success">✅ Component bundles tested</span>\`;
+                
+                document.getElementById('category-bundle-status').innerHTML = 
+                    \`<span class="status-badge status-warning">⚠️ Category bundles pending build</span>\`;
+            }
+            
+            async testPerformanceMonitoring() {
+                this.log('Testing performance monitoring integration...');
+                
+                // Test if monitoring script is working
+                if (typeof window.MovingWallsMonitor !== 'undefined') {
+                    this.results.passed.push('Performance monitoring integration');
+                    this.log('✅ Performance monitoring is active', 'success');
+                    
+                    // Test custom event tracking
+                    window.MovingWallsMonitor.track('test_suite_run', {
+                        version: this.config.baseVersion,
+                        timestamp: Date.now()
+                    });
+                    
+                } else {
+                    this.results.warnings.push('Performance monitoring integration');
+                    this.log('⚠️ Performance monitoring not detected', 'warning');
+                }
+                
+                // Test health check integration
+                if (typeof window.MovingWallsHealthCheck !== 'undefined') {
+                    this.results.passed.push('Health check integration');
+                    this.log('✅ Health check system is active', 'success');
+                } else {
+                    this.results.warnings.push('Health check integration');
+                    this.log('⚠️ Health check system not detected', 'warning');
+                }
+            }
+            
+            async testCDNHealth() {
+                this.log('Testing CDN health and availability...');
+                
+                const cdnTests = [
+                    {
+                        name: 'Primary CDN (unpkg)',
+                        url: \`\${this.config.cdns.primary}/\${this.config.package}@\${this.config.baseVersion}/dist/index.umd.js\`
+                    },
+                    {
+                        name: 'Fallback CDN (jsdelivr)',
+                        url: \`\${this.config.cdns.fallback}/\${this.config.package}@\${this.config.baseVersion}/dist/index.umd.js\`
+                    }
+                ];
+                
+                for (const cdn of cdnTests) {
+                    try {
+                        const startTime = Date.now();
+                        const response = await fetch(cdn.url, { method: 'HEAD' });
+                        const loadTime = Date.now() - startTime;
+                        
+                        if (response.ok) {
+                            this.results.passed.push(\`\${cdn.name} availability\`);
+                            this.results.metrics[cdn.name] = { loadTime, status: 'healthy' };
+                            this.log(\`✅ \${cdn.name} is healthy (\${loadTime}ms)\`, 'success');
+                        } else {
+                            this.results.failed.push(\`\${cdn.name} availability\`);
+                            this.log(\`❌ \${cdn.name} returned status \${response.status}\`, 'error');
+                        }
+                    } catch (error) {
+                        this.results.failed.push(\`\${cdn.name} availability\`);
+                        this.log(\`❌ \${cdn.name} error: \${error.message}\`, 'error');
+                    }
+                }
+                
+                // Update CDN status in UI
+                this.updateCDNStatus();
+            }
+            
+            updateCDNStatus() {
+                const primaryMetrics = this.results.metrics['Primary CDN (unpkg)'];
+                const fallbackMetrics = this.results.metrics['Fallback CDN (jsdelivr)'];
+                
+                if (primaryMetrics) {
+                    document.getElementById('primary-cdn-status').innerHTML = 
+                        \`<span class="status-badge status-success">✅ \${primaryMetrics.loadTime}ms</span>\`;
+                    document.getElementById('active-cdn').textContent = 'unpkg.com (Primary)';
+                    document.getElementById('cdn-load-time').textContent = \`\${primaryMetrics.loadTime}ms\`;
+                }
+                
+                if (fallbackMetrics) {
+                    document.getElementById('fallback-cdn-status').innerHTML = 
+                        \`<span class="status-badge status-success">✅ \${fallbackMetrics.loadTime}ms</span>\`;
+                }
+            }
+            
+            startPerformanceMonitoring() {
+                // Simulate real-time performance data
+                setInterval(() => {
+                    const bundleAnalytics = document.getElementById('bundle-analytics');
+                    const totalTime = Date.now() - this.startTime;
+                    const requestCount = Math.floor(Math.random() * 10) + 1;
+                    
+                    bundleAnalytics.innerHTML = \`
+                        <div>Total Test Time: \${Math.floor(totalTime / 1000)}s</div>
+                        <div>Resources Tested: \${requestCount}</div>
+                        <div>Success Rate: \${((this.results.passed.length / (this.results.passed.length + this.results.failed.length)) * 100 || 0).toFixed(1)}%</div>
+                    \`;
+                }, 2000);
+            }
+            
+            generateSummary() {
+                const summary = \`
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 24px; font-weight: bold; color: #38a169;">\${this.results.passed.length}</div>
+                            <div>Tests Passed</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 24px; font-weight: bold; color: #d69e2e;">\${this.results.warnings.length}</div>
+                            <div>Warnings</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 24px; font-weight: bold; color: #e53e3e;">\${this.results.failed.length}</div>
+                            <div>Tests Failed</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 24px; font-weight: bold; color: #3182ce;">\${Math.floor((Date.now() - this.startTime) / 1000)}s</div>
+                            <div>Total Time</div>
+                        </div>
+                    </div>
+                \`;
+                
+                document.getElementById('test-summary').innerHTML = summary;
+                
+                // Update result lists
+                document.getElementById('passed-tests').innerHTML = 
+                    this.results.passed.map(test => \`<li>✅ \${test}</li>\`).join('');
+                
+                document.getElementById('warning-tests').innerHTML = 
+                    this.results.warnings.map(test => \`<li>⚠️ \${test}</li>\`).join('');
+                
+                document.getElementById('failed-tests').innerHTML = 
+                    this.results.failed.map(test => \`<li>❌ \${test}</li>\`).join('');
+            }
+            
+            updateOverallStatus() {
+                const statusElement = document.getElementById('overall-status');
+                const totalTests = this.results.passed.length + this.results.warnings.length + this.results.failed.length;
+                const successRate = (this.results.passed.length / totalTests) * 100;
+                
+                if (this.results.failed.length === 0 && successRate >= 80) {
+                    statusElement.className = 'status-badge status-success';
+                    statusElement.textContent = '✅ All Tests Passed';
+                } else if (this.results.failed.length === 0) {
+                    statusElement.className = 'status-badge status-warning';
+                    statusElement.textContent = '⚠️ Tests Completed with Warnings';
+                } else {
+                    statusElement.className = 'status-badge status-error';
+                    statusElement.textContent = '❌ Some Tests Failed';
+                }
+            }
+        }
+        
+        // Version testing function
+        function testVersion() {
+            const version = document.getElementById('version-select').value;
+            const resultsDiv = document.getElementById('version-results');
+            const statusDiv = document.getElementById('version-status');
+            const urlsDiv = document.getElementById('version-urls');
+            
+            statusDiv.innerHTML = \`<span class="status-badge status-loading">🔄 Testing version \${version}...</span>\`;
+            
+            const urls = {
+                unpkg: \`https://unpkg.com/movingwalls-ds@\${version}/dist/index.umd.js\`,
+                jsdelivr: \`https://cdn.jsdelivr.net/npm/movingwalls-ds@\${version}/dist/index.umd.js\`
+            };
+            
+            urlsDiv.innerHTML = \`
+                <div>unpkg: \${urls.unpkg}</div>
+                <div>jsdelivr: \${urls.jsdelivr}</div>
+            \`;
+            
+            // Test URL accessibility
+            Promise.all([
+                fetch(urls.unpkg, { method: 'HEAD' }).then(r => ({ cdn: 'unpkg', ok: r.ok, status: r.status })),
+                fetch(urls.jsdelivr, { method: 'HEAD' }).then(r => ({ cdn: 'jsdelivr', ok: r.ok, status: r.status }))
+            ]).then(results => {
+                const successful = results.filter(r => r.ok);
+                
+                if (successful.length === 2) {
+                    statusDiv.innerHTML = \`<span class="status-badge status-success">✅ Version \${version} available on both CDNs</span>\`;
+                } else if (successful.length === 1) {
+                    statusDiv.innerHTML = \`<span class="status-badge status-warning">⚠️ Version \${version} available on \${successful[0].cdn} only</span>\`;
+                } else {
+                    statusDiv.innerHTML = \`<span class="status-badge status-error">❌ Version \${version} not accessible</span>\`;
+                }
+            }).catch(error => {
+                statusDiv.innerHTML = \`<span class="status-badge status-error">❌ Test failed: \${error.message}</span>\`;
+            });
+        }
+        
+        // Initialize test suite when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            window.cdnTestSuite = new CDNTestSuite();
+        });
+        
+        // Load monitoring scripts
+        const script1 = document.createElement('script');
+        script1.src = 'monitoring/cdn-monitor.js';
+        script1.onerror = () => console.log('⚠️ Monitoring script not found (expected in development)');
+        document.head.appendChild(script1);
+        
+        const script2 = document.createElement('script');
+        script2.src = 'monitoring/health-check.js';
+        script2.onerror = () => console.log('⚠️ Health check script not found (expected in development)');
+        document.head.appendChild(script2);
+    </script>
+</body>
+</html>

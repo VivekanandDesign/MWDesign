@@ -7,12 +7,16 @@ const footerSections = [
       { name: 'Design Tokens', href: '/tokens' },
       { name: 'Components', href: '/components' },
       { name: 'Patterns', href: '/patterns' },
+      { name: 'Brand Identity', href: '/brand-identity' },
     ]
   },
   {
     title: 'Resources',
     links: [
       { name: 'Icon Library', href: '/icons' },
+      { name: 'Media', href: '/media' },
+      { name: 'Design Process', href: '/design-process' },
+      { name: 'MW-AI-DS', href: '/ai' },
     ]
   }
 ]

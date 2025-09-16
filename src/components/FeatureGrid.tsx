@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Palette, Code, Layout, FileText, Heart, Accessibility, Sparkles } from 'lucide-react'
+import { ArrowRight, Palette, Code, Layout, FileText, Heart, Accessibility, Sparkles, Bot } from 'lucide-react'
 
 const features = [
   {
@@ -29,6 +29,13 @@ const features = [
     description: 'Complete Lucide icon library with over 3,400 carefully crafted icons organized in 20 categories.',
     href: '/icons',
     items: ['3,478 Lucide icons', '20 categories', 'Search functionality', 'Copy-paste ready']
+  },
+  {
+    icon: Bot,
+    title: 'MW-AI-DS',
+    description: 'AI-powered design system tools for intelligent component generation, theme creation, and breakthrough creativity.',
+    href: '/ai',
+    items: ['AI Assistant', 'Theme Generator', 'Smart Search', 'Component AI']
   },
   {
     icon: Layout,

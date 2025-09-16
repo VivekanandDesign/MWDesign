@@ -1,0 +1,154 @@
+{
+  "package": "movingwalls-ds",
+  "currentVersion": "1.0.0",
+  "generated": "2025-09-15T06:43:17.945Z",
+  "versioning": {
+    "strategy": "semver",
+    "recommendations": {
+      "production": "exact",
+      "development": "latest",
+      "testing": "minor"
+    }
+  },
+  "versions": {
+    "exact": "1.0.0",
+    "major": 1,
+    "minor": "1.0",
+    "patch": "1.0.0",
+    "latest": "latest",
+    "next": "next",
+    "beta": "beta"
+  },
+  "urls": {
+    "exact": {
+      "primary": {
+        "base": "https://unpkg.com/movingwalls-ds@1.0.0",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/index.umd.js",
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/index.esm.js",
+        "css": "https://unpkg.com/movingwalls-ds@1.0.0/dist/styles/index.css",
+        "tokens": "https://unpkg.com/movingwalls-ds@1.0.0/dist/tokens/tokens.css"
+      },
+      "fallback": {
+        "base": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0",
+        "umd": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.umd.js",
+        "esm": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.esm.js",
+        "css": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/styles/index.css",
+        "tokens": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/tokens/tokens.css"
+      }
+    },
+    "major": {
+      "primary": {
+        "base": "https://unpkg.com/movingwalls-ds@1",
+        "umd": "https://unpkg.com/movingwalls-ds@1/dist/index.umd.js",
+        "esm": "https://unpkg.com/movingwalls-ds@1/dist/index.esm.js",
+        "css": "https://unpkg.com/movingwalls-ds@1/dist/styles/index.css",
+        "tokens": "https://unpkg.com/movingwalls-ds@1/dist/tokens/tokens.css"
+      },
+      "fallback": {
+        "base": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1",
+        "umd": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1/dist/index.umd.js",
+        "esm": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1/dist/index.esm.js",
+        "css": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1/dist/styles/index.css",
+        "tokens": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1/dist/tokens/tokens.css"
+      }
+    },
+    "minor": {
+      "primary": {
+        "base": "https://unpkg.com/movingwalls-ds@1.0",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0/dist/index.umd.js",
+        "esm": "https://unpkg.com/movingwalls-ds@1.0/dist/index.esm.js",
+        "css": "https://unpkg.com/movingwalls-ds@1.0/dist/styles/index.css",
+        "tokens": "https://unpkg.com/movingwalls-ds@1.0/dist/tokens/tokens.css"
+      },
+      "fallback": {
+        "base": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0",
+        "umd": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0/dist/index.umd.js",
+        "esm": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0/dist/index.esm.js",
+        "css": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0/dist/styles/index.css",
+        "tokens": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0/dist/tokens/tokens.css"
+      }
+    },
+    "patch": {
+      "primary": {
+        "base": "https://unpkg.com/movingwalls-ds@1.0.0",
+        "umd": "https://unpkg.com/movingwalls-ds@1.0.0/dist/index.umd.js",
+        "esm": "https://unpkg.com/movingwalls-ds@1.0.0/dist/index.esm.js",
+        "css": "https://unpkg.com/movingwalls-ds@1.0.0/dist/styles/index.css",
+        "tokens": "https://unpkg.com/movingwalls-ds@1.0.0/dist/tokens/tokens.css"
+      },
+      "fallback": {
+        "base": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0",
+        "umd": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.umd.js",
+        "esm": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.esm.js",
+        "css": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/styles/index.css",
+        "tokens": "https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/tokens/tokens.css"
+      }
+    },
+    "latest": {
+      "primary": {
+        "base": "https://unpkg.com/movingwalls-ds@latest",
+        "umd": "https://unpkg.com/movingwalls-ds@latest/dist/index.umd.js",
+        "esm": "https://unpkg.com/movingwalls-ds@latest/dist/index.esm.js",
+        "css": "https://unpkg.com/movingwalls-ds@latest/dist/styles/index.css",
+        "tokens": "https://unpkg.com/movingwalls-ds@latest/dist/tokens/tokens.css"
+      },
+      "fallback": {
+        "base": "https://cdn.jsdelivr.net/npm/movingwalls-ds@latest",
+        "umd": "https://cdn.jsdelivr.net/npm/movingwalls-ds@latest/dist/index.umd.js",
+        "esm": "https://cdn.jsdelivr.net/npm/movingwalls-ds@latest/dist/index.esm.js",
+        "css": "https://cdn.jsdelivr.net/npm/movingwalls-ds@latest/dist/styles/index.css",
+        "tokens": "https://cdn.jsdelivr.net/npm/movingwalls-ds@latest/dist/tokens/tokens.css"
+      }
+    },
+    "next": {
+      "primary": {
+        "base": "https://unpkg.com/movingwalls-ds@next",
+        "umd": "https://unpkg.com/movingwalls-ds@next/dist/index.umd.js",
+        "esm": "https://unpkg.com/movingwalls-ds@next/dist/index.esm.js",
+        "css": "https://unpkg.com/movingwalls-ds@next/dist/styles/index.css",
+        "tokens": "https://unpkg.com/movingwalls-ds@next/dist/tokens/tokens.css"
+      },
+      "fallback": {
+        "base": "https://cdn.jsdelivr.net/npm/movingwalls-ds@next",
+        "umd": "https://cdn.jsdelivr.net/npm/movingwalls-ds@next/dist/index.umd.js",
+        "esm": "https://cdn.jsdelivr.net/npm/movingwalls-ds@next/dist/index.esm.js",
+        "css": "https://cdn.jsdelivr.net/npm/movingwalls-ds@next/dist/styles/index.css",
+        "tokens": "https://cdn.jsdelivr.net/npm/movingwalls-ds@next/dist/tokens/tokens.css"
+      }
+    },
+    "beta": {
+      "primary": {
+        "base": "https://unpkg.com/movingwalls-ds@beta",
+        "umd": "https://unpkg.com/movingwalls-ds@beta/dist/index.umd.js",
+        "esm": "https://unpkg.com/movingwalls-ds@beta/dist/index.esm.js",
+        "css": "https://unpkg.com/movingwalls-ds@beta/dist/styles/index.css",
+        "tokens": "https://unpkg.com/movingwalls-ds@beta/dist/tokens/tokens.css"
+      },
+      "fallback": {
+        "base": "https://cdn.jsdelivr.net/npm/movingwalls-ds@beta",
+        "umd": "https://cdn.jsdelivr.net/npm/movingwalls-ds@beta/dist/index.umd.js",
+        "esm": "https://cdn.jsdelivr.net/npm/movingwalls-ds@beta/dist/index.esm.js",
+        "css": "https://cdn.jsdelivr.net/npm/movingwalls-ds@beta/dist/styles/index.css",
+        "tokens": "https://cdn.jsdelivr.net/npm/movingwalls-ds@beta/dist/tokens/tokens.css"
+      }
+    }
+  },
+  "compatibility": {
+    "1.0.0": {
+      "breaking": false,
+      "deprecated": [],
+      "added": [
+        "component-bundles",
+        "sri-security",
+        "cdn-fallback"
+      ],
+      "removed": []
+    }
+  },
+  "migration": {
+    "from": "0.x.x",
+    "to": "1.0.0",
+    "guide": "https://mwdesignsystem.netlify.app/migration",
+    "automated": false
+  }
+}

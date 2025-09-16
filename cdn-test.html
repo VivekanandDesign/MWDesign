@@ -59,8 +59,47 @@
     <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
     
-    <!-- Load MovingWalls DS -->
-    <script src="https://unpkg.com/movingwalls-ds@1.0.0/dist/index.umd.js"></script>
+    <!-- Load MovingWalls DS with CDN Fallback Strategy -->
+    <script>
+        // Primary CDN: jsDelivr (fastest global performance)
+        function loadMovingWallsDS() {
+            const script = document.createElement('script');
+            script.src = 'https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/index.umd.js';
+            script.crossOrigin = 'anonymous';
+            script.integrity = 'sha384-check-actual-hash'; // Will add real hash
+            
+            script.onerror = function() {
+                console.warn('Primary CDN (jsDelivr) failed, trying fallback...');
+                // Fallback CDN: unpkg
+                const fallbackScript = document.createElement('script');
+                fallbackScript.src = 'https://unpkg.com/movingwalls-ds@1.0.0/dist/index.umd.js';
+                fallbackScript.crossOrigin = 'anonymous';
+                
+                fallbackScript.onerror = function() {
+                    console.error('All CDN sources failed. Please check your connection.');
+                    document.getElementById('status').innerHTML = 
+                        '<div class="error"><strong>❌ CDN Error:</strong> All CDN sources failed to load. Please check your internet connection.</div>';
+                };
+                
+                document.head.appendChild(fallbackScript);
+            };
+            
+            document.head.appendChild(script);
+        }
+        
+        // Load with fallback strategy
+        loadMovingWallsDS();
+    </script>
+    
+    <!-- Load Styles with Fallback -->
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/styles/index.css"
+          onerror="this.onerror=null;this.href='https://unpkg.com/movingwalls-ds@1.0.0/dist/styles/index.css'">
+    
+    <!-- Design Tokens with Fallback -->
+    <link rel="stylesheet" 
+          href="https://cdn.jsdelivr.net/npm/movingwalls-ds@1.0.0/dist/tokens/tokens.css"
+          onerror="this.onerror=null;this.href='https://unpkg.com/movingwalls-ds@1.0.0/dist/tokens/tokens.css'">
     
     <script>
         // Test the package loading
